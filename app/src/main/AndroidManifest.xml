@@ -13,10 +13,17 @@
         android:theme="@style/Theme.DuAnMauNhomPokemon"
         tools:targetApi="31">
         <activity
+            android:name=".AdminManage"
+            android:exported="false" />
+        <activity
             android:name=".BookView"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterView"
             android:exported="true" />
         <activity
             android:name=".WelcomeView"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
