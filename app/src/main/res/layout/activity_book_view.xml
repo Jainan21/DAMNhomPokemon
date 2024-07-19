@@ -47,10 +47,10 @@
             android:layout_marginTop="20dp"
             android:textSize="25dp"
             android:text="Tác giả nổi tiếng"/>
-        <LinearLayout
-            android:id="@+id/ListAuthor"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lvAuthor_Famous"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:orientation="horizontal"/>
 
 
