@@ -7,15 +7,26 @@
         <DropdownSelection timestamp="2024-07-18T13:59:35.452344100Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\HUNG\.android\avd\Small_Phone_API_30.avd" />
-
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\ADMIN\.android\avd\Small_Phone_API_30.avd" />
-
             </handle>
           </Target>
         </DropdownSelection>
         <DialogSelection />
+      </SelectionState>
+      <SelectionState runConfigName="user">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="BookView">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="WelcomeView">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="login">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="author">
+        <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
   </component>

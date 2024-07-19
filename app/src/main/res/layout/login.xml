@@ -32,8 +32,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
-            android:text="Chào mừng đến với BookPocket,
-            vui lòng đăng nhập"
+            android:text="Chào mừng đến với BookPocket, vui lòng đăng nhập"
             android:textColor="#717086"
             android:textSize="16dp"
             android:textStyle="bold" />
