@@ -15,7 +15,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.duanmaunhompokemon.Adapter.AuthorAdapter;
 import com.example.duanmaunhompokemon.Adapter.BookAdapter;
+import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.Book;
 
 import java.util.ArrayList;
@@ -25,6 +27,8 @@ public class BookView extends AppCompatActivity {
     LinearLayout header_layout, hb_layout;
     ListView lv_Book_Famous;
     BookAdapter adpBook;
+    AuthorAdapter adpAuthor;
+    ArrayList <Account> listAuthor;
     ArrayList <Book> listBook;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -54,6 +58,12 @@ public class BookView extends AppCompatActivity {
 
         adpBook = new BookAdapter(this, listBook);
         lv_Book_Famous.setAdapter(adpBook);
+
+        listAuthor.add(new Account(1, "Tac gia 1", "123", "bl@gmail.com", 2, 100.2));
+        listAuthor.add(new Account(2, "Tac gia 2", "123", "bl@gmail.com", 2, 200.0));
+        listAuthor.add(new Account(3, "Tac gia 3", "123", "bl@gmail.com", 2, 300.4));
+        listAuthor.add(new Account(4, "Tac gia 4", "123", "bl@gmail.com", 2, 400.3));
+
 
 
     }
