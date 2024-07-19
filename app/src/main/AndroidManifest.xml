@@ -15,11 +15,20 @@
         <activity
             android:name=".user"
             android:exported="false" />
+      <activity
+            android:name=".AdminManage"
+            android:exported="false" />
         <activity
             android:name=".WelcomeView"
             android:exported="false" />
         <activity
             android:name=".BookView"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterView"
+            android:exported="true" />
+       <activity
+            android:name=".login"
             android:exported="true" />
         <activity
             android:name=".author"
@@ -30,6 +39,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
