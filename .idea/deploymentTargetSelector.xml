@@ -7,7 +7,11 @@
         <DropdownSelection timestamp="2024-07-18T13:59:35.452344100Z">
           <Target type="DEFAULT_BOOT">
             <handle>
+
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\HUNG\.android\avd\Small_Phone_API_30.avd" />
+
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\ADMIN\.android\avd\Small_Phone_API_30.avd" />
+
             </handle>
           </Target>
         </DropdownSelection>
