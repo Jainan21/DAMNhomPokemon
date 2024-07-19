@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duanmaunhompokemon.Adapter.AuthorAdapter;
 import com.example.duanmaunhompokemon.Adapter.BookAdapter;
@@ -21,6 +23,7 @@ import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.Book;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BookView extends AppCompatActivity {
     View header, hb;
@@ -28,6 +31,7 @@ public class BookView extends AppCompatActivity {
     ListView lv_Book_Famous;
     BookAdapter adpBook;
     AuthorAdapter adpAuthor;
+    RecyclerView lv_Author_Famous;
     ArrayList <Account> listAuthor;
     ArrayList <Book> listBook;
     @SuppressLint("MissingInflatedId")
@@ -59,12 +63,16 @@ public class BookView extends AppCompatActivity {
         adpBook = new BookAdapter(this, listBook);
         lv_Book_Famous.setAdapter(adpBook);
 
+        lv_Author_Famous = findViewById(R.id.lvAuthor_Famous);
+        listAuthor = new ArrayList<>();
         listAuthor.add(new Account(1, "Tac gia 1", "123", "bl@gmail.com", 2, 100.2));
-        listAuthor.add(new Account(2, "Tac gia 2", "123", "bl@gmail.com", 2, 200.0));
-        listAuthor.add(new Account(3, "Tac gia 3", "123", "bl@gmail.com", 2, 300.4));
-        listAuthor.add(new Account(4, "Tac gia 4", "123", "bl@gmail.com", 2, 400.3));
+        listAuthor.add(new Account(2, "Tac gia 2", "123", "bl@gmail.com", 2, 100.2));
+        listAuthor.add(new Account(3, "Tac gia 3", "123", "bl@gmail.com", 2, 100.2));
 
-
+        adpAuthor = new AuthorAdapter(BookView.this, listAuthor);
+        LinearLayoutManager lmanager = new LinearLayoutManager(BookView.this);
+        lv_Author_Famous.setLayoutManager(lmanager);
+        lv_Author_Famous.setAdapter(adpAuthor);
 
     }
 }
