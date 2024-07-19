@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.duanmaunhompokemon.BookView;
+import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.Book;
 import com.example.duanmaunhompokemon.R;
 
@@ -15,9 +17,9 @@ import java.util.ArrayList;
 
 public class AuthorAdapter extends BaseAdapter {
     private final Context c;
-    private final ArrayList<Book> list;
+    private final ArrayList<Account> list;
 
-    public AuthorAdapter(Context c, ArrayList<Book> list) {
+    public AuthorAdapter(Context c, ArrayList<Account> list) {
         this.c = c;
         this.list = list;
     }
@@ -40,17 +42,12 @@ public class AuthorAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup parent) {
         LayoutInflater inf = ((BookView)c).getLayoutInflater();
-        view = inf.inflate(R.layout.spinner_book, null);
+        view = inf.inflate(R.layout.spinner_author, null);
 
-        TextView sp_txtTitle = view.findViewById(R.id.spin_txtTitle);
-        TextView sp_txtAuthor = view.findViewById(R.id.spin_txtAuthor);
-        TextView sp_txtPrice = view.findViewById(R.id.spin_txtPrice);
-        TextView sp_txtRate = view.findViewById(R.id.spin_txtRate);
+        ImageView img = view.findViewById(R.id.sp_imgAuthor);
+        TextView txtAuthorName = view.findViewById(R.id.sp_txtAuthorName);
 
-        sp_txtTitle.setText(list.get(i).getTitle());
-        sp_txtAuthor.setText(String.valueOf(list.get(i).getId_acc()));
-        sp_txtPrice.setText(String.valueOf(list.get(i).getPrice()));
-        sp_txtRate.setText(String.valueOf(list.get(i).getBought()));
+        txtAuthorName.setText("Nguyen Pham Bao Lam");
 
         return view;
     }
