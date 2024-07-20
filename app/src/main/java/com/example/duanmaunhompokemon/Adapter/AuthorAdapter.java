@@ -45,7 +45,7 @@ public class AuthorAdapter extends RecyclerView.Adapter<AuthorAdapter.AuthorView
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listAuthor.size();
     }
     public static class AuthorViewHolder extends RecyclerView.ViewHolder {
         TextView txtAuthorName;

@@ -71,6 +71,7 @@ public class BookView extends AppCompatActivity {
 
         adpAuthor = new AuthorAdapter(BookView.this, listAuthor);
         LinearLayoutManager lmanager = new LinearLayoutManager(BookView.this);
+        lmanager.setOrientation(RecyclerView.HORIZONTAL);
         lv_Author_Famous.setLayoutManager(lmanager);
         lv_Author_Famous.setAdapter(adpAuthor);
 
