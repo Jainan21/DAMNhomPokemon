@@ -16,7 +16,16 @@
       <SelectionState runConfigName="BookView">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="WelcomeView">
+      <SelectionState runConfigName="bookdetails">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="author">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="AdminManage">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="RegisterView">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

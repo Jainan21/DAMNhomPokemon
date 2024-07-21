@@ -1,10 +1,14 @@
 package com.example.duanmaunhompokemon;
 
+import static com.example.duanmaunhompokemon.Adapter.HeaderAdapter.setupHeader;
+
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Adapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toolbar;
@@ -19,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duanmaunhompokemon.Adapter.AuthorAdapter;
 import com.example.duanmaunhompokemon.Adapter.BookAdapter;
+import com.example.duanmaunhompokemon.Adapter.HeaderAdapter;
 import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.Book;
 
@@ -26,8 +31,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookView extends AppCompatActivity {
-    View header, hb;
-    LinearLayout header_layout, hb_layout;
+    View  hb;
+    LinearLayout  hb_layout;
     ListView lv_Book_Famous;
     BookAdapter adpBook;
     AuthorAdapter adpAuthor;
@@ -39,11 +44,10 @@ public class BookView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_view);
-        header_layout = findViewById(R.id.header_view);
 
-        LayoutInflater inf1 = getLayoutInflater();
-        header = inf1.inflate(R.layout.header, null);
-        header_layout.addView(header);
+
+        setupHeader(BookView.this);
+
 
         hb_layout = findViewById(R.id.hb_view);
         LayoutInflater inf2 = getLayoutInflater();
@@ -76,4 +80,7 @@ public class BookView extends AppCompatActivity {
         lv_Author_Famous.setAdapter(adpAuthor);
 
     }
+
+
+
 }
