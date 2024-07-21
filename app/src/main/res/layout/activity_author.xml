@@ -26,11 +26,8 @@
             android:id="@+id/btMenu"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:clickable="true"
             android:src="@drawable/img"
             android:layout_gravity="end" />
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -159,23 +156,19 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.Material3.Button.OutlinedButton.Icon"
             android:text="Quản lý cá nhân"
             android:backgroundTint="@color/white"
             android:textColor="@android:color/black"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="8dp" />
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.Material3.Button.OutlinedButton.Icon"
             android:text="Quản lý doanh thu"
+            android:layout_marginHorizontal="20dp"
             android:backgroundTint="@color/white"
             android:textColor="@android:color/black"
-            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="8dp" />
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
