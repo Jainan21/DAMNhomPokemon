@@ -13,8 +13,9 @@
         android:theme="@style/Theme.DuAnMauNhomPokemon"
         tools:targetApi="31">
         <activity
+
             android:name=".bookdetails"
-            android:exported="true" >
+            android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,10 +24,19 @@
 
         </activity>
         <activity
+            android:name=".BookView"
+            android:exported="true" />
+        <activity
+            android:name=".RegisterView"
+            android:exported="true" />
+       <activity
             android:name=".login"
-            android:exported="true">
+            android:exported="true" />
 
-        </activity>
+
+
+
+
     </application>
 
 </manifest>
