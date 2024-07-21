@@ -110,6 +110,14 @@ public class dbHelper extends SQLiteOpenHelper {
         db.execSQL(sql8);
         db.execSQL(sql9);
         db.execSQL(sql10);
+
+        String insertRole1 = "INSERT INTO role (name) VALUES ('Admin')";
+        String insertRole2 = "INSERT INTO role (name) VALUES ('User')";
+        String insertRole3 = "INSERT INTO role (name) VALUES ('Author')";
+
+        db.execSQL(insertRole1);
+        db.execSQL(insertRole2);
+        db.execSQL(insertRole3);
     }
 
     @Override

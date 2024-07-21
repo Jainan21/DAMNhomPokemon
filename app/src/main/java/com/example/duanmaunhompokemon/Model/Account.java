@@ -1,6 +1,8 @@
 package com.example.duanmaunhompokemon.Model;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
     private Integer id;
     private String user;
     private String pass;
