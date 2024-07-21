@@ -1,6 +1,7 @@
 package com.example.duanmaunhompokemon;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -27,6 +28,34 @@ public class AdminManage extends AppCompatActivity {
         btAuthor = findViewById(R.id.btAuthor);
         btTheLoai = findViewById(R.id.btTheLoai);
         btMoney = findViewById(R.id.btMoney);
+
+        btNguoiDung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        btAuthor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        btTheLoai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
+
+        btMoney.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
 }
