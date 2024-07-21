@@ -118,6 +118,65 @@ public class dbHelper extends SQLiteOpenHelper {
         db.execSQL(insertRole1);
         db.execSQL(insertRole2);
         db.execSQL(insertRole3);
+
+        String insertAccount1 = "INSERT INTO account (username, pass, email, id_role, budget) VALUES ('admin', 'adminpass', 'admin@gmail.com', 1, 1000.0)";
+        String insertAccount2 = "INSERT INTO account (username, pass, email, id_role, budget) VALUES ('user1', 'user1pass', 'user1@gmail.com', 2, 500.0)";
+        String insertAccount3 = "INSERT INTO account (username, pass, email, id_role, budget) VALUES ('author1', 'author1pass', 'author1@gmail.com', 3, 300.0)";
+
+        db.execSQL(insertAccount1);
+        db.execSQL(insertAccount2);
+        db.execSQL(insertAccount3);
+
+        String insertCategory1 = "INSERT INTO categories (namecate) VALUES ('Fiction')";
+        String insertCategory2 = "INSERT INTO categories (namecate) VALUES ('Non-Fiction')";
+        String insertCategory3 = "INSERT INTO categories (namecate) VALUES ('Science')";
+
+        db.execSQL(insertCategory1);
+        db.execSQL(insertCategory2);
+        db.execSQL(insertCategory3);
+
+        String insertBook1 = "INSERT INTO book (id_acc, title, price, date, sum, bought) VALUES (1, 'The Great Adventure', 29, '2024-07-22', 'An exciting journey', 1)";
+        String insertBook2 = "INSERT INTO book (id_acc, title, price, date, sum, bought) VALUES (2, 'Learning Java', 39, '2024-07-22', 'A comprehensive guide to Java programming', 0)";
+
+        db.execSQL(insertBook1);
+        db.execSQL(insertBook2);
+
+        String insertChapter1 = "INSERT INTO chapter (id_book, chap_number, titlechap, content) VALUES (1, 1, 'Introduction', 'This is the introduction chapter of the book.')";
+        String insertChapter2 = "INSERT INTO chapter (id_book, chap_number, titlechap, content) VALUES (1, 2, 'Chapter One', 'This is the first chapter of the book.')";
+
+        db.execSQL(insertChapter1);
+        db.execSQL(insertChapter2);
+
+        String insertBookCate1 = "INSERT INTO bookcate (id_book, id_cate) VALUES (1, 1)";
+        String insertBookCate2 = "INSERT INTO bookcate (id_book, id_cate) VALUES (2, 2)";
+
+        db.execSQL(insertBookCate1);
+        db.execSQL(insertBookCate2);
+
+        String insertFavorite1 = "INSERT INTO favorite (id_book, id_acc) VALUES (1, 2)";
+        String insertFavorite2 = "INSERT INTO favorite (id_book, id_acc) VALUES (2, 1)";
+
+        db.execSQL(insertFavorite1);
+        db.execSQL(insertFavorite2);
+
+        String insertAddDraw1 = "INSERT INTO adddraw (date_ad, price_ad, type, id_acc) VALUES ('2024-07-22', 100, 'Deposit', 1)";
+        String insertAddDraw2 = "INSERT INTO adddraw (date_ad, price_ad, type, id_acc) VALUES ('2024-07-22', 50, 'Withdraw', 2)";
+
+        db.execSQL(insertAddDraw1);
+        db.execSQL(insertAddDraw2);
+
+        String insertTrade1 = "INSERT INTO trade (id_book, id_acc, price_trade, date_trade, vat) VALUES (1, 2, 29, '2024-07-22', 2.9)";
+        String insertTrade2 = "INSERT INTO trade (id_book, id_acc, price_trade, date_trade, vat) VALUES (2, 1, 39, '2024-07-22', 3.9)";
+
+        db.execSQL(insertTrade1);
+        db.execSQL(insertTrade2);
+
+        String insertRating1 = "INSERT INTO ratings (point, id_book, id_acc) VALUES (5, 1, 2)";
+        String insertRating2 = "INSERT INTO ratings (point, id_book, id_acc) VALUES (4, 2, 3)";
+
+        db.execSQL(insertRating1);
+        db.execSQL(insertRating2);
+
     }
 
     @Override
