@@ -2,20 +2,18 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" >
     <LinearLayout
-        android:id="@+id/main"
+        android:id="@+id/bookView"
         android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".BookView">
-        <LinearLayout
-            android:id="@+id/header_view"
+        <include
+            layout="@layout/header"
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="90dp"/>
+            android:layout_height="wrap_content"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -31,15 +29,12 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:layout_marginTop="20dp"
-            android:fontFamily="serif"
             android:text="Sách nổi tiếng"
             android:textSize="25dp"/>
-
         <ListView
             android:id="@+id/lvBook_Famous"
             android:layout_width="match_parent"
             android:layout_height="300dp" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

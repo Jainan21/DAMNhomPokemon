@@ -16,26 +16,26 @@
         android:layout_width="match_parent"
         android:layout_height="200dp">
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/hb_txtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25dp"
             android:textStyle="bold"
             android:layout_marginBottom="10dp"
-            android:text="Nhà giả kim"
-            android:fontFamily="serif"/>
+            android:text="Nhà giả kim"/>
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/hb_txtAuthor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="serif"
             android:textStyle="bold"
             android:text="Paulo Coelho"/>
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/hb_txtContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="serif"
             android:text="Nội dung cuốn sách xoay quanh câu chuyện cậu bé chăn cừu Santiago và cuộc hành trình đi tìm kho báu của cậu."/>
         <TextView
             android:id="@+id/hb_txtPrice"
@@ -45,15 +45,13 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="15dp"
             android:text="135.000VND"
-            android:textStyle="bold"
-            android:fontFamily="serif"/>
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/hb_txtRate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
             android:layout_marginRight="15dp"
-            android:fontFamily="serif"
             android:text="4.5/5"/>
 
     </LinearLayout>
