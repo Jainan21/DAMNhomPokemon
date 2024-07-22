@@ -27,7 +27,7 @@ public class dbHelper extends SQLiteOpenHelper {
                 "email text not null," +
                 "id_role integer not null," +
                 "budget real," +
-                "foreign key (role) references role(id))";
+                "foreign key (id_role) references role(id_role))";
 
         String sql3 = "create table categories(" +
                 "id_cate integer primary key autoincrement," +
