@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#ECD8F2"
-    tools:context=".bookdetails">
+    tools:context=".boughtbook">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -93,19 +93,6 @@
                     android:textColor="#000000"
                     android:textSize="12sp"
                     android:textStyle="normal" />
-
-                <TextView
-                    android:id="@+id/txtPrice"
-                    android:layout_width="209dp"
-                    android:textSize="20sp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="18dp"
-                    android:fontFamily="serif"
-                    android:gravity="right"
-                    android:text="135.000VND"
-                    android:textStyle="bold" />
-
             </LinearLayout>
 
         </LinearLayout>
@@ -190,31 +177,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
-            >
-
+            android:layout_marginTop="10dp">
             <Button
-                android:id="@+id/btnHeart"
-                android:textColor="#FFFFFF"
-                android:drawableLeft="@drawable/heart"
+                android:id="@+id/btnReadBook"
+                android:drawableLeft="@drawable/book"
                 android:layout_width="100dp"
+                android:gravity="center"
+                android:layout_marginLeft="120dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dp"
-                android:layout_marginTop="10dp"
-                android:backgroundTint="#7373FF"
-                android:text="Yêu thích" />
-
-            <Button
-                android:id="@+id/btnBuyBook"
-                android:drawableLeft="@drawable/local"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="10dp"
                 android:backgroundTint="#FFFFFF"
-                android:text="Mua sách" />
+                android:text="Đọc sách" />
         </LinearLayout>
-
     </LinearLayout>
 
 </LinearLayout>
