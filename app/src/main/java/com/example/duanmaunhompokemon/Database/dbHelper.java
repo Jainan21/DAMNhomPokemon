@@ -74,7 +74,7 @@ public class dbHelper extends SQLiteOpenHelper {
         String sql8 = "create table adddraw(" +
                 "id_ad integer primary key autoincrement," +
                 "date_ad text not null," +
-                "price_ad text not null," +
+                "price_ad integer not null," +
                 "type text not null," +
                 "id_acc integer not null," +
                 "foreign key (id_acc) references account(id_acc)" +

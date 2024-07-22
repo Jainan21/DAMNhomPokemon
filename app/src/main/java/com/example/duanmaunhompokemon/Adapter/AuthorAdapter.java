@@ -4,54 +4,57 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.duanmaunhompokemon.BookView;
-import com.example.duanmaunhompokemon.Model.Book;
+import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.R;
 
 import java.util.ArrayList;
 
-public class AuthorAdapter extends BaseAdapter {
-    private final Context c;
-    private final ArrayList<Book> list;
 
-    public AuthorAdapter(Context c, ArrayList<Book> list) {
+public class AuthorAdapter extends RecyclerView.Adapter<AuthorAdapter.AuthorViewHolder> {
+
+    private Context c;
+    private ArrayList<Account> listAuthor;
+
+    public AuthorAdapter(Context c, ArrayList<Account> listAuthor) {
         this.c = c;
-        this.list = list;
+        this.listAuthor = listAuthor;
+    }
+
+    @NonNull
+    @Override
+    public AuthorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflate = ((BookView) c).getLayoutInflater();
+        View view = inflate.inflate(R.layout.spinner_author,parent,false);
+        return new AuthorViewHolder(view);
     }
 
     @Override
-    public int getCount() {
-        return list.size();
+    public void onBindViewHolder(@NonNull AuthorAdapter.AuthorViewHolder holder, int i) {
+        holder.txtAuthorName.setText(listAuthor.get(i).getUser());
+        holder.imgAuthor.setImageResource(R.drawable.avata);
+
     }
 
+
     @Override
-    public Object getItem(int i) {
-        return list.get(i);
+    public int getItemCount() {
+        return listAuthor.size();
     }
+    public static class AuthorViewHolder extends RecyclerView.ViewHolder {
+        TextView txtAuthorName;
+        ImageView imgAuthor;
 
-    @Override
-    public long getItemId(int i) {
-        return i;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup parent) {
-        LayoutInflater inf = ((BookView)c).getLayoutInflater();
-        view = inf.inflate(R.layout.spinner_book, null);
-
-        TextView sp_txtTitle = view.findViewById(R.id.spin_txtTitle);
-        TextView sp_txtAuthor = view.findViewById(R.id.spin_txtAuthor);
-        TextView sp_txtPrice = view.findViewById(R.id.spin_txtPrice);
-        TextView sp_txtRate = view.findViewById(R.id.spin_txtRate);
-
-        sp_txtTitle.setText(list.get(i).getTitle());
-        sp_txtAuthor.setText(String.valueOf(list.get(i).getId_acc()));
-        sp_txtPrice.setText(String.valueOf(list.get(i).getPrice()));
-        sp_txtRate.setText(String.valueOf(list.get(i).getBought()));
-
-        return view;
+        public AuthorViewHolder(View itemView) {
+            super(itemView);
+            txtAuthorName = itemView.findViewById(R.id.sp_txtAuthorName);
+            imgAuthor = itemView.findViewById(R.id.sp_imgAuthor);
+        }
     }
 }
