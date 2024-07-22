@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duanmaunhompokemon.BookView;
+import com.example.duanmaunhompokemon.Model.SearchingView;
 import com.example.duanmaunhompokemon.R;
 import com.example.duanmaunhompokemon.WelcomeView;
 import com.example.duanmaunhompokemon.user;
@@ -46,7 +47,7 @@ public class HeaderAdapter  {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity.startActivity(new Intent(activity, BookView.class));
+                activity.startActivity(new Intent(activity, SearchingView.class));
             }
         });
         menu.setOnClickListener(new View.OnClickListener() {
