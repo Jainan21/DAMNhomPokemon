@@ -82,5 +82,14 @@ public class RegisterView extends AppCompatActivity {
             }
         });
 
+        btBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =  new Intent(RegisterView.this, login.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
     }
 }

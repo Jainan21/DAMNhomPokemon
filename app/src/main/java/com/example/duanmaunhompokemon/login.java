@@ -66,5 +66,14 @@ public class login extends AppCompatActivity {
             }
         });
 
+        txtRregister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =  new Intent(login.this, RegisterView.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
     }
 }
