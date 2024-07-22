@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -49,6 +50,32 @@ public class HeaderAdapter  {
             }
         });
         menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.startActivity(new Intent(activity, BookView.class));
+            }
+        });
+
+    }
+
+    public static void setupHeader2(final Activity activity, String title){
+        Button btnBeforeHd2, btnMenuHd2;
+        TextView txtTitleHd2;
+
+        btnBeforeHd2 = activity.findViewById(R.id.btnBeforeHd2);
+        btnMenuHd2 = activity.findViewById(R.id.btnMenuHd2);
+        txtTitleHd2 = activity.findViewById(R.id.txtTitleHd2);
+
+        txtTitleHd2.setText(title);
+
+        btnBeforeHd2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.startActivity(new Intent(activity, BookView.class));
+            }
+        });
+
+        btnMenuHd2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 activity.startActivity(new Intent(activity, BookView.class));
