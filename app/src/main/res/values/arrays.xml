@@ -1,0 +1,10 @@
+<!-- res/values/arrays.xml -->
+<resources>
+    <string-array name="bank_names">
+        <item>Aribank</item>
+        <item>Vietcombank</item>
+        <item>Techcombank</item>
+        <item>ACB</item>
+        <item>Sacombank</item>
+    </string-array>
+</resources>
