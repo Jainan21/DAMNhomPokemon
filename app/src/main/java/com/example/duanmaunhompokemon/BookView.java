@@ -79,6 +79,15 @@ public class BookView extends AppCompatActivity {
         lv_Author_Famous.setLayoutManager(lmanager);
         lv_Author_Famous.setAdapter(adpAuthor);
 
+        hb_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =  new Intent(BookView.this, bookdetails.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
     }
 
 
