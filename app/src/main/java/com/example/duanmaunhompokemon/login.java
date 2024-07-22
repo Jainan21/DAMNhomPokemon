@@ -16,6 +16,7 @@ import com.example.duanmaunhompokemon.Model.Account;
 import java.util.ArrayList;
 
 public class login extends AppCompatActivity {
+
     EditText edtUsernameLogin, edtPasswordLogin;
     Button btnLogin;
     TextView txtRregister;
