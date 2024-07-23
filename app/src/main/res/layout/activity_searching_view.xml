@@ -5,9 +5,10 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
     android:layout_marginTop="10dp"
-    tools:context=".Model.SearchingView">
+    tools:context=".SearchingView">
     <include
         layout="@layout/header2"
         android:layout_width="match_parent"
@@ -34,5 +35,9 @@
             android:layout_weight="1"
             android:src="@drawable/search_icon"/>
     </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/layout_searching"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
