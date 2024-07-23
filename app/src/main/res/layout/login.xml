@@ -75,6 +75,7 @@
 
             <EditText
                 android:id="@+id/edtPasswordLogin"
+                android:password="true"
                 android:layout_width="258dp"
                 android:layout_height="50dp"
                 android:ems="10"
@@ -117,6 +118,7 @@
                     android:textColor="#717086" />
 
                 <TextView
+
                     android:id="@+id/txtRregister"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"

@@ -7,28 +7,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.Toolbar;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duanmaunhompokemon.Adapter.AuthorAdapter;
 import com.example.duanmaunhompokemon.Adapter.BookAdapter;
-import com.example.duanmaunhompokemon.Adapter.HeaderAdapter;
 import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.Book;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class BookView extends AppCompatActivity {
     View  hb;
@@ -45,9 +36,7 @@ public class BookView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_view);
 
-
         setupHeader(BookView.this);
-
 
         hb_layout = findViewById(R.id.hb_view);
         LayoutInflater inf2 = getLayoutInflater();
@@ -78,6 +67,15 @@ public class BookView extends AppCompatActivity {
         lmanager.setOrientation(RecyclerView.HORIZONTAL);
         lv_Author_Famous.setLayoutManager(lmanager);
         lv_Author_Famous.setAdapter(adpAuthor);
+
+        hb_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i =  new Intent(BookView.this, bookdetails.class);
+                startActivity(i);
+                finish();
+            }
+        });
 
     }
 
