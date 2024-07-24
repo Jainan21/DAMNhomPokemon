@@ -2,6 +2,7 @@ package com.example.duanmaunhompokemon.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.duanmaunhompokemon.Database.dbHelper;
@@ -13,6 +14,8 @@ import com.example.duanmaunhompokemon.Model.Chapter;
 import com.example.duanmaunhompokemon.Model.Favorite;
 import com.example.duanmaunhompokemon.Model.Ratings;
 import com.example.duanmaunhompokemon.Model.Trade;
+
+import java.util.ArrayList;
 
 public class dbDAO {
     public dbHelper helper;
@@ -68,7 +71,7 @@ public class dbDAO {
         SQLiteDatabase db = helper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("namecate", namecate);
-        long result = db.insert("categorires", null, values);
+        long result = db.insert("categories", null, values);
         return result != -1;
     }
 
@@ -122,5 +125,27 @@ public class dbDAO {
         values.put("vat", trade.getVat());
         long result = db.insert("trade", null, values);
         return result != -1;
+    }
+
+
+    public ArrayList<Account> getAllAccount(){
+        ArrayList<Account> list = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from account", null);
+
+        if (cursor.moveToFirst()){
+            do{
+                Integer id = cursor.getInt(0);
+                String username = cursor.getString(1);
+                String  pass = cursor.getString(2);
+                String email = cursor.getString(3);
+                Integer id_role = cursor.getInt(4);
+                Double budget = cursor.getDouble(5);
+                Account account = new Account(id, username, pass, email, id_role, budget);
+                list.add(account);
+            }while (cursor.moveToNext());
+        }
+
+        return list;
     }
 }
