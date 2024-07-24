@@ -28,7 +28,6 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-
         edtUsernameLogin = findViewById(R.id.edtUsernameLogin);
         edtPasswordLogin = findViewById(R.id.edtPasswordLogin);
         btnLogin = findViewById(R.id.btnLogin);
@@ -107,6 +106,5 @@ public class login extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 }

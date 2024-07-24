@@ -131,18 +131,22 @@
             android:gravity="center_vertical" />
 
         <TextView
+            android:id="@+id/tvrechar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
+            android:clickable="true"
             android:text="Nạp tiền"
             android:textColor="@android:color/white"
             android:background="?attr/selectableItemBackground"
             android:gravity="center_vertical" />
 
         <TextView
+            android:id="@+id/tvwithd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
+            android:clickable="true"
             android:text="Rút tiền"
             android:textColor="@android:color/white"
             android:background="?attr/selectableItemBackground"
