@@ -381,4 +381,55 @@ public class dbDAO {
         db.close();
         return list;
     }
+
+    public ArrayList<Chapter> getChapterByBookId(int id_book){
+        ArrayList<Chapter> list = new ArrayList<>();
+        String query = "SELECT * FROM chapter WHERE id_book = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new  String[]{String.valueOf(id_book)});
+
+        if(cursor.moveToFirst()){
+            do {
+                int idChap = cursor.getInt(0);
+                int chapNumber = cursor.getInt(2);
+                String titleChap = cursor.getString(3);
+                String content = cursor.getString(4);
+
+                Chapter chapter = new Chapter(idChap, id_book, chapNumber, titleChap, content);
+                list.add(chapter);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public Chapter getChapterByBookIdAndChapterNumber(int bookId, int chapNumber) {
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String query = "SELECT * FROM chapter WHERE id_book = ? AND chap_number = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(bookId), String.valueOf(chapNumber)});
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                int idChap = cursor.getInt(cursor.getColumnIndexOrThrow("id_chap"));
+                String titleChap = cursor.getString(cursor.getColumnIndexOrThrow("titlechap"));
+                String content = cursor.getString(cursor.getColumnIndexOrThrow("content"));
+
+                cursor.close();
+                return new Chapter(idChap, bookId, chapNumber, titleChap, content);
+            }
+            cursor.close();
+        }
+        return null;
+    }
+
+    public boolean updateAccount(int accountId, String newUsername, String newEmail) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("username", newUsername);
+        contentValues.put("email", newEmail);
+
+        int result = db.update("account", contentValues, "id_acc = ?", new String[]{String.valueOf(accountId)});
+        return result > 0;
+    }
 }
