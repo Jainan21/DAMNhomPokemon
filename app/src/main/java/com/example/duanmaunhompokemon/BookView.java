@@ -42,7 +42,7 @@ public class BookView extends AppCompatActivity {
     ArrayList <Book> listBook;
     Integer user_id;
     NavigationView nav_menu;
-    Activity newActivity;
+    LinearLayoutManager lmanager= new LinearLayoutManager(BookView.this);
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +96,6 @@ public class BookView extends AppCompatActivity {
         listAuthor.add(new Account(3, "Tac gia 3", "123", "bl@gmail.com", 2, 100.2));
 
         adpAuthor = new AuthorAdapter(BookView.this, listAuthor);
-        LinearLayoutManager lmanager = new LinearLayoutManager(BookView.this);
         lmanager.setOrientation(RecyclerView.HORIZONTAL);
         lv_Author_Famous.setLayoutManager(lmanager);
         lv_Author_Famous.setAdapter(adpAuthor);
@@ -132,10 +131,6 @@ public class BookView extends AppCompatActivity {
             }
 
         });
-
-
-
-
     }
 
     public void getUserID(){
