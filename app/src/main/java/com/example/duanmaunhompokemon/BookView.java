@@ -3,16 +3,22 @@ package com.example.duanmaunhompokemon;
 import static com.example.duanmaunhompokemon.Adapter.HeaderAdapter.setupHeader;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +27,7 @@ import com.example.duanmaunhompokemon.Adapter.BookAdapter;
 import com.example.duanmaunhompokemon.DAO.dbDAO;
 import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.Book;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
@@ -34,6 +41,8 @@ public class BookView extends AppCompatActivity {
     ArrayList <Account> listAuthor;
     ArrayList <Book> listBook;
     Integer user_id;
+    NavigationView nav_menu;
+    Activity newActivity;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +109,32 @@ public class BookView extends AppCompatActivity {
                 finish();
             }
         });
+
+        nav_menu = findViewById(R.id.Nav_bar);
+        nav_menu.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId()==R.id.item_home){
+                    startActivity(new Intent(BookView.this, BookView.class));
+                }
+                if (item.getItemId()==R.id.item_account){
+                    startActivity(new Intent(BookView.this, user.class));
+                }
+                if (item.getItemId()==R.id.item_search){
+                    startActivity(new Intent(BookView.this, SearchingView.class));
+                }
+                if (item.getItemId()==R.id.item_bookshelf){
+                    startActivity(new Intent(BookView.this, BookView.class));
+                }
+                if (item.getItemId()==R.id.item_logout){
+                    startActivity(new Intent(BookView.this, login.class));
+                }return true;
+            }
+
+        });
+
+
+
 
     }
 
