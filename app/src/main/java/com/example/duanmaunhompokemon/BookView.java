@@ -4,9 +4,11 @@ import static com.example.duanmaunhompokemon.Adapter.HeaderAdapter.setupHeader;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -16,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duanmaunhompokemon.Adapter.AuthorAdapter;
 import com.example.duanmaunhompokemon.Adapter.BookAdapter;
+import com.example.duanmaunhompokemon.DAO.dbDAO;
 import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.Book;
 
@@ -30,6 +33,7 @@ public class BookView extends AppCompatActivity {
     RecyclerView lv_Author_Famous;
     ArrayList <Account> listAuthor;
     ArrayList <Book> listBook;
+    Integer user_id;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,8 @@ public class BookView extends AppCompatActivity {
         setContentView(R.layout.activity_book_view);
 
         setupHeader(BookView.this);
+
+        getUserID();
 
         hb_layout = findViewById(R.id.hb_view);
         LayoutInflater inf2 = getLayoutInflater();
@@ -55,6 +61,24 @@ public class BookView extends AppCompatActivity {
 
         adpBook = new BookAdapter(this, listBook);
         lv_Book_Famous.setAdapter(adpBook);
+
+        lv_Book_Famous.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Book selectedBook = listBook.get(position);
+                dbDAO dao = new dbDAO(BookView.this);
+                boolean check =  dao.hasTradeBook(user_id, selectedBook.getId_book());
+                if(check){
+                    Intent intent = new Intent(BookView.this, boughtbook.class);
+                    intent.putExtra("id_book", selectedBook.getId_book());
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(BookView.this, bookdetails.class);
+                    intent.putExtra("id_book", selectedBook.getId_book());
+                    startActivity(intent);
+                }
+            }
+        });
 
         lv_Author_Famous = findViewById(R.id.lvAuthor_Famous);
         listAuthor = new ArrayList<>();
@@ -77,6 +101,15 @@ public class BookView extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void getUserID(){
+        SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
+        String userId = sharedPreferences.getString("user_id", null);
+
+        if (userId != null) {
+            user_id = Integer.valueOf(userId);
+        }
     }
 
 

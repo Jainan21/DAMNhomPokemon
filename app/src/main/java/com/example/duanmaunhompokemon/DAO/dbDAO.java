@@ -148,4 +148,18 @@ public class dbDAO {
 
         return list;
     }
+
+    public boolean hasTradeBook(int userID, int bookID){
+        boolean check = false;
+        String query = "SELECT COUNT(*) FROM trade WHERE id_acc = ? AND id_book = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(userID), String.valueOf(bookID)});
+
+        if(cursor != null && cursor.moveToFirst()){
+            int count = cursor.getInt(0);
+            check = (count > 0);
+        }
+
+        return check;
+    }
 }
