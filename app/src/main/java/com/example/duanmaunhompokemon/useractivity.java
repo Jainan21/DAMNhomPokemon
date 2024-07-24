@@ -12,12 +12,13 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 public class useractivity extends AppCompatActivity {
     private TextView txtChangePassword;
     private TextView txtChangeAccount;
     private Dialog dialog;
-
+    private DrawerLayout drawerLayout;
 
 
     @Override
@@ -30,6 +31,9 @@ public class useractivity extends AppCompatActivity {
         TextView btnRechar = findViewById(R.id.tvrechar);
         txtChangePassword = findViewById(R.id.change_password);
         txtChangeAccount = findViewById(R.id.change_account);
+        drawerLayout = findViewById(R.id.drawer_layout);
+
+
         btnWithdraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,6 +135,11 @@ public class useractivity extends AppCompatActivity {
         });
 
         dialog.show();
+    }
+    public void openDrawer(View view) {
+        if (drawerLayout != null) {
+            drawerLayout.openDrawer(findViewById(R.id.drawer_view));
+        }
     }
 }
 
