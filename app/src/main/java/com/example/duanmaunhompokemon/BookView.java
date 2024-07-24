@@ -140,10 +140,9 @@ public class BookView extends AppCompatActivity {
 
     public void getUserID(){
         SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
-        String userId = sharedPreferences.getString("user_id", null);
-
-        if (userId != null) {
-            user_id = Integer.valueOf(userId);
+        Integer userId = sharedPreferences.getInt("user_id", -1);
+        if (userId != -1) {
+            user_id = userId;
         }
     }
 

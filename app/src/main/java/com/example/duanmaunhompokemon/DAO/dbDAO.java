@@ -253,4 +253,76 @@ public class dbDAO {
         String updateQuery = "UPDATE account SET budget = budget - ? WHERE id_acc = ?";
         db.execSQL(updateQuery, new Object[]{amount, id_acc});
     }
+
+    public ArrayList<Book> getBooksOrderedByBought(){
+        ArrayList<Book> list = new ArrayList<>();
+        String query = "SELECT * FROM book ORDER BY bought DESC";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()){
+            do{
+                int id = cursor.getInt(0);
+                int accId = cursor.getInt(1);
+                String bookTitle = cursor.getString(2);
+                int price = cursor.getInt(3);
+                String date = cursor.getString(4);
+                String summary = cursor.getString(5);
+                int bought = cursor.getInt(6);
+
+                Book book = new Book(id, accId, bookTitle, price, date, summary, bought);
+                list.add(book);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public ArrayList<Account> getAuthorsSortedByBooksPurchased(){
+        ArrayList<Account> list = new ArrayList<>();
+        String query = "SELECT account.id_acc, account.username, account.pass, account.email, account.id_role, account.budget, COUNT(book.id_book) as book_count " +
+                "FROM account " +
+                "LEFT JOIN book ON account.id_acc = book.id_acc " +
+                "GROUP BY account.id_acc " +
+                "ORDER BY book_count DESC";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()){
+            do{
+                Integer id = cursor.getInt(0);
+                String username = cursor.getString(1);
+                String password = cursor.getString(2);
+                String email = cursor.getString(3);
+                Integer roleId = cursor.getInt(4);
+                Double budget = cursor.getDouble(5);
+
+                Account author = new Account(id, username, password, email, roleId, budget);
+                list.add(author);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public boolean deleteCategoryById(int id_cate) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.delete("bookcate", "id_cate = ?", new String[]{String.valueOf(id_cate)});
+        int rowsAffected = db.delete("categories", "id_cate = ?", new String[]{String.valueOf(id_cate)});
+        db.close();
+        return rowsAffected > 0;
+    }
+
+    public boolean deleteAccountById(int id_acc) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.delete("favorite", "id_acc = ?", new String[]{String.valueOf(id_acc)});
+        db.delete("adddraw", "id_acc = ?", new String[]{String.valueOf(id_acc)});
+        db.delete("book", "id_acc = ?", new String[]{String.valueOf(id_acc)});
+        int rowsAffected = db.delete("account", "id_acc = ?", new String[]{String.valueOf(id_acc)});
+
+        db.close();
+        return rowsAffected > 0;
+    }
 }

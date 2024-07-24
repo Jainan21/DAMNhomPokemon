@@ -49,7 +49,7 @@ public class login extends AppCompatActivity {
                     boolean check = false;
                     for (int i=0; i<list.size(); i++){
                         if(u.equalsIgnoreCase(list.get(i).getUser()) && p.equalsIgnoreCase(list.get(i).getPass())){
-                            if (list.get(i).getId_role().equals(2)){
+                            if (list.get(i).getId_role() == 2){
                                 Account a = list.get(i);
                                 check = true;
 
@@ -62,7 +62,7 @@ public class login extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                                 break;
-                            }else if (list.get(i).getId_role().equals(3)){
+                            }else if (list.get(i).getId_role() == 3){
                                 Account a = list.get(i);
                                 check = true;
 
