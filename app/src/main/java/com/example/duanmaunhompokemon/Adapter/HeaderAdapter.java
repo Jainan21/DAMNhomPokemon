@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 
-import android.view.ViewGroup;
-
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.example.duanmaunhompokemon.BookView;
 import com.example.duanmaunhompokemon.R;
 import com.example.duanmaunhompokemon.SearchingView;
-import com.example.duanmaunhompokemon.user;
+import com.example.duanmaunhompokemon.useractivity;
 
 public class HeaderAdapter  {
 
@@ -37,7 +35,7 @@ public class HeaderAdapter  {
         account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity.startActivity(new Intent(activity, user.class));
+                activity.startActivity(new Intent(activity, useractivity.class));
             }
         });
         search.setOnClickListener(new View.OnClickListener() {
