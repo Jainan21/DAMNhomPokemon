@@ -16,17 +16,16 @@
             android:name=".useractivity"
             android:exported="false" />
         <activity
+            android:name=".Model.SearchingView"
+            android:exported="true" />
+        <activity
             android:name=".bookdetails"
             android:exported="false" />
         <activity
-            android:name=".authoractivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".authoractivity"
+            android:exported="true"/>
+
         <activity
             android:name=".user"
             android:exported="true" />
@@ -45,6 +44,14 @@
         <activity
             android:name=".author"
             android:exported="true" />
+        <activity
+            android:name=".WelcomeView"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
