@@ -325,4 +325,60 @@ public class dbDAO {
         db.close();
         return rowsAffected > 0;
     }
+
+    public ArrayList<Book> getFavorieBook(int id_acc){
+        ArrayList<Book> list = new ArrayList<>();
+        String query = "SELECT book.* FROM book " +
+                "INNER JOIN favorite ON book.id_book = favorite.id_book " +
+                "WHERE favorite.id_acc = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(id_acc)});
+
+        if (cursor.moveToFirst()){
+            do{
+                int idBook = cursor.getInt(0);
+                int idAcc = cursor.getInt(1);
+                String title = cursor.getString(2);
+                int price = cursor.getInt(3);
+                String date = cursor.getString(4);
+                String summary = cursor.getString(5);
+                int bought = cursor.getInt(6);
+
+                // Tạo đối tượng Book và thêm vào danh sách
+                Book book = new Book(idBook, idAcc, title, price, date, summary, bought);
+                list.add(book);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public ArrayList<Book> getPurchasedBooksByAccountId(int id_acc){
+        ArrayList<Book> list = new ArrayList<>();
+        String query = "SELECT book.* FROM book " +
+                "INNER JOIN trade ON book.id_book = trade.id_book " +
+                "WHERE trade.id_acc = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(id_acc)});
+
+        if (cursor.moveToFirst()){
+            do{
+                int idBook = cursor.getInt(0);
+                int idAcc = cursor.getInt(1);
+                String title = cursor.getString(2);
+                int price = cursor.getInt(3);
+                String date = cursor.getString(4);
+                String summary = cursor.getString(5);
+                int bought = cursor.getInt(6);
+
+                // Tạo đối tượng Book và thêm vào danh sách
+                Book book = new Book(idBook, idAcc, title, price, date, summary, bought);
+                list.add(book);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
 }
