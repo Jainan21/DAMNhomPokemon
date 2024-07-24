@@ -1,0 +1,47 @@
+<!-- withdraw_form.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Spinner
+        android:id="@+id/spinner_bank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/bank_names"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/et_account_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Số tài khoản"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/et_account_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên tài khoản"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/et_withdraw_amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Số tiền nạp"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btn_withdraw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nạp tiền"
+        android:backgroundTint="@android:color/holo_purple"
+        android:textColor="@android:color/white" />
+</LinearLayout>
