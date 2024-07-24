@@ -71,7 +71,7 @@ public class login extends AppCompatActivity {
                                 editor.putInt("author_id", a.getId());
                                 editor.apply();
 
-                                Intent intent = new Intent(login.this, author.class);
+                                Intent intent = new Intent(login.this, authoractivity.class);
                                 startActivity(intent);
                                 finish();
                                 break;

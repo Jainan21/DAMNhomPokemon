@@ -26,9 +26,7 @@
             android:name=".authoractivity"
             android:exported="true"/>
 
-        <activity
-            android:name=".user"
-            android:exported="true" />
+
         <activity
             android:name=".AdminManage"
             android:exported="true" />
@@ -41,9 +39,7 @@
         <activity
             android:name=".login"
             android:exported="true" />
-        <activity
-            android:name=".author"
-            android:exported="true" />
+
         <activity
             android:name=".WelcomeView"
             android:exported="true">

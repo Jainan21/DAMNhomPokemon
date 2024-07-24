@@ -96,7 +96,7 @@ public class BookView extends AppCompatActivity {
                     startActivity(new Intent(BookView.this, BookView.class));
                 }
                 if (item.getItemId()==R.id.item_account){
-                    startActivity(new Intent(BookView.this, user.class));
+                    startActivity(new Intent(BookView.this, useractivity.class));
                 }
                 if (item.getItemId()==R.id.item_search){
                     startActivity(new Intent(BookView.this, SearchingView.class));
