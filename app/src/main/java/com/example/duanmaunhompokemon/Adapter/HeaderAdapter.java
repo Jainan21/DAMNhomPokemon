@@ -3,6 +3,9 @@ package com.example.duanmaunhompokemon.Adapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
+
+import android.view.ViewGroup;
+
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;

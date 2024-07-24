@@ -1,6 +1,7 @@
 package com.example.duanmaunhompokemon;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -48,11 +49,42 @@ public class login extends AppCompatActivity {
                     boolean check = false;
                     for (int i=0; i<list.size(); i++){
                         if(u.equalsIgnoreCase(list.get(i).getUser()) && p.equalsIgnoreCase(list.get(i).getPass())){
-                            if (list.get(i).getId_role().equals(2) || list.get(i).getId_role().equals(3)){
+                            if (list.get(i).getId_role().equals(2)){
                                 Account a = list.get(i);
                                 check = true;
+
+                                SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putInt("user_id", a.getId());
+                                editor.apply();
+
                                 Intent intent = new Intent(login.this, BookView.class);
-                                intent.putExtra("login", a);
+                                startActivity(intent);
+                                finish();
+                                break;
+                            }else if (list.get(i).getId_role().equals(3)){
+                                Account a = list.get(i);
+                                check = true;
+
+                                SharedPreferences sharedPreferences = getSharedPreferences("author", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putInt("author_id", a.getId());
+                                editor.apply();
+
+                                Intent intent = new Intent(login.this, author.class);
+                                startActivity(intent);
+                                finish();
+                                break;
+                            }else {
+                                Account a = list.get(i);
+                                check = true;
+
+                                SharedPreferences sharedPreferences = getSharedPreferences("admin", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putInt("admin_id", a.getId());
+                                editor.apply();
+
+                                Intent intent = new Intent(login.this, AdminManage.class);
                                 startActivity(intent);
                                 finish();
                                 break;
