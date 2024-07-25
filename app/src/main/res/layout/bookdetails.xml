@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
@@ -22,20 +22,22 @@
         >
 
         <Button
-        android:id="@+id/btnBefore"
-        android:layout_width="53dp"
-        android:layout_height="53dp"
-        android:background="@android:color/transparent"
-        android:contentDescription="before"
-        android:drawableLeft="@drawable/before"
-        android:textColor="#000000" />
+            android:id="@+id/btnBefore"
+            android:layout_width="48dp"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="before"
+            android:drawableLeft="@drawable/before"
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/txtChiTietSach"
-            android:layout_width="283dp"
-            android:layout_height="50dp"
-            android:padding="5dp"
+            android:layout_width="301dp"
+            android:layout_height="wrap_content"
             android:contentDescription="ChiTiet"
+            android:padding="5dp"
             android:text="Chi tiết sách"
             android:textColor="#000000"
             android:textSize="30dp" />
@@ -44,6 +46,7 @@
             android:id="@+id/btnMenu"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_gravity="center"
             android:background="@android:color/transparent"
             android:contentDescription="menu"
             android:drawableRight="@drawable/menu" />
@@ -116,6 +119,7 @@
                     android:gravity="right"
                     android:text="135.000VND"
                     android:textSize="20sp"
+                    android:textColor="#000000"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -162,6 +166,7 @@
                 android:layout_height="wrap_content"
                 android:text="Thể loại:"
                 android:textSize="20sp"
+                android:textColor="#000000"
                 android:textStyle="bold" />
 
             <TextView
@@ -188,6 +193,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Nội dung:"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 

@@ -13,10 +13,17 @@
         android:theme="@style/Theme.DuAnMauNhomPokemon"
         tools:targetApi="31">
         <activity
+            android:name=".AuthorBookDetails"
+            android:exported="true" />
+        <activity
             android:name=".BookCaseView"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
+        <activity
+            android:name=".bookdetails"
+            android:exported="true" />
+        <activity
+            android:name=".boughtbook"
+            android:exported="true" />
         <activity
             android:name=".ReadingBookView"
             android:exported="true" />
@@ -26,10 +33,6 @@
         <activity
             android:name=".SearchingView"
             android:exported="true" />
-        <activity
-            android:name=".bookdetails"
-            android:exported="false" />
-        
         <activity
             android:name=".authoractivity"
             android:exported="true" />
@@ -50,7 +53,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

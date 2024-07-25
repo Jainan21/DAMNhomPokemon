@@ -8,7 +8,8 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     android:background="#ECD8F2"
-    tools:context=".boughtbook">
+    tools:context=".bookdetails">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,15 +56,14 @@
         android:layout_width="match_parent"
         android:layout_height="853dp"
         android:layout_gravity="center"
-
         android:background="@drawable/round_background"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="182dp"
-            android:layout_margin="10dp"
             android:layout_gravity="center"
+            android:layout_margin="10dp"
             android:background="@drawable/corner_register_view"
             android:orientation="horizontal">
 
@@ -76,8 +76,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="177dp"
-                android:layout_marginTop="20dp"
                 android:layout_margin="5dp"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -117,8 +117,8 @@
                     android:layout_marginRight="18dp"
                     android:fontFamily="serif"
                     android:gravity="right"
-                    android:textColor="#000000"
                     android:text="135.000VND"
+                    android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -129,16 +129,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="83dp"
-            android:layout_margin="10dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <Button
                 android:id="@+id/txtPurchased"
                 android:layout_width="106dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="0dp"
                 android:background="@drawable/button_background"
+                android:padding="5dp"
+                android:fontFamily="serif"
+                android:layout_weight="1"
                 android:text="Đã mua
                 100k" />
 
@@ -146,10 +148,23 @@
                 android:id="@+id/txtAssess"
                 android:layout_width="106dp"
                 android:layout_height="60dp"
-                android:layout_marginLeft="75dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:fontFamily="serif"
                 android:background="@drawable/button_background"
                 android:text="Đánh giá
                 4.5" />
+
+            <Button
+                android:id="@+id/txtAssess2"
+                android:layout_width="106dp"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/button_background"
+                android:fontFamily="serif"
+                android:text="Số trang
+                200" />
         </LinearLayout>
 
         <LinearLayout
@@ -165,8 +180,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thể loại:"
-                android:textSize="20sp"
                 android:textColor="#000000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -182,7 +197,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="316dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:orientation="vertical">
@@ -208,18 +223,28 @@
                 android:textSize="15sp"
                 android:textStyle="normal" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="62dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+
             <Button
-                android:id="@+id/btnReadBook"
-                android:layout_width="wrap_content"
-                android:layout_height="67dp"
+                android:id="@+id/btnLike"
+                android:layout_width="140dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="0dp"
                 android:layout_weight="1"
-                android:background="@drawable/button3"
-                android:drawableLeft="@drawable/book"
+                android:background="@drawable/button2"
+                android:drawableLeft="@drawable/baseline_mode_edit_outline_24"
                 android:padding="10dp"
-                android:text="Đọc sách"
+                android:text="Chỉnh sửa"
                 android:textColor="#000000" />
+
+
         </LinearLayout>
 
     </LinearLayout>
