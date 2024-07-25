@@ -2,7 +2,7 @@
 <project version="4">
   <component name="deploymentTargetSelector">
     <selectionStates>
-      <SelectionState runConfigName="AdminManage">
+      <SelectionState runConfigName="BookCaseView">
         <option name="selectionMode" value="DROPDOWN" />
         <DropdownSelection timestamp="2024-07-25T07:36:54.019999300Z">
         <DropdownSelection timestamp="2024-07-24T14:46:31.559494600Z">

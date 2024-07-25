@@ -31,6 +31,20 @@ public class BtBought extends Fragment {
         tvTheloai1 = v.findViewById(R.id.tvTheLoai1);
         btLike = v.findViewById(R.id.btLike);
         btReadNow = v.findViewById(R.id.btReadNow);
+
+        btLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        btReadNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         return v;
     }
 }
