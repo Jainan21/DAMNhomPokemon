@@ -4,6 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="AdminManage">
         <option name="selectionMode" value="DROPDOWN" />
+        <DropdownSelection timestamp="2024-07-25T07:36:54.019999300Z">
         <DropdownSelection timestamp="2024-07-24T14:46:31.559494600Z">
           <Target type="DEFAULT_BOOT">
             <handle>
@@ -11,7 +12,7 @@
         <DropdownSelection timestamp="2024-07-24T08:26:20.939308500Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=83f60edc" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\ASUS\.android\avd\Pixel_8_Pro_API_30.avd" />
             </handle>
           </Target>
         </DropdownSelection>

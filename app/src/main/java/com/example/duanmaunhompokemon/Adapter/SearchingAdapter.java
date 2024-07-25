@@ -25,11 +25,11 @@ import java.util.ArrayList;
 
 public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.SearchingViewHolder> {
 
-    private Context c;
+    private SearchingView c;
     private ArrayList<Book> listBook;
-    SearchingView a;
 
-    public SearchingAdapter(Context c, ArrayList<Book> listBook) {
+
+    public SearchingAdapter(SearchingView c, ArrayList<Book> listBook) {
         this.c = c;
         this.listBook = listBook;
     }
@@ -37,7 +37,7 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Sear
     @NonNull
     @Override
     public SearchingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflate = ((SearchingView) c).getLayoutInflater();
+        LayoutInflater inflate = c.getLayoutInflater();
         View view = inflate.inflate(R.layout.booksearching,parent,false);
         return new SearchingViewHolder(view);
     }
@@ -53,8 +53,7 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Sear
         holder.btnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                a = (SearchingView) c;
-                a.startActivity(new Intent(a, bookdetails.class));
+
             }
         });
     }

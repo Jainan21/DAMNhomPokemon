@@ -1,23 +1,41 @@
 package com.example.duanmaunhompokemon;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-public class useractivity extends AppCompatActivity {
+public class useractivity extends Fragment {
     private TextView txtChangePassword;
     private TextView txtChangeAccount;
     private Dialog dialog;
+    private Object useractivity;
+
+    public useractivity() {
+    }
+
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.activity_user, container, false);
+
+        TextView btnWithdraw = v.findViewById(R.id.tvwithd);
+        TextView btnRechar = v.findViewById(R.id.tvrechar);
+        txtChangePassword = v.findViewById(R.id.change_password);
+        txtChangeAccount = v.findViewById(R.id.change_account);
     private DrawerLayout drawerLayout;
 
 
@@ -62,11 +80,11 @@ public class useractivity extends AppCompatActivity {
                showDialog();
            }
        });
-
+        return v;
     }
 
     private void showWithdrawForm() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder((Context) useractivity);
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.withdraw_form, null);
         builder.setView(dialogView);
@@ -75,7 +93,7 @@ public class useractivity extends AppCompatActivity {
     }
 
     private void showRecharForm() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder((Context) useractivity);
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.recharge_form, null);
         builder.setView(dialogView);
@@ -83,7 +101,7 @@ public class useractivity extends AppCompatActivity {
         alertDialog.show();
     }
     private void showChangePasswordDialog() {
-        dialog = new Dialog(useractivity.this);
+        dialog = new Dialog((Context) useractivity);
         dialog.setContentView(R.layout.dialog_change_password);
         dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
 
@@ -109,7 +127,7 @@ public class useractivity extends AppCompatActivity {
     }
 
     private void showDialog() {
-        dialog = new Dialog(useractivity.this);
+        dialog = new Dialog((Context) useractivity);
         dialog.setContentView(R.layout.dialog_update_account);
         dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
 
@@ -125,8 +143,8 @@ public class useractivity extends AppCompatActivity {
                 String displayName = etDisplayName.getText().toString();
                 String email = etEmail.getText().toString();
                 // Update the display with new values (you can add your own logic here)
-                TextView txtName = findViewById(R.id.txtname_acc);
-                TextView txtEmail = findViewById(R.id.txtemail_acc);
+                TextView txtName = dialog.findViewById(R.id.txtname_acc);
+                TextView txtEmail = dialog.findViewById(R.id.txtemail_acc);
                 txtName.setText(displayName);
                 txtEmail.setText(email);
 
