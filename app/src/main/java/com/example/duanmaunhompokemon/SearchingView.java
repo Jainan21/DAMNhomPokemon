@@ -1,11 +1,16 @@
 package com.example.duanmaunhompokemon;
 
-import static com.example.duanmaunhompokemon.Adapter.HeaderAdapter.setupHeader2;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,24 +19,22 @@ import com.example.duanmaunhompokemon.Model.Book;
 
 import java.util.ArrayList;
 
-public class SearchingView extends AppCompatActivity {
+public class SearchingView extends Fragment {
 
     RecyclerView BookSearchingView;
     ArrayList<Book> listBook;
-    SearchingAdapter adpSearching;
-
     @SuppressLint("WrongViewCast")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_searching_view);
-
-        setupHeader2(SearchingView.this, "Tìm kiếm");
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.activity_searching_view, container, false);
+        
 
 
-        BookSearchingView = findViewById(R.id.layout_searching);
-        BookSearchingView.setLayoutManager(new GridLayoutManager(this, 2));
+        BookSearchingView = v.findViewById(R.id.layout_searching);
+        BookSearchingView.setLayoutManager(new GridLayoutManager(v.getContext(), 2));
         BookSearchingView.setHasFixedSize(true);
+
+
 
 
         listBook = new ArrayList<>();
@@ -42,7 +45,9 @@ public class SearchingView extends AppCompatActivity {
         listBook.add(new Book(2, "Cây cam ngọt của tôi", 110000,"20/1/2021" , "abc", 20));
         listBook.add(new Book(2, "Bố con cá gai", 90000,"20/1/2021" , "abc", 20));
 
-        adpSearching = new SearchingAdapter(this, listBook);
-        BookSearchingView.setAdapter(adpSearching);
+        SearchingAdapter adp = new SearchingAdapter(this, listBook);
+        BookSearchingView.setAdapter(adp);
+
+        return v;
     }
 }
