@@ -15,18 +15,22 @@
         <activity
             android:name=".BaseActivity"
             android:exported="false" />
+      <activity
+            android:name=".BookCaseView"
+            android:exported="true"/>
         <activity
             android:name=".ReadingBookView"
             android:exported="true" />
         <activity
             android:name=".useractivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SearchingView"
             android:exported="true" />
         <activity
             android:name=".bookdetails"
             android:exported="false" />
+        
         <activity
             android:name=".authoractivity"
             android:exported="true" />
