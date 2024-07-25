@@ -20,13 +20,13 @@
             android:exported="true" />
         <activity
             android:name=".useractivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SearchingView"
             android:exported="true" />
         <activity
             android:name=".bookdetails"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".authoractivity"
             android:exported="true" />
@@ -47,7 +47,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

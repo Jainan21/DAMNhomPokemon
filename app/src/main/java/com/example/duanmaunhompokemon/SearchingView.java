@@ -27,7 +27,7 @@ public class SearchingView extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_searching_view, container, false);
-        
+
 
 
         BookSearchingView = v.findViewById(R.id.layout_searching);
