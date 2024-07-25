@@ -19,7 +19,7 @@ public class bookdetails extends BaseActivity {
 
         btBefore = findViewById(R.id.btnBefore);
         btMenu = findViewById(R.id.btnMenu);
-        btLike = findViewById(R.id.btnLike);
+        btLike = findViewById(R.id.btnHeart);
         btByBook = findViewById(R.id.btnBuyBook);
     }
 }
