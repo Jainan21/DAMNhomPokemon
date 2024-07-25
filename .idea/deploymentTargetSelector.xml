@@ -2,8 +2,12 @@
 <project version="4">
   <component name="deploymentTargetSelector">
     <selectionStates>
-      <SelectionState runConfigName="BookView">
+      <SelectionState runConfigName="AdminManage">
         <option name="selectionMode" value="DROPDOWN" />
+        <DropdownSelection timestamp="2024-07-24T14:46:31.559494600Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\ADMIN\.android\avd\2.avd" />
         <DropdownSelection timestamp="2024-07-24T08:26:20.939308500Z">
           <Target type="DEFAULT_BOOT">
             <handle>
@@ -13,6 +17,7 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
+      <SelectionState runConfigName="app">
       <SelectionState runConfigName="ReadingBookView">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
