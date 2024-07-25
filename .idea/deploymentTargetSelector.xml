@@ -2,10 +2,14 @@
 <project version="4">
   <component name="deploymentTargetSelector">
     <selectionStates>
+
       <SelectionState runConfigName="author">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="BookView">
+
+      <SelectionState runConfigName="BookCaseView">
+
         <option name="selectionMode" value="DROPDOWN" />
         <DropdownSelection timestamp="2024-07-25T07:36:54.019999300Z">
           <Target type="DEFAULT_BOOT">
