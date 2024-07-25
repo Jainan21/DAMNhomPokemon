@@ -148,4 +148,288 @@ public class dbDAO {
 
         return list;
     }
+
+    public boolean hasTradeBook(int userID, int bookID){
+        boolean check = false;
+        String query = "SELECT COUNT(*) FROM trade WHERE id_acc = ? AND id_book = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(userID), String.valueOf(bookID)});
+
+        if(cursor != null && cursor.moveToFirst()){
+            int count = cursor.getInt(0);
+            check = (count > 0);
+        }
+
+        return check;
+    }
+
+    public Account getAccountById(int id_acc){
+        Account acc = null;
+        String query = "SELECT * FROM account WHERE id_acc = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(id_acc)});
+        if (cursor != null && cursor.moveToFirst()){
+            int id = cursor.getInt(0);
+            String username = cursor.getString(1);
+            String password = cursor.getString(2);
+            String email = cursor.getString(3);
+            int roleId = cursor.getInt(4);
+            double budget = cursor.getDouble(5);
+
+            acc = new Account(id, username, password, email, roleId, budget);
+        }
+        cursor.close();
+        db.close();
+        return acc;
+    }
+
+    public Book getBookById(int id_book){
+        Book book = null;
+        String query = "SELECT * FROM book WHERE id_book = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(id_book)});
+        if (cursor != null && cursor.moveToFirst()){
+            int id = cursor.getInt(0);
+            int idAcc = cursor.getInt(1);
+            String title = cursor.getString(2);
+            int price = cursor.getInt(3);
+            String date = cursor.getString(4);
+            String summary = cursor.getString(5);
+            int bought = cursor.getInt(6);
+
+            book = new Book(id, idAcc, title, price, date, summary, bought);
+        }
+        cursor.close();
+        db.close();
+        return book;
+    }
+
+    public String getAuthorNameByBookId(int id_book){
+        String authorname = null;
+        String query = "SELECT account.username FROM account INNER JOIN book ON account.id_acc = book.id_acc WHERE book.id_book = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(id_book)});
+        if (cursor != null && cursor.moveToFirst()){
+            authorname = cursor.getString(0);
+        }
+        cursor.close();
+        db.close();
+        return authorname;
+    }
+
+    public ArrayList<Book> searchBookByTitle(String title){
+        ArrayList<Book> list = new ArrayList<>();
+        String query = "SELECT * FROM book WHERE title LIKE ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{"%" + title + "%"});
+
+        if (cursor.moveToFirst()){
+            do{
+                int id = cursor.getInt(0);
+                int accId = cursor.getInt(1);
+                String bookTitle = cursor.getString(2);
+                int price = cursor.getInt(3);
+                String date = cursor.getString(4);
+                String summary = cursor.getString(5);
+                int bought = cursor.getInt(6);
+
+                Book book = new Book(id, accId, bookTitle, price, date, summary, bought);
+                list.add(book);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public void addToBudget(int id_acc, double amount){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        String updateQuery = "UPDATE account SET budget = budget + ? WHERE id_acc = ?";
+        db.execSQL(updateQuery, new Object[]{amount, id_acc});
+    }
+
+    public void subtractFromBudget(int id_acc, double amount){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        String updateQuery = "UPDATE account SET budget = budget - ? WHERE id_acc = ?";
+        db.execSQL(updateQuery, new Object[]{amount, id_acc});
+    }
+
+    public ArrayList<Book> getBooksOrderedByBought(){
+        ArrayList<Book> list = new ArrayList<>();
+        String query = "SELECT * FROM book ORDER BY bought DESC";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()){
+            do{
+                int id = cursor.getInt(0);
+                int accId = cursor.getInt(1);
+                String bookTitle = cursor.getString(2);
+                int price = cursor.getInt(3);
+                String date = cursor.getString(4);
+                String summary = cursor.getString(5);
+                int bought = cursor.getInt(6);
+
+                Book book = new Book(id, accId, bookTitle, price, date, summary, bought);
+                list.add(book);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public ArrayList<Account> getAuthorsSortedByBooksPurchased(){
+        ArrayList<Account> list = new ArrayList<>();
+        String query = "SELECT account.id_acc, account.username, account.pass, account.email, account.id_role, account.budget, COUNT(book.id_book) as book_count " +
+                "FROM account " +
+                "LEFT JOIN book ON account.id_acc = book.id_acc " +
+                "GROUP BY account.id_acc " +
+                "ORDER BY book_count DESC";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()){
+            do{
+                Integer id = cursor.getInt(0);
+                String username = cursor.getString(1);
+                String password = cursor.getString(2);
+                String email = cursor.getString(3);
+                Integer roleId = cursor.getInt(4);
+                Double budget = cursor.getDouble(5);
+
+                Account author = new Account(id, username, password, email, roleId, budget);
+                list.add(author);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public boolean deleteCategoryById(int id_cate) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.delete("bookcate", "id_cate = ?", new String[]{String.valueOf(id_cate)});
+        int rowsAffected = db.delete("categories", "id_cate = ?", new String[]{String.valueOf(id_cate)});
+        db.close();
+        return rowsAffected > 0;
+    }
+
+    public boolean deleteAccountById(int id_acc) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.delete("favorite", "id_acc = ?", new String[]{String.valueOf(id_acc)});
+        db.delete("adddraw", "id_acc = ?", new String[]{String.valueOf(id_acc)});
+        db.delete("book", "id_acc = ?", new String[]{String.valueOf(id_acc)});
+        int rowsAffected = db.delete("account", "id_acc = ?", new String[]{String.valueOf(id_acc)});
+
+        db.close();
+        return rowsAffected > 0;
+    }
+
+    public ArrayList<Book> getFavorieBook(int id_acc){
+        ArrayList<Book> list = new ArrayList<>();
+        String query = "SELECT book.* FROM book " +
+                "INNER JOIN favorite ON book.id_book = favorite.id_book " +
+                "WHERE favorite.id_acc = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(id_acc)});
+
+        if (cursor.moveToFirst()){
+            do{
+                int idBook = cursor.getInt(0);
+                int idAcc = cursor.getInt(1);
+                String title = cursor.getString(2);
+                int price = cursor.getInt(3);
+                String date = cursor.getString(4);
+                String summary = cursor.getString(5);
+                int bought = cursor.getInt(6);
+
+                // Tạo đối tượng Book và thêm vào danh sách
+                Book book = new Book(idBook, idAcc, title, price, date, summary, bought);
+                list.add(book);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public ArrayList<Book> getPurchasedBooksByAccountId(int id_acc){
+        ArrayList<Book> list = new ArrayList<>();
+        String query = "SELECT book.* FROM book " +
+                "INNER JOIN trade ON book.id_book = trade.id_book " +
+                "WHERE trade.id_acc = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(id_acc)});
+
+        if (cursor.moveToFirst()){
+            do{
+                int idBook = cursor.getInt(0);
+                int idAcc = cursor.getInt(1);
+                String title = cursor.getString(2);
+                int price = cursor.getInt(3);
+                String date = cursor.getString(4);
+                String summary = cursor.getString(5);
+                int bought = cursor.getInt(6);
+
+                // Tạo đối tượng Book và thêm vào danh sách
+                Book book = new Book(idBook, idAcc, title, price, date, summary, bought);
+                list.add(book);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public ArrayList<Chapter> getChapterByBookId(int id_book){
+        ArrayList<Chapter> list = new ArrayList<>();
+        String query = "SELECT * FROM chapter WHERE id_book = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new  String[]{String.valueOf(id_book)});
+
+        if(cursor.moveToFirst()){
+            do {
+                int idChap = cursor.getInt(0);
+                int chapNumber = cursor.getInt(2);
+                String titleChap = cursor.getString(3);
+                String content = cursor.getString(4);
+
+                Chapter chapter = new Chapter(idChap, id_book, chapNumber, titleChap, content);
+                list.add(chapter);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
+
+    public Chapter getChapterByBookIdAndChapterNumber(int bookId, int chapNumber) {
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String query = "SELECT * FROM chapter WHERE id_book = ? AND chap_number = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(bookId), String.valueOf(chapNumber)});
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                int idChap = cursor.getInt(cursor.getColumnIndexOrThrow("id_chap"));
+                String titleChap = cursor.getString(cursor.getColumnIndexOrThrow("titlechap"));
+                String content = cursor.getString(cursor.getColumnIndexOrThrow("content"));
+
+                cursor.close();
+                return new Chapter(idChap, bookId, chapNumber, titleChap, content);
+            }
+            cursor.close();
+        }
+        return null;
+    }
+
+    public boolean updateAccount(int accountId, String newUsername, String newEmail) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("username", newUsername);
+        contentValues.put("email", newEmail);
+
+        int result = db.update("account", contentValues, "id_acc = ?", new String[]{String.valueOf(accountId)});
+        return result > 0;
+    }
 }

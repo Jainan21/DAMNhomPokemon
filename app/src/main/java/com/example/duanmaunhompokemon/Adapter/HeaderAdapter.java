@@ -3,24 +3,29 @@ package com.example.duanmaunhompokemon.Adapter;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
+
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.example.duanmaunhompokemon.BookView;
 import com.example.duanmaunhompokemon.R;
 import com.example.duanmaunhompokemon.SearchingView;
-import com.example.duanmaunhompokemon.user;
+import com.example.duanmaunhompokemon.useractivity;
 
 public class HeaderAdapter  {
 
     public static void setupHeader(final Activity activity){
         ImageView home, account, search, menu;
+        DrawerLayout drawerLayout;
         home = activity.findViewById(R.id.iconHome);
         account = activity.findViewById(R.id.iconAccount);
         search = activity.findViewById(R.id.iconSearch);
         menu = activity.findViewById(R.id.iconMenu);
-
+        drawerLayout = activity.findViewById(R.id.drawer_layout);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,7 +35,7 @@ public class HeaderAdapter  {
         account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity.startActivity(new Intent(activity, user.class));
+                activity.startActivity(new Intent(activity, useractivity.class));
             }
         });
         search.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +47,12 @@ public class HeaderAdapter  {
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity.startActivity(new Intent(activity, BookView.class));
+                if(drawerLayout.isDrawerOpen(GravityCompat.END)){
+                    drawerLayout.closeDrawer(GravityCompat.END);
+                }
+                else {
+                    drawerLayout.openDrawer(GravityCompat.END);
+                }
             }
         });
 

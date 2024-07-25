@@ -16,24 +16,22 @@
             android:name=".BookCaseView"
             android:exported="true">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
+        <activity
+            android:name=".ReadingBookView"
+            android:exported="true" />
+        <activity
+            android:name=".useractivity"
+            android:exported="true" />
         <activity
             android:name=".SearchingView"
             android:exported="true" />
         <activity
             android:name=".bookdetails"
             android:exported="false" />
+        
         <activity
-            android:name=".withdrawmoney"
-            android:exported="true" />
-        <activity
-            android:name=".user"
+            android:name=".authoractivity"
             android:exported="true" />
         <activity
             android:name=".AdminManage"
@@ -48,12 +46,13 @@
             android:name=".login"
             android:exported="true" />
         <activity
-            android:name=".author"
-            android:exported="true" />
-        <activity
             android:name=".WelcomeView"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
