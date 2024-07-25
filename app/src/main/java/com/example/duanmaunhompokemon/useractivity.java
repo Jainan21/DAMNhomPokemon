@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 public class useractivity extends Fragment {
     private TextView txtChangePassword;
@@ -35,6 +36,22 @@ public class useractivity extends Fragment {
         TextView btnRechar = v.findViewById(R.id.tvrechar);
         txtChangePassword = v.findViewById(R.id.change_password);
         txtChangeAccount = v.findViewById(R.id.change_account);
+    private DrawerLayout drawerLayout;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_user);
+
+        TextView btnWithdraw = findViewById(R.id.tvwithd);
+        TextView btnRechar = findViewById(R.id.tvrechar);
+        txtChangePassword = findViewById(R.id.change_password);
+        txtChangeAccount = findViewById(R.id.change_account);
+        drawerLayout = findViewById(R.id.drawer_layout);
+
+
         btnWithdraw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,6 +153,11 @@ public class useractivity extends Fragment {
         });
 
         dialog.show();
+    }
+    public void openDrawer(View view) {
+        if (drawerLayout != null) {
+            drawerLayout.openDrawer(findViewById(R.id.drawer_view));
+        }
     }
 }
 
