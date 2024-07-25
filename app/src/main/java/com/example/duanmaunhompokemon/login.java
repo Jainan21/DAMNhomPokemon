@@ -95,9 +95,9 @@ public class login extends Fragment {
         txtRregister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i =  new Intent((Context) login, RegisterView.class);
+                Intent i =  new Intent(getContext(), RegisterView.class);
                 startActivity(i);
-                finish();
+                getActivity().finish();
             }
         });
         return v;
