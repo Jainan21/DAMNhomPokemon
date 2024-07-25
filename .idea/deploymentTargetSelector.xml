@@ -2,28 +2,19 @@
 <project version="4">
   <component name="deploymentTargetSelector">
     <selectionStates>
-
-      <SelectionState runConfigName="author">
+      <SelectionState runConfigName="app">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="AdminManage">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="BookView">
-
-      <SelectionState runConfigName="BookCaseView">
-
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-07-25T07:36:54.019999300Z">
-          <Target type="DEFAULT_BOOT">
-            <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\ASUS\.android\avd\Pixel_8_Pro_API_30.avd" />
-            </handle>
-          </Target>
-        </DropdownSelection>
-        <DialogSelection />
       </SelectionState>
       <SelectionState runConfigName="ReadingBookView">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="bookdetails">
+      <SelectionState runConfigName="AuthorManager">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
