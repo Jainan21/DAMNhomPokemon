@@ -91,14 +91,6 @@ public class dbHelper extends SQLiteOpenHelper {
                 "foreign key (id_acc) references account(id_acc)" +
                 ")";
 
-        String sql10 = "create table ratings(" +
-                "id_rating integer primary key autoincrement," +
-                "point integer check(point >=1 and point <=5)," +
-                "id_book integer not null," +
-                "id_acc integer not null," +
-                "foreign key (id_book) references book(id_book)," +
-                "foreign key (id_acc) references account(id_acc)" +
-                ")";
 
         db.execSQL(sql1);
         db.execSQL(sql2);
@@ -109,7 +101,6 @@ public class dbHelper extends SQLiteOpenHelper {
         db.execSQL(sql7);
         db.execSQL(sql8);
         db.execSQL(sql9);
-        db.execSQL(sql10);
 
         String insertRole1 = "INSERT INTO role (name) VALUES ('Admin')";
         String insertRole2 = "INSERT INTO role (name) VALUES ('User')";
@@ -170,12 +161,6 @@ public class dbHelper extends SQLiteOpenHelper {
 
         db.execSQL(insertTrade1);
         db.execSQL(insertTrade2);
-
-        String insertRating1 = "INSERT INTO ratings (point, id_book, id_acc) VALUES (5, 1, 2)";
-        String insertRating2 = "INSERT INTO ratings (point, id_book, id_acc) VALUES (4, 2, 3)";
-
-        db.execSQL(insertRating1);
-        db.execSQL(insertRating2);
 
     }
 
