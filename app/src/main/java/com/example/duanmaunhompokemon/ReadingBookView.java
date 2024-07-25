@@ -1,6 +1,5 @@
 package com.example.duanmaunhompokemon;
 
-import static com.example.duanmaunhompokemon.Adapter.HeaderAdapter.setupHeader;
 
 import android.os.Bundle;
 
@@ -16,9 +15,6 @@ public class ReadingBookView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reading_book_view);
-
-        setupHeader(ReadingBookView.this);
-
 
     }
 }
