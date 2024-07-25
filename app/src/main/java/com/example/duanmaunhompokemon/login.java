@@ -97,7 +97,7 @@ public class login extends Fragment {
             public void onClick(View v) {
                 Intent i =  new Intent((Context) login, RegisterView.class);
                 startActivity(i);
-                getActivity().finish();
+                finish();
             }
         });
         return v;
