@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -42,6 +43,7 @@ public class BookView extends BaseActivity {
     RecyclerView lv_Author_Famous;
     ArrayList <Account> listAuthor;
     ArrayList <Book> listBook;
+    dbDAO dao;
     Integer user_id;
     LinearLayoutManager lmanager= new LinearLayoutManager(BookView.this);
 
@@ -58,22 +60,18 @@ public class BookView extends BaseActivity {
         search = findViewById(R.id.iconSearch);
         account = findViewById(R.id.iconAccount);
         menu = findViewById(R.id.iconMenu);
+        lv_Book_Famous = findViewById(R.id.lvBook_Famous);
+        lv_Author_Famous = findViewById(R.id.lvAuthor_Famous);
+        dao= new dbDAO(BookView.this);
+
+        listBook = dao.getBooksOrderedByBought();
 
         hb_layout = findViewById(R.id.hb_view);
         LayoutInflater inf2 = getLayoutInflater();
         hb = inf2.inflate(R.layout.hot_book, null);
         hb_layout.addView(hb);
 
-
-        lv_Book_Famous = findViewById(R.id.lvBook_Famous);
-        listBook = new ArrayList<>();
-        Book a = new Book(1, 1, "Lũ trẻ đường tàu", 1200, "23/10/2023", "Cuốn sách này là 1 cuốn sách rất bình thường", 45000);
-        Book b = new Book(2, 3, "Lũ trẻ đườg tàu", 1200, "22/10/2023", "Cuốn sách này là 1 cuốn0 sách rất bình thường", 400);
-        Book c = new Book(3, 4, "Lũ trẻ đường tu", 1000, "23/10/2024", "Cuốn sách3 này là 1 cuốn sách rất bình thường", 400);
-
-        listBook.add(a);
-        listBook.add(b);
-        listBook.add(c);
+        updateHotBook(listBook.get(0));
 
         adpBook = new BookAdapter(this, listBook);
         lv_Book_Famous.setAdapter(adpBook);
@@ -82,7 +80,6 @@ public class BookView extends BaseActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Book selectedBook = listBook.get(position);
-                dbDAO dao = new dbDAO(BookView.this);
                 boolean check = dao.hasTradeBook(user_id, selectedBook.getId_book());
                 if (check) {
                     Intent intent = new Intent(BookView.this, boughtbook.class);
@@ -96,13 +93,7 @@ public class BookView extends BaseActivity {
             }
         });
 
-
-
-        lv_Author_Famous = findViewById(R.id.lvAuthor_Famous);
-        listAuthor = new ArrayList<>();
-        listAuthor.add(new Account(1, "Tac gia 1", "123", "bl@gmail.com", 2, 100.2));
-        listAuthor.add(new Account(2, "Tac gia 2", "123", "bl@gmail.com", 2, 100.2));
-        listAuthor.add(new Account(3, "Tac gia 3", "123", "bl@gmail.com", 2, 100.2));
+        listAuthor = dao.getAuthorsSortedByBooksPurchased();
 
         adpAuthor = new AuthorAdapter(BookView.this, listAuthor);
         lmanager.setOrientation(RecyclerView.HORIZONTAL);
@@ -112,18 +103,40 @@ public class BookView extends BaseActivity {
         hb_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(BookView.this, bookdetails.class);
-                startActivity(i);
-                finish();
+                Book selectedBook = listBook.get(0);
+                boolean check = dao.hasTradeBook(user_id, selectedBook.getId_book());
+                if (check) {
+                    Intent intent = new Intent(BookView.this, boughtbook.class);
+                    intent.putExtra("id_book", selectedBook.getId_book());
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(BookView.this, bookdetails.class);
+                    intent.putExtra("id_book", selectedBook.getId_book());
+                    startActivity(intent);
+                }
             }
         });
     }
 
-        public void getUserID() {
-            SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
-            Integer userId = sharedPreferences.getInt("user_id", -1);
-            if (userId != -1) {
-                user_id = userId;
-            }
+    public void getUserID() {
+        SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
+        Integer userId = sharedPreferences.getInt("user_id", -1);
+        if (userId != -1) {
+            user_id = userId;
         }
+    }
+
+    private void updateHotBook(Book book) {
+        TextView hb_txtTitle = hb.findViewById(R.id.hb_txtTitle);
+        TextView hb_txtAuthor = hb.findViewById(R.id.hb_txtAuthor);
+        TextView hb_txtContent = hb.findViewById(R.id.hb_txtContent);
+        TextView hb_txtPrice = hb.findViewById(R.id.hb_txtPrice);
+        TextView hb_txtRate = hb.findViewById(R.id.hb_txtRate);
+
+        hb_txtTitle.setText(book.getTitle());
+        hb_txtAuthor.setText("Tác giả: " + dao.getAuthorNameByBookId(book.getId_acc()));
+        hb_txtContent.setText(book.getSum());
+        hb_txtPrice.setText(book.getPrice() + " VND");
+        hb_txtRate.setText("4.5/5");
+    }
 }

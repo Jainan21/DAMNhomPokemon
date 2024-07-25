@@ -432,4 +432,23 @@ public class dbDAO {
         int result = db.update("account", contentValues, "id_acc = ?", new String[]{String.valueOf(accountId)});
         return result > 0;
     }
+
+    public ArrayList<String> getCategoriesByBookId(int bookId){
+        ArrayList<String> categories = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String query = "SELECT c.namecate FROM categories c " +
+                "JOIN bookcate bc ON c.id_cate = bc.id_cate " +
+                "WHERE bc.id_book = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(bookId)});
+
+        if (cursor.moveToFirst()){
+            do{
+                String categoryName = cursor.getString(0);
+                categories.add(categoryName);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return categories;
+    }
 }
