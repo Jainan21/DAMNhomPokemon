@@ -8,11 +8,18 @@
     android:orientation="vertical"
     tools:context=".BookCaseView">
 
+    <include
+        layout="@layout/header3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tlBookCase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabTextColor="@color/white"
+        android:layout_marginTop="5dp"
         android:background="@drawable/btlike"/>
 
     <androidx.viewpager2.widget.ViewPager2
