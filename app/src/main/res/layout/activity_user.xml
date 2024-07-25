@@ -13,45 +13,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingTop="16dp">
-
-        <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:src="@drawable/avata"
-            android:layout_gravity="center_vertical"
-            android:scaleType="centerCrop"
-            android:background="@drawable/circular_image_shape"
-            android:clipToOutline="true"/>
-
-        <!-- Phần header -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/btBack"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Tài khoản"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="15dp" />
-            <ImageView
-                android:id="@+id/btMenu"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:clickable="true"
-                android:src="@drawable/img"
-                android:layout_gravity="end" />
-        </LinearLayout>
-
-        <!-- Thông tin tài khoản -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -111,13 +74,12 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
-
         <!-- Menu tài khoản -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@android:color/holo_purple"
+            android:background="#673AB7"
             android:padding="8dp"
             android:layout_marginTop="16dp">
 
@@ -128,8 +90,8 @@
                 android:padding="8dp"
                 android:clickable="true"
                 android:text="Đổi thông tin tài khoản"
-                android:textColor="@android:color/white"
-                android:background="?attr/selectableItemBackground"
+                android:textColor="@color/white"
+                android:background="#673AB7"
                 android:gravity="center_vertical" />
 
             <TextView
@@ -139,8 +101,8 @@
                 android:padding="8dp"
                 android:clickable="true"
                 android:text="Đổi mật khẩu"
-                android:textColor="@android:color/white"
-                android:background="?attr/selectableItemBackground"
+                android:textColor="@color/white"
+                android:background="#673AB7"
                 android:gravity="center_vertical" />
 
             <TextView
@@ -150,8 +112,8 @@
                 android:padding="8dp"
                 android:clickable="true"
                 android:text="Lịch sử giao dịch"
-                android:textColor="@android:color/white"
-                android:background="?attr/selectableItemBackground"
+                android:textColor="@color/white"
+                android:background="#673AB7"
                 android:gravity="center_vertical"
                 android:onClick="openDrawer" />
 
@@ -162,8 +124,8 @@
                 android:padding="8dp"
                 android:clickable="true"
                 android:text="Nạp tiền"
-                android:textColor="@android:color/white"
-                android:background="?attr/selectableItemBackground"
+                android:textColor="@color/white"
+                android:background="#673AB7"
                 android:gravity="center_vertical" />
 
             <TextView
@@ -173,8 +135,8 @@
                 android:padding="8dp"
                 android:clickable="true"
                 android:text="Rút tiền"
-                android:textColor="@android:color/white"
-                android:background="?attr/selectableItemBackground"
+                android:textColor="@color/white"
+                android:background="#673AB7"
                 android:gravity="center_vertical" />
         </LinearLayout>
 
@@ -184,14 +146,13 @@
             android:text="Đăng xuất"
             android:textColor="@android:color/white"
             android:backgroundTint="#a285ff"
-            android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="16dp" />
+            />
     </LinearLayout>
 
     <!-- Bố cục ngăn kéo (màn hình lịch sử giao dịch) -->
     <LinearLayout
         android:id="@+id/drawer_view"
-        android:layout_width="280dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@android:color/white"

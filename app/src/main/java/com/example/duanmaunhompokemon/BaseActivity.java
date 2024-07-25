@@ -1,13 +1,17 @@
 package com.example.duanmaunhompokemon;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -19,7 +23,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 
-public class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public abstract class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
 
@@ -88,8 +92,13 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         Fragment fragment = null;
         Intent intent = null;
         int id = item.getItemId();
-
-        if (id == R.id.item_account) {
+        if (id == R.id.iconHome) {
+            // If already in MainActivity, no need to navigate again
+            if (!(this instanceof BookView)) {
+                intent = new Intent(this, BookView.class);
+            }
+        }
+        else if (id == R.id.item_account) {
             fragment = new useractivity();
         } else if (id == R.id.item_search) {
             fragment = new SearchingView();
@@ -115,4 +124,5 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
     public void onBackPressed() {
         super.onBackPressed();
     }
+
 }
