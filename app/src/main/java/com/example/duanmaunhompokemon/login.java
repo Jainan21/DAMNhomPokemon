@@ -23,7 +23,7 @@ import com.example.duanmaunhompokemon.Model.Account;
 
 import java.util.ArrayList;
 
-public class login extends Fragment {
+public class login extends AppCompatActivity {
 
     EditText edtUsernameLogin, edtPasswordLogin;
     Button btnLogin;
@@ -35,17 +35,14 @@ public class login extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        db = new dbDAO(getContext());
-    }
+        setContentView(R.layout.login);
+        db = new dbDAO(this);
 
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.login, container, false);
 
-        edtUsernameLogin = v.findViewById(R.id.edtUsernameLogin);
-        edtPasswordLogin = v.findViewById(R.id.edtPasswordLogin);
-        btnLogin = v.findViewById(R.id.btnLogin);
-        txtRregister = v.findViewById(R.id.txtRregister);
+        edtUsernameLogin = findViewById(R.id.edtUsernameLogin);
+        edtPasswordLogin = findViewById(R.id.edtPasswordLogin);
+        btnLogin = findViewById(R.id.btnLogin);
+        txtRregister = findViewById(R.id.txtRregister);
 
         list = db.getAllAccount();
 
@@ -56,9 +53,9 @@ public class login extends Fragment {
                 String p = edtPasswordLogin.getText().toString();
 
                 if(u.isEmpty() || p.isEmpty()){
-                    Toast.makeText(getContext(), "You didn't enter enough information !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login.this, "You didn't enter enough information !!!", Toast.LENGTH_SHORT).show();
                 }else if(list.isEmpty()){
-                    Toast.makeText(getContext()
+                    Toast.makeText(login.this
                             , "You don't have an account !!!", Toast.LENGTH_SHORT).show();
                 }else {
                     boolean check = false;
@@ -67,26 +64,26 @@ public class login extends Fragment {
                             Account a = list.get(i);
                             check = true;
 
-                            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
+                            SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putInt("user_id", a.getId());
                             editor.apply();
 
                             Intent intent;
                             if (a.getId_role() == 2) {
-                                intent = new Intent(getActivity(), BookView.class);
+                                intent = new Intent(login.this, BookView.class);
                             } else if (a.getId_role() == 3) {
-                                intent = new Intent(getActivity(), authoractivity.class);
+                                intent = new Intent(login.this, authoractivity.class);
                             } else {
-                                intent = new Intent(getActivity(), AdminManage.class);
+                                intent = new Intent(login.this, AdminManage.class);
                             }
                             startActivity(intent);
-                            getActivity().finish();
+                            finish();
                             break;
                         }
                     }
                     if(!check){
-                        Toast.makeText(getContext(), "Login failed !!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(login.this, "Login failed !!!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -97,9 +94,8 @@ public class login extends Fragment {
             public void onClick(View v) {
                 Intent i =  new Intent(getContext(), RegisterView.class);
                 startActivity(i);
-                getActivity().finish();
+                finish();
             }
         });
-        return v;
     }
 }

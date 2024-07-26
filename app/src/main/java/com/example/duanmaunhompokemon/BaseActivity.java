@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -63,9 +64,15 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         Toolbar toolbar = findViewById(R.id.header2);
         setSupportActionBar(toolbar);
 
+
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.Nav_bar);
         navigationView.setNavigationItemSelectedListener(this);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
+        toggle.setDrawerIndicatorEnabled(true);
+        toggle.syncState();
+        drawerLayout.addDrawerListener(toggle);
 
         Button menu = findViewById(R.id.btnMenuHd2);
         Button before = findViewById(R.id.btnBeforeHd2);
@@ -103,9 +110,9 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         } else if (id == R.id.item_search) {
             fragment = new SearchingView();
         } else if (id == R.id.item_bookshelf) {
-            fragment = new login();
+            Toast.makeText(this, "Tur sasch cas nhaan", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.item_logout) {
-            fragment = new login();
+            startActivity(new Intent(this, login.class));
         }
 
         if (intent != null) {
@@ -117,6 +124,10 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
             fragmentTransaction.replace(R.id.Frame_menu, fragment);
             fragmentTransaction.commit();
         }
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.Frame_menu, fragment)
+                .commit();
         drawerLayout.closeDrawer(GravityCompat.END);
         return true;
     }
