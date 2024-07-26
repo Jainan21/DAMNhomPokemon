@@ -17,7 +17,7 @@ public class bookdetails extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupActionBarAndBack(R.layout.bookdetails);
+        setupActionBarAndBack(R.layout.bookdetails, "Chi tiet sach");
 
         btBefore = findViewById(R.id.btnBefore);
         btMenu = findViewById(R.id.btnMenu);
@@ -27,7 +27,6 @@ public class bookdetails extends BaseActivity {
         tvAuthorName = findViewById(R.id.txtAuthorName);
         tvContent = findViewById(R.id.txtContent);
         tvGenereContent = findViewById(R.id.txtGenereContent);
-        tvSumTellBook = findViewById(R.id.textSumTellBook);
         tvAssess = findViewById(R.id.txtAssess);
     }
 
