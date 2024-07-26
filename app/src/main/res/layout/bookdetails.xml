@@ -7,179 +7,161 @@
     android:layout_height="match_parent"
     android:background="#ECD8F2">
 
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="#ECD8F2">
-        <androidx.appcompat.widget.Toolbar
+        android:layout_width="360dp"
+        android:layout_height="659dp"
+        android:background="@drawable/round_background"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/header2"
+            layout="@layout/header2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="158dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/corner_register_view"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="107dp"
+                android:layout_height="135dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/nhagiakim" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="177dp"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txtBookName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Nhà giả kim"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/txtAuthorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="Paulo Coelho"
+                    android:textStyle="bold" />
+                <TextView
+                    android:justificationMode="inter_word"
+                    android:id="@+id/txtContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:text="Nội dung cuốn sách xoay quanh câu chuyện cậu bé chăn cừu Santiago và cuộc hành trình đi tìm kho báu của cậu."
+                    android:textColor="#000000"
+                    android:textSize="12sp"
+                    android:textStyle="normal" />
+                <TextView
+                    android:id="@+id/txtPrice"
+                    android:layout_width="209dp"
+                    android:textSize="20sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="18dp"
+                    android:fontFamily="serif"
+                    android:gravity="right"
+                    android:text="135.000VND"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+            <Button
+                android:background="@android:color/transparent"
+                android:id="@+id/txtPurchased"
+                android:layout_width="82dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="55dp"
+                android:text="Đã mua 100k" />
+            <Button
+                android:id="@+id/txtAssess"
+                android:layout_width="84dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="left"
+                android:layout_marginLeft="65dp"
+                android:background="@android:color/transparent"
+                android:text="Đánh giá 4.5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="20dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/txtGenre"
+                android:layout_width="64dp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:text="Thể loại:" />
+            <TextView
+                android:id="@+id/txtGenereContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Truyện ngắn, tiểu thuyết"
+                android:textColor="#A025CB" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtContentBook"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nội dung:" />
+            <TextView
+                android:id="@+id/textView"
+                android:justificationMode="inter_word"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="“Cây Cam Ngọt Của Tôi” là một tác phẩm văn học nổi tiếng của nhà văn Brazil José Mauro de Vasconcelos. Cuốn sách kể về cuộc đời và tuổi thơ của Zezé, một cậu bé thông minh và tinh nghịch sống trong một gia đình nghèo ở Brazil. Zezé kết bạn với một cây cam ngọt và tưởng tượng nó có thể nghe và hiểu mình. Qua câu chuyện, tác giả đã khắc họa sâu sắc những cảm xúc, niềm vui, nỗi buồn và những bài học quý giá mà Zezé trải qua trong cuộc sống."
+                android:textSize="12sp"
+                android:textColor="#000000"
+                android:textStyle="normal" />
+        </LinearLayout>
 
-            android:id="@+id/header2">
-            <ImageView
-                android:id="@+id/menubtn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginRight="20dp"
-                android:layout_gravity="end"
-                android:src="@drawable/menu_icon"/>
-        </androidx.appcompat.widget.Toolbar>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/round_background"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <Button
+                android:id="@+id/btnHeart"
+                android:textColor="#FFFFFF"
+                android:drawableLeft="@drawable/heart"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/corner_register_view"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="107dp"
-                    android:layout_height="135dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/nhagiakim" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="177dp"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/txtBookName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="Nhà giả kim"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:id="@+id/txtAuthorName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="serif"
-                        android:text="Paulo Coelho"
-                        android:textStyle="bold" />
-                    <TextView
-                        android:justificationMode="inter_word"
-                        android:id="@+id/txtContent"
-                        android:layout_width="match_parent"
-                        android:layout_height="64dp"
-                        android:text="Nội dung cuốn sách xoay quanh câu chuyện cậu bé chăn cừu Santiago và cuộc hành trình đi tìm kho báu của cậu."
-                        android:textColor="#000000"
-                        android:textSize="12sp"
-                        android:textStyle="normal" />
-                    <TextView
-                        android:id="@+id/txtPrice"
-                        android:layout_width="209dp"
-                        android:textSize="20sp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="18dp"
-                        android:fontFamily="serif"
-                        android:gravity="right"
-                        android:text="135.000VND"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-                <Button
-                    android:background="@drawable/button_background"
-                    android:id="@+id/txtPurchased"
-                    android:layout_width="82dp"
-                    android:layout_height="match_parent"
-                    android:text="Đã mua 100k" />
-                <Button
-                    android:id="@+id/txtAssess"
-                    android:layout_width="84dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="65dp"
-                    android:background="@drawable/button_background"
-                    android:text="Đánh giá 4.5" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#7373FF"
+                android:text="Yêu thích" />
+            <Button
+                android:id="@+id/btnBuyBook"
+                android:drawableLeft="@drawable/local"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginRight="20dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/txtGenre"
-                    android:layout_width="wrap_content"
-                    android:textStyle="bold"
-                    android:layout_height="wrap_content"
-                    android:text="Thể loại:" />
-                <TextView
-                    android:id="@+id/txtGenereContent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Truyện ngắn, tiểu thuyết"
-                    android:textColor="#A025CB" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
-                <TextView
-                    android:id="@+id/txtContentBook"
-                    android:textStyle="bold"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Nội dung:" />
-                <TextView
-                    android:id="@+id/textView"
-                    android:justificationMode="inter_word"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="“Cây Cam Ngọt Của Tôi” là một tác phẩm văn học nổi tiếng của nhà văn Brazil José Mauro de Vasconcelos. Cuốn sách kể về cuộc đời và tuổi thơ của Zezé, một cậu bé thông minh và tinh nghịch sống trong một gia đình nghèo ở Brazil. Zezé kết bạn với một cây cam ngọt và tưởng tượng nó có thể nghe và hiểu mình. Qua câu chuyện, tác giả đã khắc họa sâu sắc những cảm xúc, niềm vui, nỗi buồn và những bài học quý giá mà Zezé trải qua trong cuộc sống."
-                    android:textSize="12sp"
-                    android:textColor="#000000"
-                    android:textStyle="normal" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="50dp"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="10dp">
-                <Button
-                    android:id="@+id/btnHeart"
-                    android:textColor="#FFFFFF"
-                    android:drawableLeft="@drawable/heart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="30dp"
-                    android:padding="8dp"
-                    android:background="@drawable/corner_button2"
-                    android:backgroundTint="#7373FF"
-                    android:text="Yêu thích" />
-                <Button
-                    android:id="@+id/btnBuyBook"
-                    android:drawableLeft="@drawable/local"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:background="@drawable/button3"
-                    android:text="Mua sách" />
-            </LinearLayout>
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#FFFFFF"
+                android:text="Mua sách" />
         </LinearLayout>
-
     </LinearLayout>
     <FrameLayout
         android:id="@+id/Frame_menu"

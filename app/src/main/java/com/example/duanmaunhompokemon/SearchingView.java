@@ -1,18 +1,11 @@
 package com.example.duanmaunhompokemon;
 
+import static com.example.duanmaunhompokemon.Adapter.HeaderAdapter.setupHeader2;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,31 +14,24 @@ import com.example.duanmaunhompokemon.Model.Book;
 
 import java.util.ArrayList;
 
-public class SearchingView extends Fragment {
+public class SearchingView extends AppCompatActivity {
 
     RecyclerView BookSearchingView;
     ArrayList<Book> listBook;
-    ImageView home;
-    BaseActivity base;
+    SearchingAdapter adpSearching;
+
     @SuppressLint("WrongViewCast")
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_searching_view, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_searching_view);
 
-//        base.setupActionBarAndBack(R.layout.activity_searching_view);
+        setupHeader2(SearchingView.this, "Tìm kiếm");
 
-        BookSearchingView = v.findViewById(R.id.layout_searching);
-        BookSearchingView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+
+        BookSearchingView = findViewById(R.id.layout_searching);
+        BookSearchingView.setLayoutManager(new GridLayoutManager(this, 2));
         BookSearchingView.setHasFixedSize(true);
-
-        home = v.findViewById(R.id.iconHome);
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getContext(), BookView.class);
-
-            }
-        });
 
 
         listBook = new ArrayList<>();
@@ -56,9 +42,7 @@ public class SearchingView extends Fragment {
         listBook.add(new Book(2, "Cây cam ngọt của tôi", 110000,"20/1/2021" , "abc", 20));
         listBook.add(new Book(2, "Bố con cá gai", 90000,"20/1/2021" , "abc", 20));
 
-        SearchingAdapter adp = new SearchingAdapter(this, listBook);
-        BookSearchingView.setAdapter(adp);
-
-        return v;
+        adpSearching = new SearchingAdapter(this, listBook);
+        BookSearchingView.setAdapter(adpSearching);
     }
 }

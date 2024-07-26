@@ -58,21 +58,24 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         });
     }
 
-    protected void setupActionBarAndBack(int layoutResID, String title) {
+    protected void setupActionBarAndBack(int layoutResID) {
         setContentView(layoutResID);
 
         Toolbar toolbar = findViewById(R.id.header2);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(title);
 
 
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.Nav_bar);
         navigationView.setNavigationItemSelectedListener(this);
 
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
+        toggle.setDrawerIndicatorEnabled(true);
+        toggle.syncState();
+        drawerLayout.addDrawerListener(toggle);
 
-        ImageView menu = findViewById(R.id.menubtn);
+        Button menu = findViewById(R.id.btnMenuHd2);
+        Button before = findViewById(R.id.btnBeforeHd2);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +86,12 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
                 }
             }
         });
-
+        before.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     @Override
@@ -123,4 +131,9 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         drawerLayout.closeDrawer(GravityCompat.END);
         return true;
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
 }

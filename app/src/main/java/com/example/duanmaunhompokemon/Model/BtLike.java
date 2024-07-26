@@ -34,13 +34,6 @@ public class BtLike extends Fragment {
         btDelete = v.findViewById(R.id.btDelete);
         btBuy = v.findViewById(R.id.btBuyBook);
 
-        btDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         btBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

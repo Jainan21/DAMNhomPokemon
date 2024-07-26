@@ -1,42 +1,37 @@
 package com.example.duanmaunhompokemon;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-public class useractivity extends Fragment {
+public class useractivity extends AppCompatActivity {
     private TextView txtChangePassword;
     private TextView txtChangeAccount;
     private Dialog dialog;
-    private Object useractivity;
     private DrawerLayout drawerLayout;
-    public useractivity() {
-    }
+
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_user, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_user);
 
-        TextView btnWithdraw = v.findViewById(R.id.tvwithd);
-        TextView btnRechar = v.findViewById(R.id.tvrechar);
-        txtChangePassword = v.findViewById(R.id.change_password);
-        txtChangeAccount = v.findViewById(R.id.change_account);
-
+        TextView btnWithdraw = findViewById(R.id.tvwithd);
+        TextView btnRechar = findViewById(R.id.tvrechar);
+        txtChangePassword = findViewById(R.id.change_password);
+        txtChangeAccount = findViewById(R.id.change_account);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
 
         btnWithdraw.setOnClickListener(new View.OnClickListener() {
@@ -67,11 +62,11 @@ public class useractivity extends Fragment {
                showDialog();
            }
        });
-        return v;
+
     }
 
     private void showWithdrawForm() {
-        AlertDialog.Builder builder = new AlertDialog.Builder((Context) useractivity);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.withdraw_form, null);
         builder.setView(dialogView);
@@ -80,7 +75,7 @@ public class useractivity extends Fragment {
     }
 
     private void showRecharForm() {
-        AlertDialog.Builder builder = new AlertDialog.Builder((Context) useractivity);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.recharge_form, null);
         builder.setView(dialogView);
@@ -88,7 +83,7 @@ public class useractivity extends Fragment {
         alertDialog.show();
     }
     private void showChangePasswordDialog() {
-        dialog = new Dialog((Context) useractivity);
+        dialog = new Dialog(useractivity.this);
         dialog.setContentView(R.layout.dialog_change_password);
         dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
 
@@ -114,7 +109,7 @@ public class useractivity extends Fragment {
     }
 
     private void showDialog() {
-        dialog = new Dialog((Context) useractivity);
+        dialog = new Dialog(useractivity.this);
         dialog.setContentView(R.layout.dialog_update_account);
         dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
 
@@ -130,8 +125,8 @@ public class useractivity extends Fragment {
                 String displayName = etDisplayName.getText().toString();
                 String email = etEmail.getText().toString();
                 // Update the display with new values (you can add your own logic here)
-                TextView txtName = dialog.findViewById(R.id.txtname_acc);
-                TextView txtEmail = dialog.findViewById(R.id.txtemail_acc);
+                TextView txtName = findViewById(R.id.txtname_acc);
+                TextView txtEmail = findViewById(R.id.txtemail_acc);
                 txtName.setText(displayName);
                 txtEmail.setText(email);
 
@@ -143,7 +138,7 @@ public class useractivity extends Fragment {
     }
     public void openDrawer(View view) {
         if (drawerLayout != null) {
-            drawerLayout.openDrawer(view.findViewById(R.id.drawer_view));
+            drawerLayout.openDrawer(findViewById(R.id.drawer_view));
         }
     }
 }

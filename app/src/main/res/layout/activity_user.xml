@@ -1,20 +1,43 @@
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#ffffff"
-    >
-
+    android:layout_height="match_parent">
 
     <!-- Nội dung chính của màn hình -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="16dp">
+        android:padding="16dp">
+
+        <!-- Phần header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/btBack"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tài khoản"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp" />
+            <ImageView
+                android:id="@+id/btMenu"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:clickable="true"
+                android:src="@drawable/img"
+                android:layout_gravity="end" />
+        </LinearLayout>
+
+        <!-- Thông tin tài khoản -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -74,12 +97,13 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
         <!-- Menu tài khoản -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="#673AB7"
+            android:background="@android:color/holo_purple"
             android:padding="8dp"
             android:layout_marginTop="16dp">
 
@@ -90,8 +114,8 @@
                 android:padding="8dp"
                 android:clickable="true"
                 android:text="Đổi thông tin tài khoản"
-                android:textColor="@color/white"
-                android:background="#673AB7"
+                android:textColor="@android:color/white"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center_vertical" />
 
             <TextView
@@ -101,8 +125,8 @@
                 android:padding="8dp"
                 android:clickable="true"
                 android:text="Đổi mật khẩu"
-                android:textColor="@color/white"
-                android:background="#673AB7"
+                android:textColor="@android:color/white"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center_vertical" />
 
             <TextView
@@ -112,8 +136,8 @@
                 android:padding="8dp"
                 android:clickable="true"
                 android:text="Lịch sử giao dịch"
-                android:textColor="@color/white"
-                android:background="#673AB7"
+                android:textColor="@android:color/white"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center_vertical"
                 android:onClick="openDrawer" />
 
@@ -124,8 +148,8 @@
                 android:padding="8dp"
                 android:clickable="true"
                 android:text="Nạp tiền"
-                android:textColor="@color/white"
-                android:background="#673AB7"
+                android:textColor="@android:color/white"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center_vertical" />
 
             <TextView
@@ -135,8 +159,8 @@
                 android:padding="8dp"
                 android:clickable="true"
                 android:text="Rút tiền"
-                android:textColor="@color/white"
-                android:background="#673AB7"
+                android:textColor="@android:color/white"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center_vertical" />
         </LinearLayout>
 
@@ -146,13 +170,14 @@
             android:text="Đăng xuất"
             android:textColor="@android:color/white"
             android:backgroundTint="#a285ff"
-            />
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="16dp" />
     </LinearLayout>
 
     <!-- Bố cục ngăn kéo (màn hình lịch sử giao dịch) -->
     <LinearLayout
         android:id="@+id/drawer_view"
-        android:layout_width="match_parent"
+        android:layout_width="280dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@android:color/white"
