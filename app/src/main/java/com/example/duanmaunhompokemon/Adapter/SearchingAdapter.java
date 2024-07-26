@@ -25,12 +25,11 @@ import java.util.ArrayList;
 
 public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.SearchingViewHolder> {
 
-    private Context c;
     private ArrayList<Book> listBook;
     SearchingView a;
 
-    public SearchingAdapter(Context c, ArrayList<Book> listBook) {
-        this.c = c;
+    public SearchingAdapter(SearchingView a, ArrayList<Book> listBook) {
+        this.a = a;
         this.listBook = listBook;
     }
 

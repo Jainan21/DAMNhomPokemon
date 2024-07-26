@@ -99,7 +99,7 @@
                 android:layout_margin="10dp"
                 android:gravity="center"
                 android:justificationMode="inter_word"
-                android:text="@string/story_text"
+                android:text="apolygjff"
                 android:textColor="#000000"
                 android:textSize="15dp"
                 tools:ignore="TextSizeCheck"/>
