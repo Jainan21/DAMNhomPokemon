@@ -33,6 +33,8 @@ public class SearchingView extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_searching_view, container, false);
 
+
+
         BookSearchingView = v.findViewById(R.id.layout_searching);
         BookSearchingView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         BookSearchingView.setHasFixedSize(true);
@@ -46,7 +48,7 @@ public class SearchingView extends Fragment {
         listBook.add(new Book(2, "Cây cam ngọt của tôi", 110000,"20/1/2021" , "abc", 20));
         listBook.add(new Book(2, "Bố con cá gai", 90000,"20/1/2021" , "abc", 20));
 
-        adpSearching = new SearchingAdapter(getContext(), listBook);
+        adpSearching = new SearchingAdapter(this, listBook);
         BookSearchingView.setAdapter(adpSearching);
 
         return v;

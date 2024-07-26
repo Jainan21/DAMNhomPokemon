@@ -38,8 +38,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
     protected void setupActionBarAndDrawer(int layoutResID) {
         setContentView(layoutResID);
 
-        Toolbar toolbar = findViewById(R.id.header);
-        setSupportActionBar(toolbar);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.Nav_bar);
@@ -58,7 +56,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         });
     }
 
-    protected void setupActionBarAndBack(int layoutResID, String title) {
+    public void setupActionBarAndBack(int layoutResID, String title) {
         setContentView(layoutResID);
 
         Toolbar toolbar = findViewById(R.id.header2);
@@ -72,8 +70,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        Button menu = findViewById(R.id.btnMenuHd2);
-        Button before = findViewById(R.id.btnBeforeHd2);
+        ImageView menu = findViewById(R.id.menubtn);
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,12 +79,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
                 } else {
                     drawerLayout.openDrawer(GravityCompat.END);
                 }
-            }
-        });
-        before.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
             }
         });
     }
@@ -105,7 +96,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         }
         else if (id == R.id.item_account) {
             Toast.makeText(this, "Quan ly nguoi doc", Toast.LENGTH_SHORT).show();
-
         } else if (id == R.id.item_search) {
             fragment = new SearchingView();
         } else if (id == R.id.item_bookshelf) {
