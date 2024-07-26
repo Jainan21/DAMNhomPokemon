@@ -58,21 +58,19 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         });
     }
 
-    protected void setupActionBarAndBack(int layoutResID) {
+    protected void setupActionBarAndBack(int layoutResID, String title) {
         setContentView(layoutResID);
 
         Toolbar toolbar = findViewById(R.id.header2);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(title);
 
 
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.Nav_bar);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
-        toggle.setDrawerIndicatorEnabled(true);
-        toggle.syncState();
-        drawerLayout.addDrawerListener(toggle);
 
         Button menu = findViewById(R.id.btnMenuHd2);
         Button before = findViewById(R.id.btnBeforeHd2);
@@ -106,7 +104,8 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
             }
         }
         else if (id == R.id.item_account) {
-            fragment = new useractivity();
+            Toast.makeText(this, "Quan ly nguoi doc", Toast.LENGTH_SHORT).show();
+
         } else if (id == R.id.item_search) {
             fragment = new SearchingView();
         } else if (id == R.id.item_bookshelf) {
@@ -130,10 +129,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
                 .commit();
         drawerLayout.closeDrawer(GravityCompat.END);
         return true;
-    }
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 
 }

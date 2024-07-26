@@ -27,7 +27,6 @@ public class bookdetails extends BaseActivity {
         tvAuthorName = findViewById(R.id.txtAuthorName);
         tvContent = findViewById(R.id.txtContent);
         tvGenereContent = findViewById(R.id.txtGenereContent);
-        tvSumTellBook = findViewById(R.id.textSumTellBook);
         tvAssess = findViewById(R.id.txtAssess);
     }
 
