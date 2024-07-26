@@ -19,6 +19,7 @@ public class bookdetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bookdetails);
+        setupActionBarAndBack(R.layout.bookdetails, "Chi tiet sach");
 
         btBefore = findViewById(R.id.btnBefore);
         btMenu = findViewById(R.id.btnMenu);
@@ -28,7 +29,6 @@ public class bookdetails extends AppCompatActivity {
         tvAuthorName = findViewById(R.id.txtAuthorName);
         tvContent = findViewById(R.id.txtContent);
         tvGenereContent = findViewById(R.id.txtGenereContent);
-        tvSumTellBook = findViewById(R.id.textSumTellBook);
         tvAssess = findViewById(R.id.txtAssess);
     }
 

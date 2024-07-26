@@ -24,6 +24,8 @@
         <activity
             android:name=".boughtbook"
             android:exported="true" />
+            android:name=".BaseActivity"
+            android:exported="false" />
         <activity
             android:name=".ReadingBookView"
             android:exported="true" />
@@ -32,6 +34,10 @@
             android:exported="true" />
         <activity
             android:name=".SearchingView"
+            android:exported="true" />
+        <activity
+            android:name=".bookdetails"
+            android:parentActivityName=".BookView"
             android:exported="true" />
         <activity
             android:name=".authoractivity"
