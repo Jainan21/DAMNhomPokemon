@@ -14,7 +14,7 @@ import com.example.duanmaunhompokemon.Adapter.BookCaseAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class BookCaseView extends AppCompatActivity {
+public class BookCaseView extends BaseActivity {
     ViewPager2 vpBookCase;
     TabLayout tlBookCase;
     String mang[] = new String[]{"Yêu thích", "Đã mua"};
@@ -22,14 +22,8 @@ public class BookCaseView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_book_case_view);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
+        setupActionBarAndBack(R.layout.activity_book_case_view, "Tu sach");
         vpBookCase = findViewById(R.id.vpBookCase);
         tlBookCase = findViewById(R.id.tlBookCase);
 

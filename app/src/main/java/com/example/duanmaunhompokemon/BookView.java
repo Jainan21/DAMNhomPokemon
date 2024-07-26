@@ -45,11 +45,7 @@ public class BookView extends BaseActivity {
 
         getUserID();
 
-        ImageView home, search, account, menu;
-        home = findViewById(R.id.iconHome);
-        search = findViewById(R.id.iconSearch);
-        account = findViewById(R.id.iconAccount);
-        menu = findViewById(R.id.iconMenu);
+
         lv_Book_Famous = findViewById(R.id.lvBook_Famous);
         lv_Author_Famous = findViewById(R.id.lvAuthor_Famous);
         dao= new dbDAO(BookView.this);

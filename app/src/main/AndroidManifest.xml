@@ -26,7 +26,8 @@
             android:exported="true" />
         <activity
             android:name=".bookdetails"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".BookView"/>
         <activity
             android:name=".authoractivity"
             android:exported="true" />
@@ -42,6 +43,12 @@
         <activity
             android:name=".login"
             android:exported="true" />
+        <activity
+            android:name=".boughtbook"
+            android:exported="true" />
+        <activity
+            android:name=".BookCaseView"
+            android:exported="true"/>
         <activity
             android:name=".WelcomeView"
             android:exported="true">
