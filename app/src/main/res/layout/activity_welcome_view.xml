@@ -10,16 +10,9 @@
     android:orientation="vertical"
     tools:context=".WelcomeView">
 
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_gravity="center"
-            android:src="@drawable/logo_app"/>
-    </FrameLayout>
+        android:layout_height="300dp"
+        android:src="@drawable/logo_app"/>
 
 </LinearLayout>
