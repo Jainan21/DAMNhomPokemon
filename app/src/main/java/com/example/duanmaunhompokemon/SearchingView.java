@@ -42,7 +42,7 @@ public class SearchingView extends Fragment {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), BookView.class);
+                Intent i = new Intent(getContext(), BookView.class);
 
             }
         });
