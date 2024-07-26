@@ -25,9 +25,6 @@
             android:name=".boughtbook"
             android:exported="true" />
         <activity
-            android:name=".BaseActivity"
-            android:exported="true" />
-        <activity
             android:name=".ReadingBookView"
             android:exported="true" />
         <activity

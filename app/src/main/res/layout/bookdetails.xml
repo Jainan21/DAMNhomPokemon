@@ -220,10 +220,11 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#7373FF"
+                    android:padding="5dp"
                     android:drawableLeft="@drawable/heart"
+                    android:background="@drawable/button3"
                     android:text="Yêu thích"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <Button
@@ -233,7 +234,8 @@
                     android:layout_marginLeft="50dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#FFFFFF"
+                    android:padding="5dp"
+                    android:background="@drawable/button3"
                     android:drawableLeft="@drawable/local"
                     android:text="Mua sách"
                     tools:ignore="TouchTargetSizeCheck" />

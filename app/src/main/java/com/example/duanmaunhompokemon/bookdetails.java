@@ -1,5 +1,6 @@
 package com.example.duanmaunhompokemon;
 
+import android.content.ContentValues;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,14 +11,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class bookdetails extends BaseActivity {
+public class bookdetails extends AppCompatActivity {
 
     Button btBefore, btMenu, btLike, btByBook, btPurchased;
     TextView tvIdBookName, tvAuthorName, tvContent, tvGenereContent, tvSumTellBook, tvAssess;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupActionBarAndBack(R.layout.bookdetails);
+        setContentView(R.layout.bookdetails);
 
         btBefore = findViewById(R.id.btnBefore);
         btMenu = findViewById(R.id.btnMenu);
