@@ -10,19 +10,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class AdminManage extends AppCompatActivity {
+public class AdminManage extends BaseActivity {
     Button btNguoiDung, btAuthor, btTheLoai, btMoney;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_admin_manage);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        setupActionBarAndDrawer(R.layout.activity_admin_manage);
 
         btNguoiDung = findViewById(R.id.btNguoiDung);
         btAuthor = findViewById(R.id.btAuthor);
