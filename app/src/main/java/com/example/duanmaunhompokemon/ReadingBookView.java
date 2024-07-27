@@ -9,12 +9,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class ReadingBookView extends AppCompatActivity {
+public class ReadingBookView extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reading_book_view);
+        setupActionBarAndDrawer(R.layout.activity_reading_book_view);
 
     }
 }
