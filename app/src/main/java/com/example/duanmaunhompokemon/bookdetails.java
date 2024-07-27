@@ -1,5 +1,6 @@
 package com.example.duanmaunhompokemon;
 
+import android.content.ContentValues;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ public class bookdetails extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupActionBarAndBack(R.layout.bookdetails, "Chi tiết sách");
+
 
         btBefore = findViewById(R.id.btnBefore);
         btMenu = findViewById(R.id.btnMenu);
