@@ -21,7 +21,7 @@ public class bookdetails extends BaseActivity {
 
         btBefore = findViewById(R.id.btnBefore);
         btMenu = findViewById(R.id.btnMenu);
-        btLike = findViewById(R.id.btnHeart);
+        btLike = findViewById(R.id.btnFavorite);
         btByBook = findViewById(R.id.btnBuyBook);
         tvIdBookName = findViewById(R.id.txtBookName);
         tvAuthorName = findViewById(R.id.txtAuthorName);
