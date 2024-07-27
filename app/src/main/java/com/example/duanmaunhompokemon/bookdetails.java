@@ -17,7 +17,7 @@ public class bookdetails extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupActionBarAndBack(R.layout.bookdetails, "Chi tiet sach");
+        setupActionBarAndBack(R.layout.bookdetails, "Chi tiết sách");
 
         btBefore = findViewById(R.id.btnBefore);
         btMenu = findViewById(R.id.btnMenu);

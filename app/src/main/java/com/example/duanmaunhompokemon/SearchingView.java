@@ -35,6 +35,9 @@ public class SearchingView extends BaseActivity {
         super.onCreate(savedInstanceState);
         setupActionBarAndBack(R.layout.activity_searching_view, "Tìm kiếm");
 
+        BookSearchingView = v.findViewById(R.id.layout_searching);
+        BookSearchingView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        BookSearchingView.setHasFixedSize(true);
 
 
         BookSearchingView = findViewById(R.id.layout_searching);
