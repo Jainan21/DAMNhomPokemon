@@ -85,6 +85,16 @@ public class BookView extends BaseActivity {
         lv_Author_Famous.setLayoutManager(lmanager);
         lv_Author_Famous.setAdapter(adpAuthor);
 
+        adpAuthor.setOnItemClickListener(new AuthorAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Account selectAcc = listAuthor.get(position);
+                Intent intent = new Intent(BookView.this, authoractivity.class);
+                intent.putExtra("author_id", selectAcc.getId());
+                startActivity(intent);
+            }
+        });
+
         hb_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,7 +131,7 @@ public class BookView extends BaseActivity {
         hb_txtTitle.setText(book.getTitle());
         hb_txtAuthor.setText("Tác giả: " + dao.getAuthorNameByBookId(book.getId_acc()));
         hb_txtContent.setText(book.getSum());
-        hb_txtPrice.setText(book.getPrice() + " VND");
+        hb_txtPrice.setText(book.getPrice() + ".000 VND");
         hb_txtRate.setText("4.5/5");
     }
 }
