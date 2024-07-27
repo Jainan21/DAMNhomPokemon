@@ -97,13 +97,12 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         else if (id == R.id.item_account) {
             Toast.makeText(this, "Quan ly nguoi doc", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.item_search) {
-            fragment = new SearchingView();
+            startActivity(new Intent(this, SearchingView.class));
         } else if (id == R.id.item_bookshelf) {
             Toast.makeText(this, "Tur sasch cas nhaan", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.item_logout) {
             startActivity(new Intent(this, login.class));
         }
-
         if (intent != null) {
             startActivity(intent);
             finish();

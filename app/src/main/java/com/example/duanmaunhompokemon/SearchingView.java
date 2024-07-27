@@ -3,6 +3,7 @@ package com.example.duanmaunhompokemon;
 import static com.example.duanmaunhompokemon.Adapter.HeaderAdapter.setupHeader2;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +21,7 @@ import com.example.duanmaunhompokemon.Model.Book;
 
 import java.util.ArrayList;
 
-public class SearchingView extends Fragment {
+public class SearchingView extends BaseActivity {
 
     RecyclerView BookSearchingView;
     ArrayList<Book> listBook;
@@ -30,15 +31,15 @@ public class SearchingView extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_searching_view, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setupActionBarAndBack(R.layout.activity_searching_view, "Tìm kiếm");
 
 
 
-        BookSearchingView = v.findViewById(R.id.layout_searching);
-        BookSearchingView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        BookSearchingView = findViewById(R.id.layout_searching);
+        BookSearchingView.setLayoutManager(new GridLayoutManager(this, 2));
         BookSearchingView.setHasFixedSize(true);
-
 
         listBook = new ArrayList<>();
         listBook.add(new Book(1, "Chú chó ngậm giỏ hoa hồng", 150000,"20/1/2021" , "abc", 20));
@@ -51,7 +52,13 @@ public class SearchingView extends Fragment {
         adpSearching = new SearchingAdapter(this, listBook);
         BookSearchingView.setAdapter(adpSearching);
 
-        return v;
     }
 
+    public boolean onSupportNavigateUp() {
+        // Handle the toolbar back button click event
+        Intent intent = new Intent(SearchingView.this, BookView.class);
+        startActivity(intent);
+        finish();
+        return true;
+    }
 }
