@@ -19,11 +19,9 @@
             android:name=".BookCaseView"
             android:exported="true" />
         <activity
-            android:name=".bookdetails"
-            android:exported="true" />
-        <activity
             android:name=".boughtbook"
             android:exported="true" />
+        <activity
             android:name=".BaseActivity"
             android:exported="false" />
         <activity
@@ -55,12 +53,6 @@
         <activity
             android:name=".login"
             android:exported="true" />
-        <activity
-            android:name=".BookCaseView"
-            android:exported="true"/>
-        <activity
-            android:name=".boughtbook"
-            android:exported="true"/>
         <activity
             android:name=".WelcomeView"
             android:exported="true">
