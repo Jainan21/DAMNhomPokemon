@@ -44,9 +44,7 @@ public class BookView extends BaseActivity {
         setupActionBarAndDrawer(R.layout.activity_book_view);
 
         getUserID();
-
-        ImageView home, search, account, menu;
-
+      
         lv_Book_Famous = findViewById(R.id.lvBook_Famous);
         lv_Author_Famous = findViewById(R.id.lvAuthor_Famous);
         dao= new dbDAO(BookView.this);

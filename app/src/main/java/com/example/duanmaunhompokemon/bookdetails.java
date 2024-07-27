@@ -11,15 +11,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class bookdetails extends AppCompatActivity {
+public class bookdetails extends BaseActivity {
 
     Button btBefore, btMenu, btLike, btByBook, btPurchased;
     TextView tvIdBookName, tvAuthorName, tvContent, tvGenereContent, tvSumTellBook, tvAssess;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.bookdetails);
-        setupActionBarAndBack(R.layout.bookdetails, "Chi tiet sach");
+        setupActionBarAndBack(R.layout.bookdetails, "Chi tiết sách");
+
 
         btBefore = findViewById(R.id.btnBefore);
         btMenu = findViewById(R.id.btnMenu);

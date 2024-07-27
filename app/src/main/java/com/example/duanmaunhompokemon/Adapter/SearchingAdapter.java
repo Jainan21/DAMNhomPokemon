@@ -52,7 +52,7 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Sear
         holder.btnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                a.startActivity(new Intent(a.getContext(), bookdetails.class));
+                a.startActivity(new Intent(a, bookdetails.class));
             }
         });
     }

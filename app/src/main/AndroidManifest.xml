@@ -34,6 +34,7 @@
             android:exported="true" />
         <activity
             android:name=".SearchingView"
+            android:parentActivityName=".BookView"
             android:exported="true" />
         <activity
             android:name=".bookdetails"
@@ -54,6 +55,12 @@
         <activity
             android:name=".login"
             android:exported="true" />
+        <activity
+            android:name=".BookCaseView"
+            android:exported="true"/>
+        <activity
+            android:name=".boughtbook"
+            android:exported="true"/>
         <activity
             android:name=".WelcomeView"
             android:exported="true">
