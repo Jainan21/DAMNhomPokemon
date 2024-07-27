@@ -1,12 +1,22 @@
 package com.example.duanmaunhompokemon;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.duanmaunhompokemon.DAO.dbDAO;
+import com.example.duanmaunhompokemon.Model.Book;
+
 public class boughtbook extends BaseActivity {
     Button btBefore, btMenu, btReadBook;
+    dbDAO dao = new dbDAO(boughtbook.this);
+    Integer id_book;
+    Book book;
+    Integer user_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,5 +25,23 @@ public class boughtbook extends BaseActivity {
         btBefore = findViewById(R.id.btnBefore);
         btMenu = findViewById(R.id.btnMenu);
         btReadBook = findViewById(R.id.btnReadBook);
+
+        getUserID();
+
+        Intent intent = getIntent();
+        id_book = intent.getIntExtra("id_book", -1);
+        book = dao.getBookById(id_book);
+        boolean purchaseSuccess = intent.getBooleanExtra("purchase_success", false);
+        if (purchaseSuccess) {
+            Toast.makeText(this, "Thanh toán thành công!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void getUserID() {
+        SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
+        Integer userId = sharedPreferences.getInt("user_id", -1);
+        if (userId != -1) {
+            user_id = userId;
+        }
     }
 }
