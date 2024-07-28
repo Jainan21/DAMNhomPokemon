@@ -19,8 +19,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duanmaunhompokemon.Adapter.AuthorAdapter;
 import com.example.duanmaunhompokemon.Adapter.SearchingAdapter;
 import com.example.duanmaunhompokemon.DAO.dbDAO;
+import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.Book;
 
 import java.util.ArrayList;
@@ -33,6 +35,8 @@ public class SearchingView extends BaseActivity {
     SearchingAdapter adpSearching;
     ImageView btnSearch;
     dbDAO dao;
+
+
     @SuppressLint("WrongViewCast")
 
     @Nullable
@@ -43,7 +47,7 @@ public class SearchingView extends BaseActivity {
 
         btnSearch = findViewById(R.id.btnSearch);
         txtTitle = findViewById(R.id.search_txtTitle);
-        
+
         BookSearchingView = findViewById(R.id.layout_searching);
         BookSearchingView.setLayoutManager(new GridLayoutManager(this, 2));
         BookSearchingView.setHasFixedSize(true);
@@ -53,22 +57,31 @@ public class SearchingView extends BaseActivity {
         listBook = dao.getBooksOrderedByBought();
         adpSearching = new SearchingAdapter(this, listBook);
         BookSearchingView.setAdapter(adpSearching);
-        
+
+        adpSearching.setOnItemClickListener(new SearchingAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Book selectBook = listBook.get(position);
+                Intent intent = new Intent(SearchingView.this, bookdetails.class);
+                intent.putExtra("id_book", selectBook.getId_book());
+                startActivity(intent);
+            }
+        });
+
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listBook= new ArrayList<>();
+                listBook = new ArrayList<>();
                 listBook = dao.searchBookByTitle(txtTitle.getText().toString());
-                if(listBook.isEmpty())
-                    {
-                        Toast.makeText(SearchingView.this, "Không có sách cần tìm", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        adpSearching = new SearchingAdapter(SearchingView.this, listBook);
-                        BookSearchingView.setAdapter(adpSearching);
+                if (listBook.isEmpty()) {
+                    Toast.makeText(SearchingView.this, "Không có sách cần tìm", Toast.LENGTH_SHORT).show();
+                } else {
+                    adpSearching = new SearchingAdapter(SearchingView.this, listBook);
+                    BookSearchingView.setAdapter(adpSearching);
                 }
             }
         });
+
 
     }
 

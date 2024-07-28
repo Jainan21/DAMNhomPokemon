@@ -1,6 +1,7 @@
 package com.example.duanmaunhompokemon;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,12 +27,6 @@ import com.example.duanmaunhompokemon.Model.Trade;
 
 import java.util.ArrayList;
 
-
-public class useractivity extends AppCompatActivity {
-    private TextView txtChangePassword, txtname_acc, txtemail_acc, txtBudget_acc;
-
-
-
 public class useractivity extends BaseActivity {
     private TextView txtChangePassword;
 
@@ -52,7 +47,6 @@ public class useractivity extends BaseActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_user);
         setupActionBarAndBack(R.layout.activity_user, "Người dùng");
-
 
         TextView btnWithdraw = findViewById(R.id.tvwithd);
         TextView btnRechar = findViewById(R.id.tvrechar);
