@@ -115,11 +115,11 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
             }
         }
         else if (id == R.id.item_account) {
-            Toast.makeText(this, "Quan ly nguoi doc", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, useractivity.class));
         } else if (id == R.id.item_search) {
             startActivity(new Intent(this, SearchingView.class));
         } else if (id == R.id.item_bookshelf) {
-            Toast.makeText(this, "Tur sasch cas nhaan", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, BookCaseView.class));
         } else if (id == R.id.item_logout) {
             startActivity(new Intent(this, login.class));
         }
