@@ -17,6 +17,7 @@
             android:exported="true" />
         <activity
             android:name=".BookCaseView"
+            android:parentActivityName=".BookView"
             android:exported="true" />
         <activity
             android:name=".boughtbook"
@@ -29,6 +30,7 @@
             android:exported="true" />
         <activity
             android:name=".useractivity"
+            android:parentActivityName=".BookView"
             android:exported="true" />
         <activity
             android:name=".SearchingView"
