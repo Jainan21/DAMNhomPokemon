@@ -24,6 +24,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Objects;
+
 public abstract class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
@@ -61,7 +63,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
 
         Toolbar toolbar = findViewById(R.id.header2);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(title);
 
 
@@ -95,27 +97,18 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
             }
         }
         else if (id == R.id.item_account) {
-            Toast.makeText(this, "Quan ly nguoi doc", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, useractivity.class));
         } else if (id == R.id.item_search) {
             startActivity(new Intent(this, SearchingView.class));
         } else if (id == R.id.item_bookshelf) {
-            Toast.makeText(this, "Tur sasch cas nhaan", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, BookCaseView.class));
         } else if (id == R.id.item_logout) {
             startActivity(new Intent(this, login.class));
         }
         if (intent != null) {
             startActivity(intent);
             finish();
-        } else if (fragment != null) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.Frame_menu, fragment);
-            fragmentTransaction.commit();
         }
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.Frame_menu, fragment)
-                .commit();
         drawerLayout.closeDrawer(GravityCompat.END);
         return true;
     }
