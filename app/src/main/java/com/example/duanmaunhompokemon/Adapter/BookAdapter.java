@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.duanmaunhompokemon.BookView;
+import com.example.duanmaunhompokemon.DAO.dbDAO;
 import com.example.duanmaunhompokemon.Model.Book;
 import com.example.duanmaunhompokemon.R;
 
@@ -44,6 +45,7 @@ public class BookAdapter extends BaseAdapter {
     public View getView(int i, View view, ViewGroup parent) {
         LayoutInflater inf = ((BookView)c).getLayoutInflater();
         view = inf.inflate(R.layout.spinner_book, null);
+        dbDAO dbDAO = new dbDAO(c);
 
         TextView sp_txtTitle = view.findViewById(R.id.spin_txtTitle);
         TextView sp_txtAuthor = view.findViewById(R.id.spin_txtAuthor);
@@ -51,8 +53,8 @@ public class BookAdapter extends BaseAdapter {
         TextView sp_txtRate = view.findViewById(R.id.spin_txtRate);
 
         sp_txtTitle.setText(list.get(i).getTitle());
-        sp_txtAuthor.setText(String.valueOf(list.get(i).getId_acc()));
-        sp_txtPrice.setText(String.valueOf(list.get(i).getPrice()));
+        sp_txtAuthor.setText(dbDAO.getAuthorNameByBookId(list.get(i).getId_book()));
+        sp_txtPrice.setText(String.valueOf(list.get(i).getPrice()) + ".000 VND");
         sp_txtRate.setText(String.valueOf(list.get(i).getBought()));
 
         return view;
