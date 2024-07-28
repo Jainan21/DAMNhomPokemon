@@ -1,6 +1,10 @@
 package com.example.duanmaunhompokemon;
 
 import android.app.Dialog;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +18,22 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.duanmaunhompokemon.Adapter.TradeAdapter;
+import com.example.duanmaunhompokemon.DAO.dbDAO;
+import com.example.duanmaunhompokemon.Model.Account;
+import com.example.duanmaunhompokemon.Model.AddDraw;
+import com.example.duanmaunhompokemon.Model.Trade;
+
+import java.util.ArrayList;
+
+public class useractivity extends BaseActivity {
+
+
 public class useractivity extends AppCompatActivity {
+
     private TextView txtChangePassword;
     private TextView txtChangeAccount;
     private Dialog dialog;
@@ -26,6 +45,9 @@ public class useractivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_user);
+
+        setupActionBarAndBack(R.layout.activity_user, "Người dùng");
+
 
         TextView btnWithdraw = findViewById(R.id.tvwithd);
         TextView btnRechar = findViewById(R.id.tvrechar);

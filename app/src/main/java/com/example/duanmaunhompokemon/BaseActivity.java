@@ -106,16 +106,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         if (intent != null) {
             startActivity(intent);
             finish();
-        } else if (fragment != null) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.Frame_menu, fragment);
-            fragmentTransaction.commit();
         }
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.Frame_menu, fragment)
-                .commit();
         drawerLayout.closeDrawer(GravityCompat.END);
         return true;
     }
