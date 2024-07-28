@@ -1,10 +1,10 @@
 package com.example.duanmaunhompokemon.Model;
 
 public class Categories {
-    private String id;
+    private Integer id;
     private String name;
 
-    public Categories(String id, String name) {
+    public Categories(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -13,11 +13,11 @@ public class Categories {
         this.name = name;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

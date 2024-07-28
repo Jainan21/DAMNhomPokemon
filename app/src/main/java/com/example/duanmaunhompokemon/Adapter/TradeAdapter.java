@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duanmaunhompokemon.DAO.dbDAO;
-import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.Book;
 import com.example.duanmaunhompokemon.Model.Trade;
 import com.example.duanmaunhompokemon.R;
@@ -19,19 +18,16 @@ import java.util.ArrayList;
 
 public class TradeAdapter extends RecyclerView.Adapter<TradeAdapter.TradeViewHolder> {
 
-    private Context c;
+    private Context context;
     private ArrayList<Trade> listTrade;
-    private AuthorAdapter.OnItemClickListener listener;
-    dbDAO dao = new dbDAO(c);
+    private dbDAO dao;
 
-    public interface OnItemClickListener {
-        void onItemClick(int position);
+    public TradeAdapter(Context context, ArrayList<Trade> listTrade) {
+        this.context = context;
+        this.listTrade = listTrade;
+        this.dao = new dbDAO(context); // Khởi tạo dao sau khi context được gán giá trị
     }
 
-    public TradeAdapter(Context c, ArrayList<Trade> listAuthor) {
-        this.c = c;
-        this.listTrade = listAuthor;
-    }
     @NonNull
     @Override
     public TradeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -45,7 +41,7 @@ public class TradeAdapter extends RecyclerView.Adapter<TradeAdapter.TradeViewHol
         Book book = dao.getBookById(trade.getId_book());
         holder.tvTitle.setText(book.getTitle());
         holder.tvAuthor.setText(dao.getAuthorNameByBookId(book.getId_book()));
-        holder.tvAmount.setText(trade.getPrice_trade() + "00 VND");
+        holder.tvAmount.setText(trade.getPrice_trade() + ".000 VND");
         holder.tvDate.setText(trade.getDate_trade());
     }
 
@@ -55,7 +51,7 @@ public class TradeAdapter extends RecyclerView.Adapter<TradeAdapter.TradeViewHol
     }
 
     public static class TradeViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTitle, tvAuthor, tvAmount, tvDate, tvVat;
+        TextView tvTitle, tvAuthor, tvAmount, tvDate;
 
         public TradeViewHolder(@NonNull View itemView) {
             super(itemView);

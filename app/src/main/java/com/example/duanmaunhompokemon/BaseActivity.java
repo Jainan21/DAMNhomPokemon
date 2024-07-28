@@ -106,6 +106,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment fragment = null;
         Intent intent = null;
         int id = item.getItemId();
         if (id == R.id.iconHome) {

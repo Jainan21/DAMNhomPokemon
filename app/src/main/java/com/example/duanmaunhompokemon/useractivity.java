@@ -1,6 +1,7 @@
 package com.example.duanmaunhompokemon;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,14 +28,9 @@ import com.example.duanmaunhompokemon.Model.Trade;
 import java.util.ArrayList;
 
 
-public class useractivity extends AppCompatActivity {
-    private TextView txtChangePassword, txtname_acc, txtemail_acc, txtBudget_acc;
-
-
 
 public class useractivity extends BaseActivity {
     private TextView txtChangePassword;
-
     private TextView txtChangeAccount;
     RecyclerView lvTrade;
     private Dialog dialog;
@@ -68,6 +64,7 @@ public class useractivity extends BaseActivity {
         loadAccount();
 
         listTrade = dao.getTradesByUserId(user_id);
+        lvTrade.setLayoutManager(new LinearLayoutManager(this));
         TradeAdapter tradeAdapter = new TradeAdapter(useractivity.this, listTrade);
         lvTrade.setAdapter(tradeAdapter);
 
@@ -295,4 +292,3 @@ public class useractivity extends BaseActivity {
 
     }
 }
-

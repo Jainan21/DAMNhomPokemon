@@ -10,6 +10,7 @@ import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.AddDraw;
 import com.example.duanmaunhompokemon.Model.Book;
 import com.example.duanmaunhompokemon.Model.BookCate;
+import com.example.duanmaunhompokemon.Model.Categories;
 import com.example.duanmaunhompokemon.Model.Chapter;
 import com.example.duanmaunhompokemon.Model.Favorite;
 import com.example.duanmaunhompokemon.Model.Ratings;
@@ -487,5 +488,35 @@ public class dbDAO {
         cursor.close();
         db.close();
         return tradeList;
+    }
+
+    public ArrayList<Categories> getAllCategories() {
+        ArrayList<Categories> categories = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String selectQuery = "SELECT * FROM categories";
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int idCate = cursor.getInt(0);
+                String nameCate = cursor.getString(1);
+                Categories category = new Categories(idCate, nameCate);
+                categories.add(category);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return categories;
+    }
+
+    public boolean updateCate(int Id, String newName) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("namecate", newName);
+
+        int result = db.update("categories", contentValues, "id_cate = ?", new String[]{String.valueOf(Id)});
+        return result > 0;
     }
 }

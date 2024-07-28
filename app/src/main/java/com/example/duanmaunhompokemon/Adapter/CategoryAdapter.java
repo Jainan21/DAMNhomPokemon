@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,7 +48,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         holder.btEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showEditDialog(categories);
+                showEditDialog(categories, position);
             }
         });
 
@@ -64,7 +65,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         return editCategory.size();
     }
 
-    private void showEditDialog(Categories category){
+    private void showEditDialog(Categories category, int potision){
         AlertDialog.Builder builder = new AlertDialog.Builder(cate);
         LayoutInflater inflater = LayoutInflater.from(cate);
         View view = inflater.inflate(R.layout.change_category, null);
@@ -83,10 +84,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         btAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                category.setName(edNameCategory.getText().toString());
-                category.setName(edCategorDescription.getText().toString());
-                notifyDataSetChanged();
-                dialog.dismiss();
+                if(edNameCategory.getText().toString().isEmpty()){
+                    Toast.makeText(cate, "Không đủ thông tin", Toast.LENGTH_SHORT).show();
+                }else {
+                    cate.update(potision, edNameCategory.getText().toString());
+                    dialog.dismiss();
+                }
             }
         });
 
@@ -106,9 +109,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         bd.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                editCategory.remove(potision);
-                notifyItemRemoved(potision);
-                notifyItemRangeChanged(potision,editCategory.size());
+                cate.xoaCate(potision);
             }
         });
 

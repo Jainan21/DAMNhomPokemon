@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class dbHelper extends SQLiteOpenHelper {
     public dbHelper(@Nullable Context context) {
-        super(context, "dbBookPocket", null, 1);
+        super(context, "dbBookPocket", null, 2);
     }
 
     @Override
@@ -111,9 +111,12 @@ public class dbHelper extends SQLiteOpenHelper {
         db.execSQL(insertRole2);
         db.execSQL(insertRole3);
 
+        String deleteOldData = "DELETE FROM account";
+        db.execSQL(deleteOldData);
+
         String insertAccount1 = "INSERT INTO account (username, pass, email, id_role, budget) VALUES ('admin', 'adminpass', 'admin@gmail.com', 1, 1000.0)";
         String insertAccount2 = "INSERT INTO account (username, pass, email, id_role, budget) VALUES ('user1', 'user1pass', 'user1@gmail.com', 2, 500.0)";
-        String insertAccount3 = "INSERT INTO account (username, pass, email, id_role, budget) VALUES ('author1', 'author1pass', 'author1@gmail.com', 3, 300.0)";
+        String insertAccount3 = "INSERT INTO account (username, pass, email, id_role, budget) VALUES ('user2', 'user2pass', 'author1@gmail.com', 3, 300.0)";
 
         db.execSQL(insertAccount1);
         db.execSQL(insertAccount2);
