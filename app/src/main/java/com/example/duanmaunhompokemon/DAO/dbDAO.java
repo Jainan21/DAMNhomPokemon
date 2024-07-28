@@ -454,4 +454,13 @@ public class dbDAO {
         }
         return null;
     }
+
+    public boolean updatePassword(int accountId, String newPass) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("pass", newPass);
+
+        int result = db.update("account", contentValues, "id_acc = ?", new String[]{String.valueOf(accountId)});
+        return result > 0;
+    }
 }
