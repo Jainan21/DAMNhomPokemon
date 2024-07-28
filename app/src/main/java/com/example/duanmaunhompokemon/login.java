@@ -66,12 +66,12 @@ public class login extends AppCompatActivity {
                                 Account a = list.get(i);
                                 check = true;
 
-                                SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
+                                SharedPreferences sharedPreferences = getSharedPreferences("author", MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putInt("user_id", a.getId());
+                                editor.putInt("author_id", a.getId());
                                 editor.apply();
 
-                                Intent intent = new Intent(login.this, useractivity.class);
+                                Intent intent = new Intent(login.this, authoractivity.class);
                                 startActivity(intent);
                                 finish();
                                 break;

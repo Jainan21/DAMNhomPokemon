@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#ECD8F2"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="15dp"
+    android:paddingLeft="15dp"
+    android:paddingTop="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:elevation="4dp"
+        android:layout_margin="4dp">
+
+        <ImageView
+            android:id="@+id/book_image"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:src="@drawable/nhagiakim"
+            android:layout_gravity="center_vertical"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="16dp">
+
+            <TextView
+                android:id="@+id/book_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lũ trẻ đường tàu"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/book_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edith Nesbit"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/book_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="120.000 VND"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

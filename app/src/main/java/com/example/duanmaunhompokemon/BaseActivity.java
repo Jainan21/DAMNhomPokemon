@@ -27,7 +27,6 @@ import com.google.android.material.navigation.NavigationView;
 public abstract class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
-    ImageView home, search, account;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
     protected void setupActionBarAndDrawer(int layoutResID) {
         setContentView(layoutResID);
 
-        home = findViewById(R.id.iconHome);
-        search = findViewById(R.id.iconSearch);
-        account = findViewById(R.id.iconAccount);
+
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.Nav_bar);
         navigationView.setNavigationItemSelectedListener(this);
@@ -55,24 +52,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
                 } else {
                     drawerLayout.openDrawer(GravityCompat.END);
                 }
-            }
-        });
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BaseActivity.this, BookView.class));
-            }
-        });
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BaseActivity.this, SearchingView.class));
-            }
-        });
-        account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BaseActivity.this, useractivity.class));
             }
         });
     }
@@ -106,6 +85,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment fragment = null;
         Intent intent = null;
         int id = item.getItemId();
         if (id == R.id.iconHome) {

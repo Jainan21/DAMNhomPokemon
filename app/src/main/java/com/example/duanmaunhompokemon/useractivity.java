@@ -44,6 +44,8 @@ public class useractivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_user);
         setupActionBarAndBack(R.layout.activity_user, "Người dùng");
 
         TextView btnWithdraw = findViewById(R.id.tvwithd);

@@ -54,7 +54,7 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/txtBookNameBought"
+                            android:id="@+id/txtBookName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
@@ -64,32 +64,26 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/txtAuthorNameBought"
+                            android:id="@+id/txtAuthorName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="serif"
                             android:text="Paulo Coelho"
                             android:textColor="#000000"
                             android:textStyle="bold" />
-                        <ScrollView
-                            android:layout_width="match_parent"
-                            android:layout_height="80dp"
-                            >
-                            <TextView
-                                android:id="@+id/txtContentBought"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:justificationMode="inter_word"
-                                android:text="Nội dung cuốn sách xoay quanh câu chuyện cậu bé chăn cừu Santiago và cuộc hành trình đi tìm kho báu của cậu."
-                                android:textColor="#000000"
-                                android:textSize="14sp"
-                                android:paddingBottom="40dp"
-                                android:textStyle="normal" />
-                        </ScrollView>
-
 
                         <TextView
-                            android:id="@+id/txtPriceBought"
+                            android:id="@+id/txtContent"
+                            android:layout_width="match_parent"
+                            android:layout_height="74dp"
+                            android:justificationMode="inter_word"
+                            android:text="Nội dung cuốn sách xoay quanh câu chuyện cậu bé chăn cừu Santiago và cuộc hành trình đi tìm kho báu của cậu."
+                            android:textColor="#000000"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/txtPrice"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -113,7 +107,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/txtPurchasedBought"
+                        android:id="@+id/txtPurchased"
                         android:layout_width="106dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="0dp"
@@ -133,7 +127,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="26dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="20dp"
@@ -149,7 +143,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/txtGenereContentBought"
+                        android:id="@+id/txtGenereContent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="  Truyện ngắn, tiểu thuyết"
@@ -177,7 +171,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textViewBought"
+                        android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

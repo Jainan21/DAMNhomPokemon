@@ -6,12 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ReadingBookView">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#FFFFFF">
         <include
+            android:id="@+id/header"
             layout="@layout/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -47,63 +48,64 @@
             android:textSize="15dp"
             tools:ignore="TextSizeCheck" />
 
-        <Spinner
-            android:id="@+id/spinnerChapters"
+        <Button
+            android:id="@+id/reading_ChapterChoice"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="16dp"
-            />
+            android:layout_height="48dp"
+            android:layout_gravity="right"
+            android:backgroundTint="#FFFFFF"
+            android:drawableEnd="@drawable/downchapter"
+            android:drawablePadding="0dp"
+            android:text="Chương"
+            android:textAllCaps="false" />
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/corner_bl">
+
+            <TextView
+                android:id="@+id/reading_txtTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="serif"
+                android:text="Chương 1-8"
+                android:textColor="#000000"
+                android:shadowColor="#999999"
+                android:shadowDy="10"
+                android:shadowRadius="5"
+                android:textStyle="bold"
+                android:textSize="25dp" />
+
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@drawable/corner_bl">
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="o O o"
+                android:textColor="#000000"
+                android:textSize="18dp" />
 
-                <TextView
-                    android:id="@+id/reading_txtTitle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="serif"
-                    android:text="Chương 1-8"
-                    android:textColor="#000000"
-                    android:shadowColor="#999999"
-                    android:shadowDy="10"
-                    android:shadowRadius="5"
-                    android:textStyle="bold"
-                    android:textSize="25dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="o O o"
-                    android:textColor="#000000"
-                    android:textSize="18dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Vào truyện:"
-                    android:textColor="#000000"
-                    android:textSize="25dp" />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:gravity="center"
-                    android:justificationMode="inter_word"
-                    android:text="apolygjff"
-                    android:textColor="#000000"
-                    android:textSize="15dp"
-                    tools:ignore="TextSizeCheck"/>
-            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Vào truyện:"
+                android:textColor="#000000"
+                android:textSize="25dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:justificationMode="inter_word"
+                android:text="apolygjff"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                tools:ignore="TextSizeCheck"/>
         </LinearLayout>
-
-
+    </LinearLayout>
     <FrameLayout
         android:id="@+id/Frame_menu"
         android:layout_width="match_parent"
