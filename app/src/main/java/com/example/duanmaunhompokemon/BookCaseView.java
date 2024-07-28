@@ -1,6 +1,5 @@
 package com.example.duanmaunhompokemon;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -24,7 +23,7 @@ public class BookCaseView extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setupActionBarAndBack(R.layout.activity_book_case_view, "Tủ sách");
+        setupActionBarAndBack(R.layout.activity_book_case_view, "Tu sach");
         vpBookCase = findViewById(R.id.vpBookCase);
         tlBookCase = findViewById(R.id.tlBookCase);
 
@@ -38,12 +37,5 @@ public class BookCaseView extends BaseActivity {
             }
         }).attach();
 
-    }
-    public boolean onSupportNavigateUp() {
-        // Handle the toolbar back button click event
-        Intent intent = new Intent(this, BookView.class);
-        startActivity(intent);
-        finish();
-        return true;
     }
 }
