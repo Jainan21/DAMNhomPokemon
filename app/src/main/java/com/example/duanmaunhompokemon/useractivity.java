@@ -15,17 +15,25 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duanmaunhompokemon.Adapter.TradeAdapter;
 import com.example.duanmaunhompokemon.DAO.dbDAO;
 import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.AddDraw;
+import com.example.duanmaunhompokemon.Model.Trade;
+
+import java.util.ArrayList;
 
 public class useractivity extends AppCompatActivity {
     private TextView txtChangePassword, txtname_acc, txtemail_acc, txtBudget_acc;
     private TextView txtChangeAccount;
+    RecyclerView lvTrade;
     private Dialog dialog;
     private DrawerLayout drawerLayout;
     Integer user_id;
+    ArrayList<Trade> listTrade;
     dbDAO dao = new dbDAO(useractivity.this);
     Account account;
 
@@ -44,9 +52,14 @@ public class useractivity extends AppCompatActivity {
         txtname_acc = findViewById(R.id.txtname_acc);
         txtemail_acc = findViewById(R.id.txtemail_acc);
         txtBudget_acc = findViewById(R.id.txtBudget_acc);
+        lvTrade = findViewById(R.id.lvTrade);
 
         getUserID();
         loadAccount();
+
+        listTrade = dao.getTradesByUserId(user_id);
+        TradeAdapter tradeAdapter = new TradeAdapter(useractivity.this, listTrade);
+        lvTrade.setAdapter(tradeAdapter);
 
         btnWithdraw.setOnClickListener(new View.OnClickListener() {
             @Override

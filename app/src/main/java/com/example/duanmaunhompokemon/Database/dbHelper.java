@@ -168,7 +168,7 @@ public class dbHelper extends SQLiteOpenHelper {
         db.execSQL(insertAddDraw2);
 
         String insertTrade1 = "INSERT INTO trade (id_book, id_acc, price_trade, date_trade, vat) VALUES (1, 2, 29, '2024-07-22', 2.9)";
-        String insertTrade2 = "INSERT INTO trade (id_book, id_acc, price_trade, date_trade, vat) VALUES (2, 1, 39, '2024-07-22', 3.9)";
+        String insertTrade2 = "INSERT INTO trade (id_book, id_acc, price_trade, date_trade, vat) VALUES (2, 3, 39, '2024-07-22', 3.9)";
 
         db.execSQL(insertTrade1);
         db.execSQL(insertTrade2);
