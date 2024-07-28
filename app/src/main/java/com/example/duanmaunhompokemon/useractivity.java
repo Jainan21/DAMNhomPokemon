@@ -2,7 +2,6 @@ package com.example.duanmaunhompokemon;
 
 import android.app.Dialog;
 import android.content.SharedPreferences;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,23 +11,37 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duanmaunhompokemon.Adapter.TradeAdapter;
 import com.example.duanmaunhompokemon.DAO.dbDAO;
 import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.AddDraw;
+import com.example.duanmaunhompokemon.Model.Trade;
+
+import java.util.ArrayList;
+
+
+public class useractivity extends AppCompatActivity {
+    private TextView txtChangePassword, txtname_acc, txtemail_acc, txtBudget_acc;
 
 
 
 public class useractivity extends BaseActivity {
     private TextView txtChangePassword;
+
     private TextView txtChangeAccount;
+    RecyclerView lvTrade;
     private Dialog dialog;
     private DrawerLayout drawerLayout;
     private TextView txtname_acc, txtemail_acc, txtBudget_acc;
     Integer user_id;
+    ArrayList<Trade> listTrade;
     dbDAO dao = new dbDAO(useractivity.this);
     Account account;
 
@@ -36,6 +49,8 @@ public class useractivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_user);
         setupActionBarAndBack(R.layout.activity_user, "Người dùng");
 
 
@@ -47,9 +62,14 @@ public class useractivity extends BaseActivity {
         txtname_acc = findViewById(R.id.txtname_acc);
         txtemail_acc = findViewById(R.id.txtemail_acc);
         txtBudget_acc = findViewById(R.id.txtBudget_acc);
+        lvTrade = findViewById(R.id.lvTrade);
 
         getUserID();
         loadAccount();
+
+        listTrade = dao.getTradesByUserId(user_id);
+        TradeAdapter tradeAdapter = new TradeAdapter(useractivity.this, listTrade);
+        lvTrade.setAdapter(tradeAdapter);
 
         btnWithdraw.setOnClickListener(new View.OnClickListener() {
             @Override

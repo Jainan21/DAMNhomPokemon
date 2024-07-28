@@ -463,4 +463,29 @@ public class dbDAO {
         int result = db.update("account", contentValues, "id_acc = ?", new String[]{String.valueOf(accountId)});
         return result > 0;
     }
+
+    public ArrayList<Trade> getTradesByUserId(int id_acc) {
+        ArrayList<Trade> tradeList = new ArrayList<>();
+        String query = "SELECT * FROM trade WHERE id_acc = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(id_acc)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                int idTrade = cursor.getInt(0);
+                int idBook = cursor.getInt(1);
+                int idAcc = cursor.getInt(2);
+                int priceTrade = cursor.getInt(3);
+                String dateTrade = cursor.getString(4);
+                double vat = cursor.getDouble(5);
+
+                // Tạo đối tượng Trade và thêm vào danh sách
+                Trade trade = new Trade(idTrade, idBook, idAcc, priceTrade, dateTrade, vat);
+                tradeList.add(trade);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return tradeList;
+    }
 }
