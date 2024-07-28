@@ -2,6 +2,7 @@ package com.example.duanmaunhompokemon;
 
 import android.app.Dialog;
 import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,9 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.duanmaunhompokemon.DAO.dbDAO;
@@ -22,6 +22,8 @@ import com.example.duanmaunhompokemon.Model.AddDraw;
 
 public class useractivity extends AppCompatActivity {
     private TextView txtChangePassword, txtname_acc, txtemail_acc, txtBudget_acc;
+public class useractivity extends BaseActivity {
+    private TextView txtChangePassword;
     private TextView txtChangeAccount;
     private Dialog dialog;
     private DrawerLayout drawerLayout;
@@ -29,12 +31,13 @@ public class useractivity extends AppCompatActivity {
     dbDAO dao = new dbDAO(useractivity.this);
     Account account;
 
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_user);
+        setupActionBarAndBack(R.layout.activity_user, "Người dùng");
+
+
 
         TextView btnWithdraw = findViewById(R.id.tvwithd);
         TextView btnRechar = findViewById(R.id.tvrechar);
@@ -258,6 +261,14 @@ public class useractivity extends AppCompatActivity {
         txtname_acc.setText(account.getUser());
         txtemail_acc.setText(account.getEmail());
         txtBudget_acc.setText(String.valueOf(account.getBudget()) + "00 VND");
+
+    public boolean onSupportNavigateUp() {
+        // Handle the toolbar back button click event
+        Intent intent = new Intent(this, BookView.class);
+        startActivity(intent);
+        finish();
+        return true;
+
     }
 }
 
