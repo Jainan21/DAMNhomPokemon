@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,9 +35,9 @@ public class SearchingView extends BaseActivity {
     RecyclerView BookSearchingView;
     ArrayList<Book> listBook;
     SearchingAdapter adpSearching;
+
     ImageView btnSearch;
     dbDAO dao;
-
 
     @SuppressLint("WrongViewCast")
 
@@ -44,6 +46,7 @@ public class SearchingView extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupActionBarAndBack(R.layout.activity_searching_view, "Tìm kiếm");
+
 
         btnSearch = findViewById(R.id.btnSearch);
         txtTitle = findViewById(R.id.search_txtTitle);

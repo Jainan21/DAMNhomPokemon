@@ -90,41 +90,10 @@
                         android:text="Số dư:" />
 
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" 0 VND"
-                        android:id="@+id/txtBudget_acc"
                         android:textColor="#A025CB" />
-
-                    <TextView
-                        android:id="@+id/txtemail_acc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="kater@gmail.com"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        android:textColor="@android:color/darker_gray" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:text="Số dư:" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=" 0 VND"
-                            android:textColor="#A025CB" />
-                    </LinearLayout>
-
-
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -228,11 +197,205 @@
             android:padding="8dp" />
 
         <!-- Mục lịch sử giao dịch -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lvTrade"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"/>
+            android:orientation="vertical"
+            android:background="#fafafa"
+            android:elevation="2dp"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CÂY CAM NGỌT..."
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tác giả: JOSÉ MAURO DE..."
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- 120.000VND"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="27/06/2024"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:paddingBottom="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#fafafa"
+            android:elevation="2dp"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CÂY CAM NGỌT..."
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tác giả: JOSÉ MAURO DE..."
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- 120.000VND"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="27/06/2024"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:paddingBottom="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#fafafa"
+            android:elevation="2dp"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CÂY CAM NGỌT..."
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tác giả: JOSÉ MAURO DE..."
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- 120.000VND"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="27/06/2024"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:paddingBottom="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#fafafa"
+            android:elevation="2dp"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CÂY CAM NGỌT..."
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tác giả: JOSÉ MAURO DE..."
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- 120.000VND"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="27/06/2024"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:paddingBottom="16dp" />
+        </LinearLayout>
+        <!-- Lặp lại mục lịch sử giao dịch theo nhu cầu -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#fafafa"
+            android:elevation="2dp"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CÂY CAM NGỌT..."
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tác giả: JOSÉ MAURO DE..."
+                android:textSize="12sp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="- 120.000VND"
+                android:textStyle="bold"
+                android:paddingBottom="8dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="27/06/2024"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                android:paddingBottom="16dp" />
+        </LinearLayout>
     </LinearLayout>
 
 
