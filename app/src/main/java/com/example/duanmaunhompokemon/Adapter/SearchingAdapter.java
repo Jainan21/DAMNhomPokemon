@@ -27,10 +27,17 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Sear
 
     private ArrayList<Book> listBook;
     SearchingView a;
+    private static OnItemClickListener listener;
 
     public SearchingAdapter(SearchingView a, ArrayList<Book> listBook) {
         this.a = a;
         this.listBook = listBook;
+    }
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+    public void setOnItemClickListener(SearchingAdapter.OnItemClickListener listener) {
+        this.listener = listener;
     }
 
     @NonNull
@@ -74,7 +81,17 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Sear
             txtPrice = itemView.findViewById(R.id.search_txtPrice);
             imgBook= itemView.findViewById(R.id.search_imgBook);
             btnBuy = itemView.findViewById(R.id.search_btnBuy);
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }

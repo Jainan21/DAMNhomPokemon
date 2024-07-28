@@ -24,8 +24,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.Objects;
-
 public abstract class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
@@ -63,7 +61,7 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
 
         Toolbar toolbar = findViewById(R.id.header2);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(title);
 
 
@@ -97,11 +95,11 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
             }
         }
         else if (id == R.id.item_account) {
-            startActivity(new Intent(this, useractivity.class));
+            Toast.makeText(this, "Quan ly nguoi doc", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.item_search) {
             startActivity(new Intent(this, SearchingView.class));
         } else if (id == R.id.item_bookshelf) {
-            startActivity(new Intent(this, BookCaseView.class));
+            Toast.makeText(this, "Tur sasch cas nhaan", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.item_logout) {
             startActivity(new Intent(this, login.class));
         }
