@@ -432,4 +432,35 @@ public class dbDAO {
         int result = db.update("account", contentValues, "id_acc = ?", new String[]{String.valueOf(accountId)});
         return result > 0;
     }
+
+    public String getBookCategoryById(int bookId) {
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String category = "";
+
+        String query = "SELECT c.namecate " +
+                "FROM bookcate bc " +
+                "JOIN categories c ON bc.id_cate = c.id_cate " +
+                "WHERE bc.id_book = ?";
+
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(bookId)});
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                category = category + cursor.getString(0);
+                cursor.close();
+                return category;
+            }
+            cursor.close();
+        }
+        return null;
+    }
+
+    public boolean updatePassword(int accountId, String newPass) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("pass", newPass);
+
+        int result = db.update("account", contentValues, "id_acc = ?", new String[]{String.valueOf(accountId)});
+        return result > 0;
+    }
 }
