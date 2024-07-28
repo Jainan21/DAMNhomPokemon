@@ -118,7 +118,7 @@ public class bookdetails extends BaseActivity {
 
     public void getUserID() {
         SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
-        Integer userId = sharedPreferences.getInt("user_id", -1);
+        int userId = sharedPreferences.getInt("user_id", -1);
         if (userId != -1) {
             user_id = userId;
         }
