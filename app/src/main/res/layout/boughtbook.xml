@@ -71,16 +71,22 @@
                             android:text="Paulo Coelho"
                             android:textColor="#000000"
                             android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/txtContentBought"
+                        <ScrollView
                             android:layout_width="match_parent"
-                            android:layout_height="74dp"
-                            android:justificationMode="inter_word"
-                            android:text="Nội dung cuốn sách xoay quanh câu chuyện cậu bé chăn cừu Santiago và cuộc hành trình đi tìm kho báu của cậu."
-                            android:textColor="#000000"
-                            android:textSize="14sp"
-                            android:textStyle="normal" />
+                            android:layout_height="80dp"
+                            >
+                            <TextView
+                                android:id="@+id/txtContentBought"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:justificationMode="inter_word"
+                                android:text="Nội dung cuốn sách xoay quanh câu chuyện cậu bé chăn cừu Santiago và cuộc hành trình đi tìm kho báu của cậu."
+                                android:textColor="#000000"
+                                android:textSize="14sp"
+                                android:paddingBottom="40dp"
+                                android:textStyle="normal" />
+                        </ScrollView>
+
 
                         <TextView
                             android:id="@+id/txtPriceBought"
