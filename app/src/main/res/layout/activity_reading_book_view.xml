@@ -6,6 +6,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ReadingBookView">
+
+    <include
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black" />
+
+    <TextView
+        android:id="@+id/reading_txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="serif"
+        android:text="NHÀ GIẢ KIM"
+        android:textColor="#000000"
+        android:shadowColor="#999999"
+        android:shadowDy="10"
+        android:shadowRadius="5"
+        android:textStyle="bold"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/reading_txtAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="40dp"
+        android:text="Paulo Coelho"
+        android:textColor="#000000"
+        android:fontFamily="serif"
+        android:textSize="15dp"
+        tools:ignore="TextSizeCheck" />
+
+    <Spinner
+        android:id="@+id/spinnerChapters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="16dp"
+        android:entries="@array/chapters_array"  />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
