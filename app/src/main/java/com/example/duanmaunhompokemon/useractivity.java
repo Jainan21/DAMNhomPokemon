@@ -20,23 +20,23 @@ import com.example.duanmaunhompokemon.DAO.dbDAO;
 import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.AddDraw;
 
-public class useractivity extends AppCompatActivity {
-    private TextView txtChangePassword, txtname_acc, txtemail_acc, txtBudget_acc;
+
+
 public class useractivity extends BaseActivity {
     private TextView txtChangePassword;
     private TextView txtChangeAccount;
     private Dialog dialog;
     private DrawerLayout drawerLayout;
+    private TextView txtname_acc, txtemail_acc, txtBudget_acc;
     Integer user_id;
     dbDAO dao = new dbDAO(useractivity.this);
     Account account;
 
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupActionBarAndBack(R.layout.activity_user, "Người dùng");
-
 
 
         TextView btnWithdraw = findViewById(R.id.tvwithd);
@@ -66,19 +66,19 @@ public class useractivity extends BaseActivity {
             }
         });
 
-       txtChangePassword.setOnClickListener(new View.OnClickListener() {
+        txtChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showChangePasswordDialog();
             }
         });
 
-       txtChangeAccount.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               showDialog();
-           }
-       });
+        txtChangeAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
 
     }
 
@@ -171,6 +171,7 @@ public class useractivity extends BaseActivity {
         });
         alertDialog.show();
     }
+
     private void showChangePasswordDialog() {
         dialog = new Dialog(useractivity.this);
         dialog.setContentView(R.layout.dialog_change_password);
@@ -190,11 +191,11 @@ public class useractivity extends BaseActivity {
                 String newPassword = etNewPassword.getText().toString();
                 String confirmPassword = etConfirmPassword.getText().toString();
 
-                if (oldPassword.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()){
+                if (oldPassword.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
                     Toast.makeText(useractivity.this, "Không đủ thông tin !!!", Toast.LENGTH_SHORT).show();
-                }else if (!oldPassword.equalsIgnoreCase(account.getPass()) || !newPassword.equalsIgnoreCase(confirmPassword)){
+                } else if (!oldPassword.equalsIgnoreCase(account.getPass()) || !newPassword.equalsIgnoreCase(confirmPassword)) {
                     Toast.makeText(useractivity.this, "Mật không khớp !!!", Toast.LENGTH_SHORT).show();
-                }else {
+                } else {
                     dao.updatePassword(user_id, newPassword);
                     loadAccount();
                     Toast.makeText(useractivity.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
@@ -229,10 +230,10 @@ public class useractivity extends BaseActivity {
 
                 boolean check = dao.updateAccount(user_id, displayName, email);
 
-                if (check){
+                if (check) {
                     Toast.makeText(useractivity.this, "Chỉnh sửa thành công", Toast.LENGTH_SHORT).show();
                     loadAccount();
-                }else {
+                } else {
                     Toast.makeText(useractivity.this, "Chỉnh sửa thất bại !!!", Toast.LENGTH_SHORT).show();
                 }
 
@@ -242,6 +243,7 @@ public class useractivity extends BaseActivity {
 
         dialog.show();
     }
+
     public void openDrawer(View view) {
         if (drawerLayout != null) {
             drawerLayout.openDrawer(findViewById(R.id.drawer_view));
@@ -256,13 +258,15 @@ public class useractivity extends BaseActivity {
         }
     }
 
-    public void loadAccount(){
+    public void loadAccount() {
         account = dao.getAccountById(user_id);
         txtname_acc.setText(account.getUser());
         txtemail_acc.setText(account.getEmail());
         txtBudget_acc.setText(String.valueOf(account.getBudget()) + "00 VND");
 
-    public boolean onSupportNavigateUp() {
+
+    }
+    public boolean onSupportNavigateUp () {
         // Handle the toolbar back button click event
         Intent intent = new Intent(this, BookView.class);
         startActivity(intent);
