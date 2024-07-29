@@ -96,9 +96,9 @@ public class CategoryView extends BaseActivity {
         boolean ch = dao.deleteCategoryById(id_cate);
         if (ch){
             loadCate();
-            Toast.makeText(com.example.duanmaunhompokemon.CategoryView.this, "Xoas thanhf coong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(com.example.duanmaunhompokemon.CategoryView.this, "Xóa thất bại", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(com.example.duanmaunhompokemon.CategoryView.this, "Xoas thaats baij", Toast.LENGTH_SHORT).show();
+            Toast.makeText(com.example.duanmaunhompokemon.CategoryView.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -107,9 +107,9 @@ public class CategoryView extends BaseActivity {
         boolean ch = dao.updateCate(id_cate, newName);
         if (ch){
             loadCate();
-            Toast.makeText(com.example.duanmaunhompokemon.CategoryView.this, "Suwar thanhf coong", Toast.LENGTH_SHORT).show();
+            Toast.makeText(com.example.duanmaunhompokemon.CategoryView.this, "Sửa thành công", Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(com.example.duanmaunhompokemon.CategoryView.this, "Suwar thaats baij", Toast.LENGTH_SHORT).show();
+            Toast.makeText(com.example.duanmaunhompokemon.CategoryView.this, "Sửa thất bại", Toast.LENGTH_SHORT).show();
         }
     }
 

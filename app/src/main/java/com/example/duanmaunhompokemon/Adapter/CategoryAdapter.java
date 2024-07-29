@@ -1,6 +1,5 @@
 package com.example.duanmaunhompokemon.Adapter;
 
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;

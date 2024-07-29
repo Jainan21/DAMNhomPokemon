@@ -26,16 +26,16 @@ import java.util.ArrayList;
 
 public class BookView extends BaseActivity {
     View hb;
-    LinearLayout  hb_layout;
+    LinearLayout hb_layout;
     ListView lv_Book_Famous;
     BookAdapter adpBook;
     AuthorAdapter adpAuthor;
     RecyclerView lv_Author_Famous;
-    ArrayList <Account> listAuthor;
-    ArrayList <Book> listBook;
+    ArrayList<Account> listAuthor;
+    ArrayList<Book> listBook;
     dbDAO dao;
     Integer user_id;
-    LinearLayoutManager lmanager= new LinearLayoutManager(BookView.this);
+    LinearLayoutManager lmanager = new LinearLayoutManager(BookView.this);
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -44,10 +44,10 @@ public class BookView extends BaseActivity {
         setupActionBarAndDrawer(R.layout.activity_book_view);
 
         getUserID();
-      
+
         lv_Book_Famous = findViewById(R.id.lvBook_Famous);
         lv_Author_Famous = findViewById(R.id.lvAuthor_Famous);
-        dao= new dbDAO(BookView.this);
+        dao = new dbDAO(BookView.this);
 
         listBook = dao.getBooksOrderedByBought();
 
@@ -133,5 +133,19 @@ public class BookView extends BaseActivity {
         hb_txtContent.setText(book.getSum());
         hb_txtPrice.setText(book.getPrice() + ".000 VND");
         hb_txtRate.setText("4.5/5");
+    }
+    @Override
+    protected void onPushButtonClick() {
+        // Get the iduser value
+        Integer iduser = user_id; // Replace with your actual iduser value
+
+        // Create an Intent to start SearchingViewActivity
+        Intent intent = new Intent(BookView.this, SearchingView.class);
+
+        // Put the iduser into the Intent
+        intent.putExtra("useridforsearch", iduser);
+
+        // Start SearchingViewActivity
+        startActivity(intent);
     }
 }

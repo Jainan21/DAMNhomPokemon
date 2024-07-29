@@ -62,3 +62,4 @@ public class TradeAdapter extends RecyclerView.Adapter<TradeAdapter.TradeViewHol
         }
     }
 }
+

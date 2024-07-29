@@ -27,7 +27,6 @@ import com.google.android.material.navigation.NavigationView;
 public abstract class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
-    ImageView home, search, account;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +38,34 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
     protected void setupActionBarAndDrawer(int layoutResID) {
         setContentView(layoutResID);
 
-        home = findViewById(R.id.iconHome);
-        search = findViewById(R.id.iconSearch);
-        account = findViewById(R.id.iconAccount);
+        ImageView home, search, account;
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.Nav_bar);
         navigationView.setNavigationItemSelectedListener(this);
+        home = findViewById(R.id.iconHome);
+        search = findViewById(R.id.iconSearch);
+        account = findViewById(R.id.iconAccount);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BaseActivity.this, BookView.class));
+            }
+        });
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onPushButtonClick();
+
+            }
+        });
+        account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(BaseActivity.this, useractivity.class));
+            }
+        });
+
 
         ImageView menu = findViewById(R.id.iconMenu);
         menu.setOnClickListener(new View.OnClickListener() {
@@ -55,24 +76,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
                 } else {
                     drawerLayout.openDrawer(GravityCompat.END);
                 }
-            }
-        });
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BaseActivity.this, BookView.class));
-            }
-        });
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BaseActivity.this, SearchingView.class));
-            }
-        });
-        account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(BaseActivity.this, useractivity.class));
             }
         });
     }
@@ -116,29 +119,23 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
             }
         }
         else if (id == R.id.item_account) {
-            Toast.makeText(this, "Quan ly nguoi doc", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, useractivity.class));
         } else if (id == R.id.item_search) {
             startActivity(new Intent(this, SearchingView.class));
         } else if (id == R.id.item_bookshelf) {
-            Toast.makeText(this, "Tur sasch cas nhaan", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, BookCaseView.class));
         } else if (id == R.id.item_logout) {
             startActivity(new Intent(this, login.class));
         }
         if (intent != null) {
             startActivity(intent);
             finish();
-        } else if (fragment != null) {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.Frame_menu, fragment);
-            fragmentTransaction.commit();
         }
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.Frame_menu, fragment)
-                .commit();
         drawerLayout.closeDrawer(GravityCompat.END);
         return true;
+    }
+    protected void onPushButtonClick(){
+
     }
 
 }

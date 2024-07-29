@@ -71,8 +71,7 @@ public class bookdetails extends BaseActivity {
 
                 builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
+                    public void onClick(DialogInterface dialog, int which) {dialog.dismiss();
                     }
                 });
 
