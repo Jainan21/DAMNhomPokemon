@@ -10,6 +10,7 @@ import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.AddDraw;
 import com.example.duanmaunhompokemon.Model.Book;
 import com.example.duanmaunhompokemon.Model.BookCate;
+import com.example.duanmaunhompokemon.Model.Categories;
 import com.example.duanmaunhompokemon.Model.Chapter;
 import com.example.duanmaunhompokemon.Model.Favorite;
 import com.example.duanmaunhompokemon.Model.Ratings;
@@ -430,6 +431,92 @@ public class dbDAO {
         contentValues.put("email", newEmail);
 
         int result = db.update("account", contentValues, "id_acc = ?", new String[]{String.valueOf(accountId)});
+        return result > 0;
+    }
+
+    public String getBookCategoryById(int bookId) {
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String category = "";
+
+        String query = "SELECT c.namecate " +
+                "FROM bookcate bc " +
+                "JOIN categories c ON bc.id_cate = c.id_cate " +
+                "WHERE bc.id_book = ?";
+
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(bookId)});
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                category = category + cursor.getString(0);
+                cursor.close();
+                return category;
+            }
+            cursor.close();
+        }
+        return null;
+    }
+
+    public boolean updatePassword(int accountId, String newPass) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("pass", newPass);
+
+        int result = db.update("account", contentValues, "id_acc = ?", new String[]{String.valueOf(accountId)});
+        return result > 0;
+    }
+
+    public ArrayList<Trade> getTradesByUserId(int id_acc) {
+        ArrayList<Trade> tradeList = new ArrayList<>();
+        String query = "SELECT * FROM trade WHERE id_acc = ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(id_acc)});
+
+        if (cursor.moveToFirst()) {
+            do {
+                int idTrade = cursor.getInt(0);
+                int idBook = cursor.getInt(1);
+                int idAcc = cursor.getInt(2);
+                int priceTrade = cursor.getInt(3);
+                String dateTrade = cursor.getString(4);
+                double vat = cursor.getDouble(5);
+
+                // Tạo đối tượng Trade và thêm vào danh sách
+                Trade trade = new Trade(idTrade, idBook, idAcc, priceTrade, dateTrade, vat);
+                tradeList.add(trade);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return tradeList;
+    }
+
+    public ArrayList<Categories> getAllCategories() {
+        ArrayList<Categories> categories = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String selectQuery = "SELECT * FROM categories";
+
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                int idCate = cursor.getInt(0);
+                String nameCate = cursor.getString(1);
+                Categories category = new Categories(idCate, nameCate);
+                categories.add(category);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+        return categories;
+    }
+
+    public boolean updateCate(int Id, String newName) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("namecate", newName);
+
+        int result = db.update("categories", contentValues, "id_cate = ?", new String[]{String.valueOf(Id)});
         return result > 0;
     }
 }
