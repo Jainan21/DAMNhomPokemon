@@ -112,8 +112,8 @@
 
                 <Button
                     android:id="@+id/txtPurchasedBought"
-                    android:layout_width="106dp"
-                    android:layout_height="60dp"
+                    android:layout_width="87dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="0dp"
                     android:background="@drawable/button_background"
                     android:text="Đã mua
@@ -121,8 +121,8 @@
 
                 <Button
                     android:id="@+id/txtAssess"
-                    android:layout_width="106dp"
-                    android:layout_height="60dp"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="75dp"
                     android:background="@drawable/button_background"
                     android:text="Đánh giá

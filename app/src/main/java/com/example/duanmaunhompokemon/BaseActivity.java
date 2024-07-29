@@ -55,7 +55,8 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(BaseActivity.this, SearchingView.class));
+                onPushButtonClick();
+
             }
         });
         account.setOnClickListener(new View.OnClickListener() {
@@ -118,11 +119,11 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
             }
         }
         else if (id == R.id.item_account) {
-            Toast.makeText(this, "Quan ly nguoi doc", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, useractivity.class));
         } else if (id == R.id.item_search) {
             startActivity(new Intent(this, SearchingView.class));
         } else if (id == R.id.item_bookshelf) {
-            Toast.makeText(this, "Tur sasch cas nhaan", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, BookCaseView.class));
         } else if (id == R.id.item_logout) {
             startActivity(new Intent(this, login.class));
         }
@@ -132,6 +133,9 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         }
         drawerLayout.closeDrawer(GravityCompat.END);
         return true;
+    }
+    protected void onPushButtonClick(){
+
     }
 
 }

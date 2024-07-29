@@ -4,6 +4,7 @@ import static com.example.duanmaunhompokemon.Adapter.HeaderAdapter.setupHeader2;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +39,7 @@ public class SearchingView extends BaseActivity {
 
     ImageView btnSearch;
     dbDAO dao;
-
+    Integer user_id;
     @SuppressLint("WrongViewCast")
 
     @Nullable
@@ -61,13 +62,25 @@ public class SearchingView extends BaseActivity {
         adpSearching = new SearchingAdapter(this, listBook);
         BookSearchingView.setAdapter(adpSearching);
 
+        Intent a = getIntent();
+
+        Integer user_id = a.getIntExtra("useridforsearch", -1);
+
         adpSearching.setOnItemClickListener(new SearchingAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                Book selectBook = listBook.get(position);
-                Intent intent = new Intent(SearchingView.this, bookdetails.class);
-                intent.putExtra("id_book", selectBook.getId_book());
-                startActivity(intent);
+                Book selectedBook = listBook.get(position);
+
+                boolean check = dao.hasTradeBook(user_id, selectedBook.getId_book());
+                if (check) {
+                    Intent intent = new Intent(SearchingView.this, boughtbook.class);
+                    intent.putExtra("id_book", selectedBook.getId_book());
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(SearchingView.this, bookdetails.class);
+                    intent.putExtra("id_book", selectedBook.getId_book());
+                    startActivity(intent);
+                }
             }
         });
 
@@ -95,4 +108,5 @@ public class SearchingView extends BaseActivity {
         finish();
         return true;
     }
+
 }

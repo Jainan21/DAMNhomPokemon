@@ -62,11 +62,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginBottom="2dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginBottom="12dp"
             android:text="120.000đ"
             android:textSize="16dp" />
 
@@ -75,9 +73,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_marginEnd="5dp"
-            android:textSize="10dp"
-            android:text="MUA" />
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/buybtnsearch"
+            android:text="Mua"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="13dp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
 

@@ -1,5 +1,6 @@
 package com.example.duanmaunhompokemon;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -21,6 +22,7 @@ public class Listauthor extends AppCompatActivity {
     private ListAuthorAdapter LAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +30,7 @@ public class Listauthor extends AppCompatActivity {
         setContentView(R.layout.activity_listauthor);
         List<String> data = Arrays.asList("De nít xu", "De nít xu", "De nít xu", "De nít xu", "De nít xu");
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView_listauthor);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         LAdapter = new ListAuthorAdapter(data);
