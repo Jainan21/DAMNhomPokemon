@@ -25,9 +25,11 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvNameBookBought"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NHÀ GIẢ KIM"
+            android:singleLine="true"
             android:textSize="25dp"
             android:textStyle="bold" />
 
