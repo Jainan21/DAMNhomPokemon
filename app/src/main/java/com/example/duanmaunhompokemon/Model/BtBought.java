@@ -28,7 +28,13 @@ import com.example.duanmaunhompokemon.ReadingBookView;
 import com.example.duanmaunhompokemon.bookdetails;
 import com.example.duanmaunhompokemon.boughtbook;
 
+
 import java.util.ArrayList;
+
+public class BtBought extends Fragment {
+    TextView tvAuthor1, tvTheloai1;
+    Button btReadNow;
+
 
 public class BtBought extends Fragment {
     RecyclerView rvBoughtBook;
@@ -45,6 +51,7 @@ public class BtBought extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.boughtbookcase, container, false);
+
         rvBoughtBook = v.findViewById(R.id.rvBoughtBook);
 
         getUserID();
@@ -52,6 +59,11 @@ public class BtBought extends Fragment {
         rvBoughtBook.setLayoutManager(new LinearLayoutManager(getContext()));
         dao = new dbDAO(v.getContext());
         loadBought();
+
+
+        tvAuthor1 = v.findViewById(R.id.tvAuthor1);
+        tvTheloai1 = v.findViewById(R.id.tvTheLoai1);
+        btReadNow = v.findViewById(R.id.btReadNow);
 
         return v;
     }
