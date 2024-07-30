@@ -31,10 +31,6 @@ import com.example.duanmaunhompokemon.boughtbook;
 
 import java.util.ArrayList;
 
-public class BtBought extends Fragment {
-    TextView tvAuthor1, tvTheloai1;
-    Button btReadNow;
-
 
 public class BtBought extends Fragment {
     RecyclerView rvBoughtBook;
@@ -59,11 +55,6 @@ public class BtBought extends Fragment {
         rvBoughtBook.setLayoutManager(new LinearLayoutManager(getContext()));
         dao = new dbDAO(v.getContext());
         loadBought();
-
-
-        tvAuthor1 = v.findViewById(R.id.tvAuthor1);
-        tvTheloai1 = v.findViewById(R.id.tvTheLoai1);
-        btReadNow = v.findViewById(R.id.btReadNow);
 
         return v;
     }
