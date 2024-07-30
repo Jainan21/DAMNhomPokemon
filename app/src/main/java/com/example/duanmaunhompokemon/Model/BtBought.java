@@ -15,7 +15,7 @@ import com.example.duanmaunhompokemon.R;
 
 public class BtBought extends Fragment {
     TextView tvAuthor1, tvTheloai1;
-    Button btLike, btReadNow;
+    Button btReadNow;
 
 
     @Override
@@ -29,7 +29,6 @@ public class BtBought extends Fragment {
         View v = inflater.inflate(R.layout.boughtbookcase, container, false);
         tvAuthor1 = v.findViewById(R.id.tvAuthor1);
         tvTheloai1 = v.findViewById(R.id.tvTheLoai1);
-        btLike = v.findViewById(R.id.btLike);
         btReadNow = v.findViewById(R.id.btReadNow);
         return v;
     }

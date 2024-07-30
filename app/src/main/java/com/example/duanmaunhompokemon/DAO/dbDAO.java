@@ -519,6 +519,7 @@ public class dbDAO {
         int result = db.update("categories", contentValues, "id_cate = ?", new String[]{String.valueOf(Id)});
         return result > 0;
     }
+
     public ArrayList<Book> getBookByAuthorID(Integer id_acc){
         ArrayList<Book> list = new ArrayList<>();
         String query = "SELECT book.* FROM book " +
@@ -545,5 +546,13 @@ public class dbDAO {
         cursor.close();
         db.close();
         return list;
+
+
+    public boolean deleteFavorite(int idBook, int idAcc) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        int result = db.delete("favorite", "id_book = ? AND id_acc = ?", new String[]{String.valueOf(idBook), String.valueOf(idAcc)});
+        db.close();
+        return result > 0;
+
     }
 }
