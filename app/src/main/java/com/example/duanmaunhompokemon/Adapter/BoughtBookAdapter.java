@@ -1,4 +1,5 @@
 package com.example.duanmaunhompokemon.Adapter;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -98,5 +99,10 @@ public class BoughtBookAdapter extends RecyclerView.Adapter<BoughtBookAdapter.Bo
             });
         }
     }
+}
+
+
+
+public class BoughtBookAdapter {
 }
 
