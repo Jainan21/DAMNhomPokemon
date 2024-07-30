@@ -31,11 +31,6 @@
             android:layout_height="wrap_content"
             android:text="NHÀ GIẢ KIM"
             android:singleLine="true"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NHÀ GIẢ KIM"
-
             android:textSize="25dp"
             android:textStyle="bold" />
 
