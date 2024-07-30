@@ -31,13 +31,19 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="Paulo Coelho"/>
-        <TextView
-            android:textColor="@color/black"
-            android:id="@+id/hb_txtContent"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nội dung cuốn sách xoay quanh câu chuyện cậu bé chăn cừu Santiago và cuộc hành trình đi tìm kho báu của cậu."/>
-        <TextView
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/black"
+                android:id="@+id/hb_txtContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp"
+                android:text="Nội dung cuốn sách xoay quanh câu chuyện cậu bé chăn cừu Santiago và cuộc hành trình đi tìm kho báu của cậu."/>
+
+        </ScrollView>
+         <TextView
             android:id="@+id/hb_txtPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
