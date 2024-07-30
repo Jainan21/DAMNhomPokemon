@@ -18,8 +18,10 @@ public class BookCaseAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        if (position == 0)
+        if (position == 0){
             return new BtLike();
+        }
+
         if (position == 1)
             return new BtBought();
 

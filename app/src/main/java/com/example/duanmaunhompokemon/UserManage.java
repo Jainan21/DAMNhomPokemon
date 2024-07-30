@@ -13,13 +13,16 @@ import com.example.duanmaunhompokemon.Model.Rose;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserManage extends AppCompatActivity {
+public class UserManage extends BaseActivity {
     private RecyclerView recyclerView;
     private Button btthem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_manage_main);
+        setupActionBarAndBack(R.layout.user_manage_main, "Quản lý người dùng");
+
+
+        btthem = findViewById(R.id.btnThem);
         List<Rose> roseList = new ArrayList<Rose>();
         roseList.add(new Rose("Rose", R.drawable.rose));
         roseList.add(new Rose("Rose", R.drawable.rose));

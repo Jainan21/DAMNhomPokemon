@@ -17,7 +17,7 @@ import com.example.duanmaunhompokemon.Adapter.ListAuthorAdapter;
 import java.util.Arrays;
 import java.util.List;
 
-public class Listauthor extends AppCompatActivity {
+public class Listauthor extends BaseActivity {
     private RecyclerView recyclerView;
     private ListAuthorAdapter LAdapter;
     private RecyclerView.LayoutManager layoutManager;
