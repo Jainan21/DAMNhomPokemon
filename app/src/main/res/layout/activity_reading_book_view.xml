@@ -47,17 +47,11 @@
             android:fontFamily="serif"
             android:textSize="15dp"
             tools:ignore="TextSizeCheck" />
-
-        <Button
-            android:id="@+id/reading_ChapterChoice"
+        <Spinner
+            android:id="@+id/reading_ChooseChapter"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_gravity="right"
-            android:backgroundTint="#FFFFFF"
-            android:drawableEnd="@drawable/downchapter"
-            android:drawablePadding="0dp"
-            android:text="Chương"
-            android:textAllCaps="false" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,7 +60,7 @@
             android:background="@drawable/corner_bl">
 
             <TextView
-                android:id="@+id/reading_txtTitle1"
+                android:id="@+id/reading_txtChapterNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -86,15 +80,8 @@
                 android:text="o O o"
                 android:textColor="#000000"
                 android:textSize="18dp" />
-
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Vào truyện:"
-                android:textColor="#000000"
-                android:textSize="25dp" />
-            <TextView
+                android:id="@+id/reading_txtReadArea"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

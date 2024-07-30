@@ -1,5 +1,6 @@
 package com.example.duanmaunhompokemon.Adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,17 +9,23 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.duanmaunhompokemon.Book;
+import com.example.duanmaunhompokemon.DAO.dbDAO;
+import com.example.duanmaunhompokemon.Model.Book;
 import com.example.duanmaunhompokemon.R;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListBookAdapter extends RecyclerView.Adapter<ListBookAdapter.BookViewHolder> {
 
-    private List<Book> bookList;
+    private ArrayList<Book> bookList;
+    private dbDAO dao;
+    private Context c;
 
-    public ListBookAdapter(List<Book> bookList) {
+    public ListBookAdapter(ArrayList<Book> bookList, Context c) {
         this.bookList = bookList;
+        this.dao = new dbDAO(c);
     }
 
     @NonNull
@@ -32,9 +39,9 @@ public class ListBookAdapter extends RecyclerView.Adapter<ListBookAdapter.BookVi
     public void onBindViewHolder(@NonNull BookViewHolder holder, int position) {
         Book book = bookList.get(position);
         holder.bookTitle.setText(book.getTitle());
-        holder.bookAuthor.setText(book.getAuthor());
-        holder.bookPrice.setText(book.getPrice());
-        holder.bookImage.setImageResource(book.getImage());
+        holder.bookAuthor.setText(dao.getAuthorNameByBookId(book.getId_book()));
+        holder.bookPrice.setText(book.getPrice()+"");
+        holder.bookImage.setImageResource(R.drawable.nhagiakim);
     }
 
     @Override
