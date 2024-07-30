@@ -540,7 +540,7 @@ public class dbDAO {
                 // Tạo đối tượng Book và thêm vào danh sách
                 Book book = new Book(idBook, idAcc, title, price, date, summary, bought);
                 list.add(book);
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
@@ -552,5 +552,6 @@ public class dbDAO {
         int result = db.delete("favorite", "id_book = ? AND id_acc = ?", new String[]{String.valueOf(idBook), String.valueOf(idAcc)});
         db.close();
         return result > 0;
+
     }
 }
