@@ -520,7 +520,7 @@ public class dbDAO {
         return result > 0;
     }
 
-    public ArrayList<Book> getBookByAuthorID(Integer id_acc){
+    public ArrayList<Book> getBookByAuthorID(Integer id_acc) {
         ArrayList<Book> list = new ArrayList<>();
         String query = "SELECT book.* FROM book " +
                 "INNER JOIN account ON book.id_acc = account.id_acc " +
@@ -528,8 +528,8 @@ public class dbDAO {
         SQLiteDatabase db = helper.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(id_acc)});
 
-        if (cursor.moveToFirst()){
-            do{
+        if (cursor.moveToFirst()) {
+            do {
                 int idBook = cursor.getInt(0);
                 int idAcc = cursor.getInt(1);
                 String title = cursor.getString(2);
@@ -541,12 +541,12 @@ public class dbDAO {
                 // Tạo đối tượng Book và thêm vào danh sách
                 Book book = new Book(idBook, idAcc, title, price, date, summary, bought);
                 list.add(book);
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
         return list;
-
+    }
 
     public boolean deleteFavorite(int idBook, int idAcc) {
         SQLiteDatabase db = helper.getWritableDatabase();
