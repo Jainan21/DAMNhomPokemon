@@ -100,9 +100,3 @@ public class BoughtBookAdapter extends RecyclerView.Adapter<BoughtBookAdapter.Bo
         }
     }
 }
-
-
-
-public class BoughtBookAdapter {
-}
-
