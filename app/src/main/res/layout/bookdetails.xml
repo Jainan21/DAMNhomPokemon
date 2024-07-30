@@ -31,7 +31,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="158dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:background="@drawable/corner_register_view"
                 android:orientation="horizontal">
@@ -42,7 +42,7 @@
                     android:src="@drawable/nhagiakim" />
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="177dp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:orientation="vertical">
                     <TextView
@@ -71,20 +71,20 @@
                             android:layout_height="64dp"
                             android:text="Nội dung cuốn sách xoay quanh câu chuyện cậu bé chăn cừu Santiago và cuộc hành trình đi tìm kho báu của cậu."
                             android:textColor="#000000"
-                            android:paddingBottom="30dp"
+                            android:paddingBottom="24dp"
                             android:textSize="12sp"
                             android:textStyle="normal" />
                     </ScrollView>
 
                     <TextView
                         android:id="@+id/txtPrice"
-                        android:layout_width="209dp"
+                        android:layout_width="wrap_content"
                         android:textSize="20sp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="18dp"
                         android:fontFamily="serif"
-                        android:gravity="right"
+                        android:layout_gravity="right"
                         android:text="135.000VND"
                         android:textStyle="bold" />
                 </LinearLayout>
