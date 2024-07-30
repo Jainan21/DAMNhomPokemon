@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.DuAnMauNhomPokemon" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">@color/black</item>
-        <item name="android:fontFamily">serif</item>
+        <item name="android:fontFamily">sans-serif</item>
     </style>
 
     <style name="Theme.DuAnMauNhomPokemon" parent="Base.Theme.DuAnMauNhomPokemon" />

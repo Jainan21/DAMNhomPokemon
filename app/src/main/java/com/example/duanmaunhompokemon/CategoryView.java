@@ -35,7 +35,7 @@ public class CategoryView extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupActionBarAndBack(R.layout.activity_category_view, "Quan ly the loai");
+        setupActionBarAndBack(R.layout.activity_category_view, "Quản lý thể loại");
 
         btAddCategory = findViewById(R.id.btAddCategory);
 
