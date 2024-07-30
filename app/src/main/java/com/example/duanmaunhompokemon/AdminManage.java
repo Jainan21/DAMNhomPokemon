@@ -1,5 +1,6 @@
 package com.example.duanmaunhompokemon;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,7 +41,7 @@ public class AdminManage extends BaseActivity {
         btTheLoai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                startActivity(new Intent(AdminManage.this, CategoryView.class));
             }
         });
 

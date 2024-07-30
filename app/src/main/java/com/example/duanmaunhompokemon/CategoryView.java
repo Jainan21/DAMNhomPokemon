@@ -35,7 +35,7 @@ public class CategoryView extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupActionBarAndBack(R.layout.activity_category_view, "Quan ly the loai");
+        setupActionBarAndBack(R.layout.activity_category_view, "Quản lý thể loại");
 
         btAddCategory = findViewById(R.id.btAddCategory);
 
@@ -96,9 +96,9 @@ public class CategoryView extends BaseActivity {
         boolean ch = dao.deleteCategoryById(id_cate);
         if (ch){
             loadCate();
-            Toast.makeText(com.example.duanmaunhompokemon.CategoryView.this, "Xóa thất bại", Toast.LENGTH_SHORT).show();
-        }else{
             Toast.makeText(com.example.duanmaunhompokemon.CategoryView.this, "Xóa thành công", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(com.example.duanmaunhompokemon.CategoryView.this, "Xóa thất bại", Toast.LENGTH_SHORT).show();
         }
     }
 
