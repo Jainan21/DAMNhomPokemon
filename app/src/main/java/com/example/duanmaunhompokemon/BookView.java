@@ -131,7 +131,7 @@ public class BookView extends BaseActivity {
         hb_txtTitle.setText(book.getTitle());
         hb_txtAuthor.setText("Tác giả: " + dao.getAuthorNameByBookId(book.getId_acc()));
         hb_txtContent.setText(book.getSum());
-        hb_txtPrice.setText(book.getPrice() + ".000 VND");
+        hb_txtPrice.setText(book.getPrice() + " VND");
         hb_txtRate.setText("4.5/5");
     }
     @Override

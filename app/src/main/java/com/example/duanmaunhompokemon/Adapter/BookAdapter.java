@@ -54,7 +54,7 @@ public class BookAdapter extends BaseAdapter {
 
         sp_txtTitle.setText(list.get(i).getTitle());
         sp_txtAuthor.setText(dbDAO.getAuthorNameByBookId(list.get(i).getId_book()));
-        sp_txtPrice.setText(String.valueOf(list.get(i).getPrice()) + ".000 VND");
+        sp_txtPrice.setText(String.valueOf(list.get(i).getPrice()) + " VND");
         sp_txtRate.setText(String.valueOf(list.get(i).getBought()));
 
         return view;

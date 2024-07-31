@@ -69,7 +69,7 @@ public class boughtbook extends BaseActivity {
         tvIdBookName.setText(book.getTitle());
         tvAuthorName.setText(dao.getAuthorNameByBookId(book.getId_book()));
         tvContent.setText(book.getSum());
-        tvPrice.setText(book.getPrice() + ".000 VND");
+        tvPrice.setText(book.getPrice() + " VND");
         tvBought.setText("ĐÃ MUA" + String.valueOf(book.getBought()));
         tvGenereContent.setText(dao.getBookCategoryById(book.getId_book()));
         tvSum.setText(book.getSum());

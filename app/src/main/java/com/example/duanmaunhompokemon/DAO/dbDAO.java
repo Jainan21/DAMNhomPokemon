@@ -555,4 +555,10 @@ public class dbDAO {
         return result > 0;
 
     }
+
+    public void adddcountBoughtBookById(int id_book){
+        SQLiteDatabase db = helper.getWritableDatabase();
+        String updateQuery = "UPDATE book SET bought = bought + 1 WHERE id_book = ?";
+        db.execSQL(updateQuery, new Object[]{id_book});
+    }
 }
