@@ -519,7 +519,6 @@ public class dbDAO {
         int result = db.update("categories", contentValues, "id_cate = ?", new String[]{String.valueOf(Id)});
         return result > 0;
     }
-
     public ArrayList<Book> getBookByAuthorID(Integer id_acc){
         ArrayList<Book> list = new ArrayList<>();
         String query = "SELECT book.* FROM book " +
@@ -541,12 +540,12 @@ public class dbDAO {
                 // Tạo đối tượng Book và thêm vào danh sách
                 Book book = new Book(idBook, idAcc, title, price, date, summary, bought);
                 list.add(book);
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
         return list;
-
+    }
 
     public boolean deleteFavorite(int idBook, int idAcc) {
         SQLiteDatabase db = helper.getWritableDatabase();
