@@ -148,8 +148,14 @@ public class dbHelper extends SQLiteOpenHelper {
         String insertChapter1 = "INSERT INTO chapter (id_book, chap_number, titlechap, content) VALUES (1, 1, 'Introduction', 'This is the introduction chapter of the book.')";
         String insertChapter2 = "INSERT INTO chapter (id_book, chap_number, titlechap, content) VALUES (1, 2, 'Chapter One', 'This is the first chapter of the book.')";
 
+        String insertChapter = "INSERT INTO chapter (id_book, chap_number, titlechap, content) VALUES " +
+                "(2, 1, 'Introduction', 'Java is an important developed language. It is one of the first language appeared.')," +
+                "(2, 2, 'Welcome to Java', 'Java is used to develop many app as well as game, especialy is Minecraft.')";
+
+
         db.execSQL(insertChapter1);
         db.execSQL(insertChapter2);
+        db.execSQL(insertChapter);
 
         String insertBookCate1 = "INSERT INTO bookcate (id_book, id_cate) VALUES (1, 1)";
         String insertBookCate2 = "INSERT INTO bookcate (id_book, id_cate) VALUES (2, 2)";

@@ -23,7 +23,7 @@ public class BookCaseView extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setupActionBarAndBack(R.layout.activity_book_case_view, "Tu sach");
+        setupActionBarAndBack(R.layout.activity_book_case_view, "Tủ sách");
         vpBookCase = findViewById(R.id.vpBookCase);
         tlBookCase = findViewById(R.id.tlBookCase);
 
