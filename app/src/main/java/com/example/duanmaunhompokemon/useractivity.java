@@ -277,7 +277,7 @@ public class useractivity extends BaseActivity {
         account = dao.getAccountById(user_id);
         txtname_acc.setText(account.getUser());
         txtemail_acc.setText(account.getEmail());
-        txtBudget_acc.setText(String.valueOf(account.getBudget()) + "00 VND");
+        txtBudget_acc.setText(String.valueOf(account.getBudget()) + " VND");
 
 
     }

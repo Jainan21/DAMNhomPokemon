@@ -41,7 +41,7 @@ public class TradeAdapter extends RecyclerView.Adapter<TradeAdapter.TradeViewHol
         Book book = dao.getBookById(trade.getId_book());
         holder.tvTitle.setText(book.getTitle());
         holder.tvAuthor.setText(dao.getAuthorNameByBookId(book.getId_book()));
-        holder.tvAmount.setText(trade.getPrice_trade() + ".000 VND");
+        holder.tvAmount.setText(trade.getPrice_trade() + " VND");
         holder.tvDate.setText(trade.getDate_trade());
     }
 

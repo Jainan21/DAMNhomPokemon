@@ -89,6 +89,7 @@ public class bookdetails extends BaseActivity {
                             dao.addToBudget(0, book.getPrice()*0.1);
                             dao.addToBudget(book.getId_acc(), book.getPrice()*0.9);
                             dao.subtractFromBudget(account.getId(),Double.valueOf(book.getPrice()));
+                            dao.adddcountBoughtBookById(book.getId_book());
 
                             Intent intent1 = new Intent(bookdetails.this, boughtbook.class);
                             intent1.putExtra("purchase_success", true);
@@ -109,7 +110,7 @@ public class bookdetails extends BaseActivity {
         tvIdBookName.setText(book.getTitle());
         tvAuthorName.setText(dao.getAuthorNameByBookId(book.getId_book()));
         tvContent.setText(book.getSum());
-        tvPrice.setText(book.getPrice() + ".000 VND");
+        tvPrice.setText(book.getPrice() + " VND");
         tvBought.setText("ĐÃ MUA" + String.valueOf(book.getBought()));
         tvGenereContent.setText(dao.getBookCategoryById(book.getId_book()));
         tvSum.setText(book.getSum());

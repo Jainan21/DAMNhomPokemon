@@ -123,6 +123,7 @@ public class BtLike extends Fragment {
                                 dao.addToBudget(0, select.getPrice()*0.1);
                                 dao.addToBudget(select.getId_acc(), select.getPrice()*0.9);
                                 dao.subtractFromBudget(account.getId(),Double.valueOf(select.getPrice()));
+                                dao.adddcountBoughtBookById(select.getId_book());
 
                                 dao.deleteFavorite(select.getId_book(), user_id);
                                 loadLike();
