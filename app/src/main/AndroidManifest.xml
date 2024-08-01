@@ -26,6 +26,7 @@
             android:exported="true" />
         <activity
             android:name=".Listauthor"
+            android:parentActivityName=".BookView"
             android:exported="true" />
         <activity
             android:name=".AuthorBookDetails"
