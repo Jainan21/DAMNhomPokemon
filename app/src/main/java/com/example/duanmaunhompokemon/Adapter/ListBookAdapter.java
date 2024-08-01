@@ -22,17 +22,25 @@ public class ListBookAdapter extends RecyclerView.Adapter<ListBookAdapter.BookVi
     private ArrayList<Book> bookList;
     private dbDAO dao;
     private Context c;
+    private ListBookAdapter.OnItemClickListener listener;
 
     public ListBookAdapter(ArrayList<Book> bookList, Context c) {
         this.bookList = bookList;
         this.dao = new dbDAO(c);
     }
 
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+    public void setOnItemClickListener(ListBookAdapter.OnItemClickListener listener) {
+        this.listener = listener;
+    }
+
     @NonNull
     @Override
     public BookViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_book, parent, false);
-        return new BookViewHolder(view);
+        return new BookViewHolder(view, listener);
     }
 
     @Override
@@ -54,12 +62,24 @@ public class ListBookAdapter extends RecyclerView.Adapter<ListBookAdapter.BookVi
         public TextView bookTitle, bookAuthor, bookPrice;
         public ImageView bookImage;
 
-        public BookViewHolder(View itemView) {
+        public BookViewHolder(View itemView, final ListBookAdapter.OnItemClickListener listener) {
             super(itemView);
             bookTitle = itemView.findViewById(R.id.book_title);
             bookAuthor = itemView.findViewById(R.id.book_author);
             bookPrice = itemView.findViewById(R.id.book_price);
             bookImage = itemView.findViewById(R.id.book_image);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (listener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 }

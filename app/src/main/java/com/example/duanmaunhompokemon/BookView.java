@@ -25,6 +25,7 @@ import com.example.duanmaunhompokemon.Model.Book;
 import java.util.ArrayList;
 
 public class BookView extends BaseActivity {
+    TextView txtAuthorF;
     View hb;
     LinearLayout hb_layout;
     ListView lv_Book_Famous;
@@ -47,6 +48,7 @@ public class BookView extends BaseActivity {
 
         lv_Book_Famous = findViewById(R.id.lvBook_Famous);
         lv_Author_Famous = findViewById(R.id.lvAuthor_Famous);
+        txtAuthorF = findViewById(R.id.txtAuthorF);
         dao = new dbDAO(BookView.this);
 
         listBook = dao.getBooksOrderedByBought();
@@ -90,7 +92,7 @@ public class BookView extends BaseActivity {
             public void onItemClick(int position) {
                 Account selectAcc = listAuthor.get(position);
                 Intent intent = new Intent(BookView.this, product.class);
-                intent.putExtra("author_id", selectAcc.getId());
+                intent.putExtra("id_author", selectAcc.getId());
                 startActivity(intent);
             }
         });
@@ -109,6 +111,14 @@ public class BookView extends BaseActivity {
                     intent.putExtra("id_book", selectedBook.getId_book());
                     startActivity(intent);
                 }
+            }
+        });
+
+        txtAuthorF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BookView.this, Listauthor.class);
+                startActivity(intent);
             }
         });
     }
