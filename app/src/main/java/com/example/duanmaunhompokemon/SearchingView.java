@@ -36,10 +36,9 @@ public class SearchingView extends BaseActivity {
     RecyclerView BookSearchingView;
     ArrayList<Book> listBook;
     SearchingAdapter adpSearching;
-
+    Integer user_id;
     ImageView btnSearch;
     dbDAO dao;
-    Integer user_id;
     @SuppressLint("WrongViewCast")
 
     @Nullable
@@ -61,16 +60,12 @@ public class SearchingView extends BaseActivity {
         listBook = dao.getBooksOrderedByBought();
         adpSearching = new SearchingAdapter(this, listBook);
         BookSearchingView.setAdapter(adpSearching);
-
-        Intent a = getIntent();
-
-        Integer user_id = a.getIntExtra("useridforsearch", -1);
+        getUserID();
 
         adpSearching.setOnItemClickListener(new SearchingAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
                 Book selectedBook = listBook.get(position);
-
                 boolean check = dao.hasTradeBook(user_id, selectedBook.getId_book());
                 if (check) {
                     Intent intent = new Intent(SearchingView.this, boughtbook.class);
@@ -99,6 +94,13 @@ public class SearchingView extends BaseActivity {
         });
 
 
+    }
+    public void getUserID() {
+        SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
+        Integer userId = sharedPreferences.getInt("user_id", -1);
+        if (userId != -1) {
+            user_id = userId;
+        }
     }
 
     public boolean onSupportNavigateUp() {

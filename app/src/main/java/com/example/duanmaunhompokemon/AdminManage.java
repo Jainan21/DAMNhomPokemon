@@ -38,6 +38,7 @@ public class AdminManage extends BaseActivity {
 
         getUserID();
         dao = new dbDAO(AdminManage.this);
+        loadAccount();
 
         btNguoiDung.setOnClickListener(new View.OnClickListener() {
             @Override

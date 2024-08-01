@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:layout_gravity="center"
-    android:clickable="true"
     android:layout_margin="5dp"
     android:background="@drawable/corner_bl">
 
@@ -14,7 +13,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
-        android:clickable="true"
         android:paddingTop="0dp">
 
         <ImageView
@@ -83,8 +81,5 @@
             android:textSize="13dp"
             android:textStyle="bold" />
     </RelativeLayout>
-
-
-
 
 </RelativeLayout>
