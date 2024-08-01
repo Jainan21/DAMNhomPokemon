@@ -27,7 +27,7 @@ public class AdminManage extends BaseActivity {
         btNguoiDung.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(AdminManage.this, UserManage.class));
             }
         });
 

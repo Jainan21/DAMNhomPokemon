@@ -1,26 +1,29 @@
 package com.example.duanmaunhompokemon.Adapter;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.duanmaunhompokemon.Model.Rose;
+import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.R;
+import com.example.duanmaunhompokemon.UserManage;
 
 import java.util.List;
 
 public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
 
-    private List<Rose> listRose;
-    public Myadapter(List<Rose> list){
-        this.listRose = list;
+    private List<Account> listAccount;
+    public Myadapter(List<Account> list){
+        this.listAccount = list;
     }
 
     @NonNull
@@ -30,31 +33,39 @@ public class Myadapter extends RecyclerView.Adapter<Myadapter.MyViewHolder> {
         return new MyViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Rose rose = listRose.get(position);
-        holder.imageView.setImageResource(rose.getImageID());
-        holder.textView.setText(rose.getName());
+        Account rose = listAccount.get(position);
+        holder.imageView.setImageResource(R.drawable.avata);
+        holder.txtUser.setText(rose.getUser());
+        holder.txtID.setText( rose.getId().toString());
+
+        holder.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return listRose.size();
+        return listAccount.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-        private CardView cardView;
         private ImageView imageView;
-        private TextView textView;
+        private TextView txtUser, txtID;
         private Button button;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            cardView = itemView.findViewById(R.id.card);
             imageView = itemView.findViewById(R.id.imgbear);
-            textView = itemView.findViewById(R.id.item_text);
+            txtUser = itemView.findViewById(R.id.user_Username);
+            txtID = itemView.findViewById(R.id.user_idUser);
+            button = itemView.findViewById(R.id.user_Delbtn);
 
-            button = itemView.findViewById(R.id.button);
         }
     }
 }
