@@ -25,6 +25,7 @@
                 android:textColor="@color/black" />
 
             <ImageView
+                android:id="@+id/imgAuthor2"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginEnd="8dp"
@@ -35,6 +36,7 @@
                 android:clipToOutline="true"/>
 
             <TextView
+                android:id="@+id/txtAuthorName2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="De nít xu"
@@ -57,6 +59,7 @@
                 android:textColor="#FF00FF" />
 
             <ImageView
+                android:id="@+id/imgAuthor1"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginEnd="8dp"
@@ -67,6 +70,7 @@
                 android:clipToOutline="true" />
 
             <TextView
+                android:id="@+id/txtAuthorName1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="De nít xu"
@@ -87,6 +91,7 @@
                 android:textColor="@color/black" />
 
             <ImageView
+                android:id="@+id/imgAuthor3"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginEnd="8dp"
@@ -97,6 +102,7 @@
                 android:clipToOutline="true"/>
 
             <TextView
+                android:id="@+id/txtAuthorName3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="De nít xu"
