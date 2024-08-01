@@ -27,10 +27,11 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="8dp"
                 android:orientation="vertical">
                 <LinearLayout
                     android:id="@+id/hb_view"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:orientation="vertical"
                     android:layout_height="200dp"/>
@@ -38,7 +39,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:text="Sách nổi tiếng"
                     android:textSize="25dp"/>
                 <ListView
@@ -50,7 +51,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:textSize="25dp"
                     android:text="Tác giả nổi tiếng"/>
                 <androidx.recyclerview.widget.RecyclerView
