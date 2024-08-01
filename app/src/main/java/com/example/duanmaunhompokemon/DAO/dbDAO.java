@@ -321,6 +321,7 @@ public class dbDAO {
         db.delete("favorite", "id_acc = ?", new String[]{String.valueOf(id_acc)});
         db.delete("adddraw", "id_acc = ?", new String[]{String.valueOf(id_acc)});
         db.delete("book", "id_acc = ?", new String[]{String.valueOf(id_acc)});
+        db.delete("trade", "id_acc = ?", new String[]{String.valueOf(id_acc)});
         int rowsAffected = db.delete("account", "id_acc = ?", new String[]{String.valueOf(id_acc)});
 
         db.close();
@@ -583,6 +584,27 @@ public class dbDAO {
         }
         cursor.close();
         db.close();
+        return list;
+    }
+
+    public ArrayList<Account> getAllUser(){
+        ArrayList<Account> list = new ArrayList<>();
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from account where id_role = 2", null);
+
+        if (cursor.moveToFirst()){
+            do{
+                Integer id = cursor.getInt(0);
+                String username = cursor.getString(1);
+                String  pass = cursor.getString(2);
+                String email = cursor.getString(3);
+                Integer id_role = cursor.getInt(4);
+                Double budget = cursor.getDouble(5);
+                Account account = new Account(id, username, pass, email, id_role, budget);
+                list.add(account);
+            }while (cursor.moveToNext());
+        }
+
         return list;
     }
 }
