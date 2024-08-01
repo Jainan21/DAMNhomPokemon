@@ -92,7 +92,7 @@ public class BookView extends BaseActivity {
             public void onItemClick(int position) {
                 Account selectAcc = listAuthor.get(position);
                 Intent intent = new Intent(BookView.this, product.class);
-                intent.putExtra("author_id", selectAcc.getId());
+                intent.putExtra("id_author", selectAcc.getId());
                 startActivity(intent);
             }
         });
