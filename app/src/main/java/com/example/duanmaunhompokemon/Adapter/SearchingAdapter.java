@@ -82,15 +82,15 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Sear
             imgBook= itemView.findViewById(R.id.search_imgBook);
             btnBuy = itemView.findViewById(R.id.search_btnBuy);
             itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            listener.onItemClick(position);
+                    @Override
+                    public void onClick(View v) {
+                        if (listener != null) {
+                            int position = getAdapterPosition();
+                            if (position != RecyclerView.NO_POSITION) {
+                                listener.onItemClick(position);
+                            }
                         }
                     }
-                }
             });
         }
     }

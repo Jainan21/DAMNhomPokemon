@@ -560,4 +560,29 @@ public class dbDAO {
         String updateQuery = "UPDATE book SET bought = bought + 1 WHERE id_book = ?";
         db.execSQL(updateQuery, new Object[]{id_book});
     }
+
+    public ArrayList<Account> searchUserbyName(String name){
+        ArrayList<Account> list = new ArrayList<>();
+        String query = "SELECT * FROM account WHERE username LIKE ?";
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{"%" + name + "%"});
+
+        if (cursor.moveToFirst()){
+            do{
+                int id_acc = cursor.getInt(0);
+                String username = cursor.getString(1);
+                String pass = cursor.getString(2);
+                String email = cursor.getString(3);
+                Integer id_role = cursor.getInt(4);
+                Double budget = cursor.getDouble(5);
+
+
+                Account acc = new Account(id_acc, username, pass, email, id_role, budget);
+                list.add(acc);
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return list;
+    }
 }

@@ -14,6 +14,8 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/header2"
             android:layout_width="match_parent"
+            android:background="#ECD8F2"
+            android:paddingVertical="10dp"
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@id/menubtn"
@@ -29,7 +31,26 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp">
+                <EditText
+                    android:id="@+id/user_txtUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Tìm kiếm"/>
+                <ImageView
+                    android:id="@+id/user_btnSearch"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/search_icon"/>
+            </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview"
                 android:layout_width="match_parent"
@@ -38,23 +59,25 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <Button
-                android:id="@+id/btnThem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:layout_margin="10dp"
-                android:textSize="20dp"
-                android:background="@drawable/button2"
-                android:text="Cập nhật" />
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+<!--            <Button-->
+<!--                android:id="@+id/btnThem"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="10dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_margin="20dp"-->
+<!--                android:textSize="20dp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:backgroundTint="#6F6FFF"-->
+<!--                android:background="@drawable/button2"-->
+<!--                android:text="Cập nhật" />-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
     </LinearLayout>
     <FrameLayout
         android:id="@+id/Frame_menu"

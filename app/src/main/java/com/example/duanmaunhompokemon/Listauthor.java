@@ -29,7 +29,7 @@ public class Listauthor extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listauthor);
+        setupActionBarAndBack(R.layout.activity_listauthor, "Tác giả");
 
         txtAuthorName1 = findViewById(R.id.txtAuthorName1);
         txtAuthorName2 = findViewById(R.id.txtAuthorName2);
