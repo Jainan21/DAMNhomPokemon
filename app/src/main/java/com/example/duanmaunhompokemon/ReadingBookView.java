@@ -65,7 +65,7 @@ public class ReadingBookView extends BaseActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 chap = dao.getChapterByBookIdAndChapterNumber(id_book, position+1);
-                txtChapterNumber.setText("Chương "+ chap.getChap_number().toString());
+                txtChapterNumber.setText("Chương "+ chap.getChap_number().toString()+": "+chap.getTitlechap());
                 txtReadArea.setText(chap.getContent());
             }
 
