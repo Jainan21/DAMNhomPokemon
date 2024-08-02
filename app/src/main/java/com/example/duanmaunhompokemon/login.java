@@ -62,26 +62,13 @@ public class login extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
                                 break;
-                            }else if (list.get(i).getId_role() == 3){
+                            }else if (list.get(i).getId_role() == 1){
                                 Account a = list.get(i);
                                 check = true;
 
-                                SharedPreferences sharedPreferences = getSharedPreferences("author", MODE_PRIVATE);
+                                SharedPreferences sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putInt("author_id", a.getId());
-                                editor.apply();
-
-                                Intent intent = new Intent(login.this, authoractivity.class);
-                                startActivity(intent);
-                                finish();
-                                break;
-                            }else {
-                                Account a = list.get(i);
-                                check = true;
-
-                                SharedPreferences sharedPreferences = getSharedPreferences("admin", MODE_PRIVATE);
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putInt("admin_id", a.getId());
+                                editor.putInt("user_id", a.getId());
                                 editor.apply();
 
                                 Intent intent = new Intent(login.this, AdminManage.class);
