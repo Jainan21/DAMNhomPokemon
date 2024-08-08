@@ -123,7 +123,7 @@ public class bookdetails extends BaseActivity {
         tvContent.setText(book.getSum());
         DecimalFormat formater = new DecimalFormat("#,###,###");
         tvPrice.setText(formater.format(book.getPrice()) + " VND");
-        tvBought.setText("ĐÃ MUA" + String.valueOf(book.getBought()));
+        tvBought.setText("ĐÃ MUA " + String.valueOf(book.getBought()));
         tvGenereContent.setText(dao.getBookCategoryById(book.getId_book()));
         tvSum.setText(book.getSum());
     }
