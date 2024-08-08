@@ -21,7 +21,7 @@ import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.AddDraw;
 
 public class AdminManage extends BaseActivity {
-    Button btNguoiDung, btAuthor, btTheLoai, btMoney;
+    Button btNguoiDung, btTheLoai, btMoney;
     Integer user_id;
     Account account;
     dbDAO dao;
@@ -32,7 +32,6 @@ public class AdminManage extends BaseActivity {
         setupActionBarAndDrawer(R.layout.activity_admin_manage);
 
         btNguoiDung = findViewById(R.id.btNguoiDung);
-        btAuthor = findViewById(R.id.btAuthor);
         btTheLoai = findViewById(R.id.btTheLoai);
         btMoney = findViewById(R.id.btMoney);
 
@@ -44,13 +43,6 @@ public class AdminManage extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminManage.this, UserManage.class));
-            }
-        });
-
-        btAuthor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
 
