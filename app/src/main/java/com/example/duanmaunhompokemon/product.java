@@ -45,7 +45,7 @@ public class product extends BaseActivity {
         Intent i = getIntent();
         author_id = i.getIntExtra("id_author", -1);
         if (author_id == -1){
-            Toast.makeText(this, "Khong co userid", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Tác giả không tồn tại", Toast.LENGTH_SHORT).show();
         }
         else{
             abc = dao.getAccountById(author_id);

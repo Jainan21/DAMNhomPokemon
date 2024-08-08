@@ -34,7 +34,7 @@
         <activity
             android:name=".BookCaseView"
             android:parentActivityName=".BookView"
-            android:exported="true" />
+            android:exported="true"/>
         <activity
             android:name=".boughtbook"
             android:parentActivityName=".BookView"

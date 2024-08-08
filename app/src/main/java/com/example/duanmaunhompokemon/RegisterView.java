@@ -63,19 +63,20 @@ public class RegisterView extends AppCompatActivity {
                 Role selectedRole = (Role) spList.getSelectedItem();
 
                 if(u.isEmpty() || p.isEmpty() || cofi.isEmpty() ||  e.isEmpty()){
-                    Toast.makeText(RegisterView.this, "You didn't enter enough information !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterView.this, "Bạn chưa nhập đủ thông tin !!!", Toast.LENGTH_SHORT).show();
                 }else if(!p.equalsIgnoreCase(cofi)){
-                    Toast.makeText(RegisterView.this, "Passwords don't match !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterView.this, "Mật khẩu không giống nhau !!!", Toast.LENGTH_SHORT).show();
                 }else {
 
                     Account acc = new Account(u, p, e, selectedRole.getId(),0.0);
                     boolean check = db.insertAccount(acc);
                     if (check){
+                        Toast.makeText(RegisterView.this, "Đăng ký thành công !!!", Toast.LENGTH_SHORT).show();
                         Intent i =  new Intent(RegisterView.this, login.class);
                         startActivity(i);
                         finish();
                     }else {
-                        Toast.makeText(RegisterView.this, "Registration failed !!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterView.this, "Đăng ký thất bại !!!", Toast.LENGTH_SHORT).show();
                     }
                 }
 
