@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -21,7 +22,8 @@ import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.AddDraw;
 
 public class AdminManage extends BaseActivity {
-    Button btNguoiDung, btTheLoai, btMoney;
+    Button btNguoiDung, btAuthor, btTheLoai, btMoney;
+    ImageView btLogout;
     Integer user_id;
     Account account;
     dbDAO dao;
@@ -29,11 +31,12 @@ public class AdminManage extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupActionBarAndDrawer(R.layout.activity_admin_manage);
+        setContentView(R.layout.activity_admin_manage);
 
         btNguoiDung = findViewById(R.id.btNguoiDung);
         btTheLoai = findViewById(R.id.btTheLoai);
         btMoney = findViewById(R.id.btMoney);
+        btLogout =  findViewById(R.id.btnLogout);
 
         getUserID();
         dao = new dbDAO(AdminManage.this);
@@ -101,6 +104,12 @@ public class AdminManage extends BaseActivity {
                 });
 
                 alertDialog.show();
+            }
+        });
+        btLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminManage.this, login.class));
             }
         });
     }

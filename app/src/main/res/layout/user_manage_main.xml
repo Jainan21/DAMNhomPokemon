@@ -22,6 +22,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginRight="20dp"
+                android:visibility="gone"
                 android:src="@drawable/menu_icon"
                 android:layout_gravity="right"/>
         </androidx.appcompat.widget.Toolbar>

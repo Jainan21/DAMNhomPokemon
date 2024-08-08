@@ -42,9 +42,9 @@ public class login extends AppCompatActivity {
                 String p = edtPasswordLogin.getText().toString();
 
                 if(u.isEmpty() || p.isEmpty()){
-                    Toast.makeText(login.this, "You didn't enter enough information !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login.this, "Chưa nhập đủ thông tin !!!", Toast.LENGTH_SHORT).show();
                 }else if(list.isEmpty()){
-                    Toast.makeText(login.this, "You don't have an account !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login.this, "Tài khoản không tồn tại !!!", Toast.LENGTH_SHORT).show();
                 }else {
                     boolean check = false;
                     for (int i=0; i<list.size(); i++){
@@ -79,7 +79,7 @@ public class login extends AppCompatActivity {
                         }
                     }
                     if(!check){
-                        Toast.makeText(login.this, "Login failed !!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(login.this, "Đăng nhập thất bại !!!", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
