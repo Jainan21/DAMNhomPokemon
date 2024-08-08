@@ -62,6 +62,20 @@ public class SearchingView extends BaseActivity {
         BookSearchingView.setAdapter(adpSearching);
         getUserID();
 
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listBook = new ArrayList<>();
+                listBook = dao.searchBookByTitle(txtTitle.getText().toString());
+                if (listBook.isEmpty()) {
+                    Toast.makeText(SearchingView.this, "Không có sách cần tìm", Toast.LENGTH_SHORT).show();
+                } else {
+                    adpSearching = new SearchingAdapter(SearchingView.this, listBook);
+                    BookSearchingView.setAdapter(adpSearching);
+                }
+            }
+        });
+
         adpSearching.setOnItemClickListener(new SearchingAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -75,20 +89,6 @@ public class SearchingView extends BaseActivity {
                     Intent intent = new Intent(SearchingView.this, bookdetails.class);
                     intent.putExtra("id_book", selectedBook.getId_book());
                     startActivity(intent);
-                }
-            }
-        });
-
-        btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listBook = new ArrayList<>();
-                listBook = dao.searchBookByTitle(txtTitle.getText().toString());
-                if (listBook.isEmpty()) {
-                    Toast.makeText(SearchingView.this, "Không có sách cần tìm", Toast.LENGTH_SHORT).show();
-                } else {
-                    adpSearching = new SearchingAdapter(SearchingView.this, listBook);
-                    BookSearchingView.setAdapter(adpSearching);
                 }
             }
         });

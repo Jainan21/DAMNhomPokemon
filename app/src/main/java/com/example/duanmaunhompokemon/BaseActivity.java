@@ -56,7 +56,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
             @Override
             public void onClick(View v) {
                 onPushButtonClick();
-
             }
         });
         account.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +64,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
                 startActivity(new Intent(BaseActivity.this, useractivity.class));
             }
         });
-
 
         ImageView menu = findViewById(R.id.iconMenu);
         menu.setOnClickListener(new View.OnClickListener() {
@@ -88,11 +86,9 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(title);
 
-
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.Nav_bar);
         navigationView.setNavigationItemSelectedListener(this);
-
 
         ImageView menu = findViewById(R.id.menubtn);
         menu.setOnClickListener(new View.OnClickListener() {
@@ -109,14 +105,9 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Fragment fragment = null;
-        Intent intent = null;
         int id = item.getItemId();
-        if (id == R.id.iconHome) {
-            // If already in MainActivity, no need to navigate again
-            if (!(this instanceof BookView)) {
-                intent = new Intent(this, BookView.class);
-            }
+        if (id == R.id.item_home) {
+            startActivity(new Intent(this, BookView.class));
         }
         else if (id == R.id.item_account) {
             startActivity(new Intent(this, useractivity.class));
@@ -126,10 +117,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
             startActivity(new Intent(this, BookCaseView.class));
         } else if (id == R.id.item_logout) {
             startActivity(new Intent(this, login.class));
-        }
-        if (intent != null) {
-            startActivity(intent);
-            finish();
         }
         drawerLayout.closeDrawer(GravityCompat.END);
         return true;

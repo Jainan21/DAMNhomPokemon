@@ -1,5 +1,7 @@
 package com.example.duanmaunhompokemon.Model;
 
+import java.util.Date;
+
 public class Trade {
     private Integer id;
     private Integer id_book;

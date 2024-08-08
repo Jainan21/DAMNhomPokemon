@@ -25,6 +25,7 @@ import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.AddDraw;
 import com.example.duanmaunhompokemon.Model.Trade;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 
@@ -277,7 +278,8 @@ public class useractivity extends BaseActivity {
         account = dao.getAccountById(user_id);
         txtname_acc.setText(account.getUser());
         txtemail_acc.setText(account.getEmail());
-        txtBudget_acc.setText(String.valueOf(account.getBudget()) + " VND");
+        DecimalFormat formater = new DecimalFormat("#,###,###");
+        txtBudget_acc.setText(formater.format(account.getBudget()) + " VND");
 
 
     }

@@ -1,5 +1,6 @@
 package com.example.duanmaunhompokemon;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,6 +17,16 @@ import com.example.duanmaunhompokemon.Model.Account;
 import com.example.duanmaunhompokemon.Model.Book;
 import com.example.duanmaunhompokemon.Model.Favorite;
 import com.example.duanmaunhompokemon.Model.Trade;
+
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class bookdetails extends BaseActivity {
     dbDAO dao = new dbDAO(bookdetails.this);
@@ -82,10 +93,10 @@ public class bookdetails extends BaseActivity {
                         if(account.getBudget() < book.getPrice()){
                             Toast.makeText(bookdetails.this, "Tài khoản không đủ !!!", Toast.LENGTH_SHORT).show();
                         }else {
-//                            LocalDate currentDate = LocalDate.now();
-//                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-//                            String formattedDate = currentDate.format(formatter);
-                            dao.insertTrade(new Trade(book.getId_book(), account.getId(), book.getPrice(), "'28-07-2024'", 0.1));
+                            Date currentDate = Calendar.getInstance().getTime();
+                            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.CHINESE);
+
+                            dao.insertTrade(new Trade(book.getId_book(), account.getId(), book.getPrice(), format.format(currentDate), 0.1));
                             dao.addToBudget(0, book.getPrice()*0.1);
                             dao.addToBudget(book.getId_acc(), book.getPrice()*0.9);
                             dao.subtractFromBudget(account.getId(),Double.valueOf(book.getPrice()));
@@ -110,7 +121,8 @@ public class bookdetails extends BaseActivity {
         tvIdBookName.setText(book.getTitle());
         tvAuthorName.setText(dao.getAuthorNameByBookId(book.getId_book()));
         tvContent.setText(book.getSum());
-        tvPrice.setText(book.getPrice() + " VND");
+        DecimalFormat formater = new DecimalFormat("#,###,###");
+        tvPrice.setText(formater.format(book.getPrice()) + " VND");
         tvBought.setText("ĐÃ MUA" + String.valueOf(book.getBought()));
         tvGenereContent.setText(dao.getBookCategoryById(book.getId_book()));
         tvSum.setText(book.getSum());

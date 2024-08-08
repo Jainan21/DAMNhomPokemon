@@ -14,6 +14,7 @@ import com.example.duanmaunhompokemon.Model.Book;
 import com.example.duanmaunhompokemon.Model.Trade;
 import com.example.duanmaunhompokemon.R;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class TradeAdapter extends RecyclerView.Adapter<TradeAdapter.TradeViewHolder> {
@@ -41,7 +42,9 @@ public class TradeAdapter extends RecyclerView.Adapter<TradeAdapter.TradeViewHol
         Book book = dao.getBookById(trade.getId_book());
         holder.tvTitle.setText(book.getTitle());
         holder.tvAuthor.setText(dao.getAuthorNameByBookId(book.getId_book()));
-        holder.tvAmount.setText(trade.getPrice_trade() + " VND");
+        DecimalFormat formater = new DecimalFormat("#,###,###");
+        holder.tvAmount.setText(formater.format(trade.getPrice_trade()) + " VND");
+
         holder.tvDate.setText(trade.getDate_trade());
     }
 

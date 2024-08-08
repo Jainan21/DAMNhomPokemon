@@ -48,7 +48,6 @@ public class BookView extends BaseActivity {
 
         lv_Book_Famous = findViewById(R.id.lvBook_Famous);
         lv_Author_Famous = findViewById(R.id.lvAuthor_Famous);
-        txtAuthorF = findViewById(R.id.txtAuthorF);
         dao = new dbDAO(BookView.this);
 
         listBook = dao.getBooksOrderedByBought();
@@ -113,7 +112,7 @@ public class BookView extends BaseActivity {
                 }
             }
         });
-
+        txtAuthorF = findViewById(R.id.txtAuthorF);
         txtAuthorF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,23 +138,19 @@ public class BookView extends BaseActivity {
         TextView hb_txtRate = hb.findViewById(R.id.hb_txtRate);
 
         hb_txtTitle.setText(book.getTitle());
-        hb_txtAuthor.setText("Tác giả: " + dao.getAuthorNameByBookId(book.getId_acc()));
+        hb_txtAuthor.setText("Tác giả: " + dao.getAuthorNameByBookId(book.getId_book()));
         hb_txtContent.setText(book.getSum());
         hb_txtPrice.setText(book.getPrice() + " VND");
         hb_txtRate.setText("4.5/5");
     }
     @Override
     protected void onPushButtonClick() {
-        // Get the iduser value
-        Integer iduser = user_id; // Replace with your actual iduser value
+        Integer iduser = user_id;
 
-        // Create an Intent to start SearchingViewActivity
         Intent intent = new Intent(BookView.this, SearchingView.class);
 
-        // Put the iduser into the Intent
         intent.putExtra("useridforsearch", iduser);
 
-        // Start SearchingViewActivity
         startActivity(intent);
     }
 }

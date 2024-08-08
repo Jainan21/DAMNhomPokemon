@@ -15,6 +15,7 @@ import com.example.duanmaunhompokemon.R;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class BookAdapter extends BaseAdapter {
@@ -54,7 +55,8 @@ public class BookAdapter extends BaseAdapter {
 
         sp_txtTitle.setText(list.get(i).getTitle());
         sp_txtAuthor.setText(dbDAO.getAuthorNameByBookId(list.get(i).getId_book()));
-        sp_txtPrice.setText(String.valueOf(list.get(i).getPrice()) + " VND");
+        DecimalFormat formatter = new DecimalFormat("#,###,###");
+        sp_txtPrice.setText(formatter.format(list.get(i).getPrice()) + " VND");
         sp_txtRate.setText(String.valueOf(list.get(i).getBought()));
 
         return view;

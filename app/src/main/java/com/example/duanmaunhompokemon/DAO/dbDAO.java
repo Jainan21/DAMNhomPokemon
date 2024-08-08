@@ -17,6 +17,7 @@ import com.example.duanmaunhompokemon.Model.Ratings;
 import com.example.duanmaunhompokemon.Model.Trade;
 
 import java.util.ArrayList;
+import java.sql.Date;
 
 public class dbDAO {
     public dbHelper helper;

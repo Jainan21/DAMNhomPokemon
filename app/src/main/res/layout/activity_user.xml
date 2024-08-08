@@ -2,6 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/drawer_layout"
+    android:scrollbars="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -164,14 +165,20 @@
             android:backgroundTint="#a285ff"
             android:layout_marginHorizontal="50dp"
             android:layout_marginTop="16dp" />
+
+        <FrameLayout
+            android:id="@+id/Frame_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <!-- Bố cục ngăn kéo (màn hình lịch sử giao dịch) -->
     <LinearLayout
         android:id="@+id/drawer_view"
         android:layout_width="280dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:scrollbars="vertical"
         android:background="#F4F4F4"
         android:padding="16dp"
         android:layout_gravity="start">
@@ -196,10 +203,6 @@
             android:orientation="horizontal"/>
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/Frame_menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/Nav_bar"
         android:layout_width="180dp"
