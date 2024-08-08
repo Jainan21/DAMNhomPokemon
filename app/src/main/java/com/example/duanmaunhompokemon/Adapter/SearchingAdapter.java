@@ -13,11 +13,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duanmaunhompokemon.DAO.dbDAO;
 import com.example.duanmaunhompokemon.Model.Book;
 import com.example.duanmaunhompokemon.R;
 import com.example.duanmaunhompokemon.SearchingView;
 import com.example.duanmaunhompokemon.bookdetails;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.SearchingViewHolder> {
@@ -25,6 +27,7 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Sear
     private ArrayList<Book> listBook;
     private Context context;
     private OnItemClickListener listener;
+    private dbDAO dao;
 
     public interface OnItemClickListener {
         void onItemClick(int position);
@@ -33,6 +36,7 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Sear
     public SearchingAdapter(Context context, ArrayList<Book> listBook) {
         this.context = context;
         this.listBook = listBook;
+        this.dao = new dbDAO(context);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -49,17 +53,12 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Sear
     @Override
     public void onBindViewHolder(@NonNull SearchingViewHolder holder, int i) {
         Book book = listBook.get(i);
-        holder.txtAuthorName.setText(String.valueOf(book.getId_acc()));
-        holder.txtPrice.setText(String.valueOf(book.getPrice()));
+
+        holder.txtAuthorName.setText(dao.getAuthorNameByBookId(book.getId_book()));
         holder.txtBookName.setText(book.getTitle());
         holder.imgBook.setImageResource(R.drawable.nhagiakim);
-
-        holder.btnBuy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                context.startActivity(new Intent(context, bookdetails.class));
-            }
-        });
+        DecimalFormat formater = new DecimalFormat("#,###,###");
+        holder.txtPrice.setText(formater.format(book.getPrice())+" VND");
     }
 
     @Override
@@ -70,17 +69,14 @@ public class SearchingAdapter extends RecyclerView.Adapter<SearchingAdapter.Sear
     public class SearchingViewHolder extends RecyclerView.ViewHolder {
         TextView txtBookName, txtAuthorName, txtPrice;
         ImageView imgBook;
-        Button btnBuy;
 
         @SuppressLint("ResourceType")
         public SearchingViewHolder(View itemView) {
             super(itemView);
             txtAuthorName = itemView.findViewById(R.id.search_txtAuthorName);
             txtBookName = itemView.findViewById(R.id.search_txtBookName);
-            txtPrice = itemView.findViewById(R.id.search_txtPrice);
             imgBook = itemView.findViewById(R.id.search_imgBook);
-            btnBuy = itemView.findViewById(R.id.search_btnBuy);
-
+            txtPrice = itemView.findViewById(R.id.search_txtPrice);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

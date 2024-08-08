@@ -32,6 +32,7 @@ public class UserManage extends BaseActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupActionBarAndBack(R.layout.user_manage_main, "Quản lý người dùng");
+
         btnSearch = findViewById(R.id.user_btnSearch);
         txtName = findViewById(R.id.user_txtUsername);
         btnDel = findViewById(R.id.user_Delbtn);

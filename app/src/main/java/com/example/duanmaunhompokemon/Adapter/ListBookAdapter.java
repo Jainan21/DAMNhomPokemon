@@ -14,6 +14,7 @@ import com.example.duanmaunhompokemon.Model.Book;
 import com.example.duanmaunhompokemon.R;
 
 import java.lang.reflect.Array;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +49,8 @@ public class ListBookAdapter extends RecyclerView.Adapter<ListBookAdapter.BookVi
         Book book = bookList.get(position);
         holder.bookTitle.setText(book.getTitle());
         holder.bookAuthor.setText(dao.getAuthorNameByBookId(book.getId_book()));
-        holder.bookPrice.setText(book.getPrice()+"");
+        DecimalFormat formater = new DecimalFormat("#,###,###");
+        holder.bookPrice.setText(formater.format(book.getPrice())+ " VND");
         holder.bookImage.setImageResource(R.drawable.nhagiakim);
     }
 
