@@ -63,12 +63,11 @@
                         android:textStyle="bold" />
                     <ScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="60dp">
                         <TextView
-                            android:justificationMode="inter_word"
                             android:id="@+id/txtContent"
                             android:layout_width="match_parent"
-                            android:layout_height="64dp"
+                            android:layout_height="40dp"
                             android:text="Nội dung cuốn sách xoay quanh câu chuyện cậu bé chăn cừu Santiago và cuộc hành trình đi tìm kho báu của cậu."
                             android:textColor="#000000"
                             android:paddingBottom="24dp"
@@ -104,7 +103,7 @@
                     android:text="Đã mua 100k"/>
                 <Button
                     android:id="@+id/txtAssess"
-                    android:layout_width="80dp"
+                    android:layout_width="87dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:background="@drawable/button_background"
@@ -176,8 +175,9 @@
                 <Button
                     android:id="@+id/btnBuyBook"
                     android:drawableLeft="@drawable/local"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingHorizontal="5dp"
                     android:background="@drawable/button3"
                     android:text="Mua sách" />
             </LinearLayout>
