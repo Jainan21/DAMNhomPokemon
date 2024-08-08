@@ -80,7 +80,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Navigati
 
     public void setupActionBarAndBack(int layoutResID, String title) {
         setContentView(layoutResID);
-
         Toolbar toolbar = findViewById(R.id.header2);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
