@@ -34,7 +34,6 @@ public class AdminManage extends BaseActivity {
         setContentView(R.layout.activity_admin_manage);
 
         btNguoiDung = findViewById(R.id.btNguoiDung);
-        btAuthor = findViewById(R.id.btAuthor);
         btTheLoai = findViewById(R.id.btTheLoai);
         btMoney = findViewById(R.id.btMoney);
         btLogout =  findViewById(R.id.btnLogout);
@@ -47,13 +46,6 @@ public class AdminManage extends BaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminManage.this, UserManage.class));
-            }
-        });
-
-        btAuthor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
 
